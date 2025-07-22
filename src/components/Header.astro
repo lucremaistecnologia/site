@@ -1,7 +1,13 @@
+---
+import { Image } from "astro:assets";
+import LucreLogoNormal from "../../public/logos/lucre+ logo normal.svg";
+import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
+---
+
 <header>
   <nav>
     <a href="/" class="site-logo">
-      <img src="/logos/lucre+ logo normal.svg" alt="Lucre+ Logo" />
+      <Image src={LucreLogoNormal} alt="Lucre+ Logo" width={150} height={50} />
     </a>
     <button class="hamburger-menu" aria-label="Abrir menu">
       <span class="bar"></span>
@@ -10,10 +16,7 @@
     </button>
     <div class="mobile-menu-container">
       <a href="/" class="mobile-logo">
-        <img
-                  src="/logos/lucre+ logo normal.svg"
-                  alt="Lucre+ Logo"
-                />
+        <Image src={LucreLogoNormal} alt="Lucre+ Logo" width={150} height={50} />
       </a>
       <ul class="main-nav-links">
         <li><a href="/">Lucre+</a></li>

@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import LandingPageLayout from "../layouts/LandingPageLayout.astro";
 import TestimonialsSection from "../components/TestimonialsSection.astro";
 import StandardCallToAction from "../components/StandardCallToAction.astro";
@@ -12,6 +13,7 @@ import image36 from "../../public/image 36.png";
 import image58 from "../../public/image 58.png";
 import ForYou from "../components/ForYou.astro";
 import IntegrationsSection from "../components/IntegrationsSection.astro";
+import LucreLogoNormal from "../../public/logos/lucre+ logo normal.svg";
 
 const features = [
   {
@@ -52,9 +54,11 @@ const features = [
   <Fragment slot="footer"></Fragment>
   <main>
     <section class="landing-logo-section">
-      <img
-        src="../../public/logos/lucre+ logo normal.svg"
+      <Image
+        src={LucreLogoNormal}
         alt="Lucre+ Logo"
+        width={150}
+        height={50}
         class="landing-logo"
       />
     </section>
