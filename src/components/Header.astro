@@ -4,10 +4,13 @@ import LucreLogoNormal from "../../public/logos/lucre+ logo normal.svg";
 import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
 ---
 
-<header data-normal-logo-src={LucreLogoNormal.src} data-scrolled-logo-src={LucreLogoPequeno.src}>
+<header
+  data-normal-logo-src={LucreLogoNormal.src}
+  data-scrolled-logo-src={LucreLogoPequeno.src}
+>
   <nav>
     <a href="/" class="site-logo">
-      <Image src={LucreLogoNormal} alt="Lucre+ Logo" width={150} height={50} />
+      <Image src={LucreLogoNormal} alt="Lucre+ Logo" />
     </a>
     <button class="hamburger-menu" aria-label="Abrir menu">
       <span class="bar"></span>
@@ -16,7 +19,12 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
     </button>
     <div class="mobile-menu-container">
       <a href="/" class="mobile-logo">
-        <Image src={LucreLogoNormal} alt="Lucre+ Logo" width={150} height={50} />
+        <Image
+          src={LucreLogoNormal}
+          alt="Lucre+ Logo"
+          width={150}
+          height={50}
+        />
       </a>
       <ul class="main-nav-links">
         <li><a href="/">Lucre+</a></li>
@@ -216,6 +224,7 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
 
   .site-logo img {
     height: -webkit-fill-available;
+    width: auto;
   }
 
   .hamburger-menu {
