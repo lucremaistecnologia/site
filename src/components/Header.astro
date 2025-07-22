@@ -1,7 +1,7 @@
 <header>
   <nav>
     <a href="/" class="site-logo">
-      <img src="public/logos/lucre+ logo normal.svg" alt="Lucre+ Logo" />
+      <img src="../../public/logos/lucre+ logo normal.svg" alt="Lucre+ Logo" />
     </a>
     <button class="hamburger-menu" aria-label="Abrir menu">
       <span class="bar"></span>
@@ -10,7 +10,10 @@
     </button>
     <div class="mobile-menu-container">
       <a href="/" class="mobile-logo">
-        <img src="public/logos/lucre+ logo normal.svg" alt="Lucre+ Logo" />
+        <img
+          src="../../public/logos/lucre+ logo normal.svg"
+          alt="Lucre+ Logo"
+        />
       </a>
       <ul class="main-nav-links">
         <li><a href="/">Lucre+</a></li>
@@ -328,7 +331,7 @@
       transition:
         opacity 0.2s ease-out,
         transform 0.2s ease-out;
-        padding: 3cqb;
+      padding: 3cqb;
     }
 
     .mobile-menu-container.is-active {
@@ -344,7 +347,7 @@
 
     .main-nav-links li a {
       font-size: max(1.8rem, 2cqw);
-          font-weight: 220
+      font-weight: 220;
     }
 
     .mobile-menu-container.is-active .main-nav-links li a.fade-in {
@@ -370,7 +373,6 @@
     .mobile-social-icons svg {
       width: 2rem;
       height: 2rem;
-    ;
     }
   }
   /* Desktop: min-width 961px */
@@ -385,10 +387,10 @@
 
     .mobile-social-icons {
       display: none !important; /* Garante que os ícones sociais mobile estejam ocultos no desktop */
-    /* Garante que o mobile-logo esteja oculto em telas maiores que 960px (desktop) */
-    .mobile-menu-container a.mobile-logo {
-      display: none !important;
-    }
+      /* Garante que o mobile-logo esteja oculto em telas maiores que 960px (desktop) */
+      .mobile-menu-container a.mobile-logo {
+        display: none !important;
+      }
     }
   }
 </style>
