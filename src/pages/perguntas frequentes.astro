@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FAQSection from "../components/FAQSection.astro";
+import StandardCallToAction from "../components/StandardCallToAction.astro";
+---
+
+<BaseLayout title="Perguntas Frequentes - Lucre+">
+  <main>
+    <FAQSection />
+    <StandardCallToAction
+      title="Pronto para maximizar seus lucros?"
+      buttonText="Lucre agora!"
+      buttonLink="/contato"
+      showParagraph={false}
+    />
+  </main>
+</BaseLayout>

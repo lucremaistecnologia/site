@@ -1,0 +1,267 @@
+---
+import LandingPageLayout from "../layouts/LandingPageLayout.astro";
+import TestimonialsSection from "../components/TestimonialsSection.astro";
+import StandardCallToAction from "../components/StandardCallToAction.astro";
+import FounderSection from "../components/FounderSection.astro";
+import FeatureBlock from "../components/FeatureBlock.astro";
+import FAQSection from "../components/FAQSection.astro";
+import NeedsSection from "../components/NeedsSection.astro";
+import HighlightSection from "../components/HighlightSection.astro";
+import heroImage from "../../public/heroimage.png";
+import image36 from "../../public/image 36.png";
+import image58 from "../../public/image 58.png";
+import ForYou from "../components/ForYou.astro";
+import IntegrationsSection from "../components/IntegrationsSection.astro";
+
+const features = [
+  {
+    iconPath: "/icons/taxas.svg",
+    title: "As melhores taxas e prazos",
+    description: `Temos as melhores taxas do mercado para recebimento em dois dias úteis, trinta dias ou recebimento de uma parcela a cada mês. Tudo adequado para o seu negócio.`,
+  },
+  {
+    iconPath: "/icons/atendimento.svg",
+    title: "Atendimento concierge",
+    description: `Aqui você terá acesso direto a um gerente de contas que dará todo o suporte, incluindo a configuração de suas páginas de pagamento e integrações.`,
+  },
+  {
+    iconPath: "/icons/checkout.svg",
+    title: "Checkout personalizado",
+    description: `Na Lucre + entregamos páginas de pagamento de alta conversão com a identidade visual da sua empresa e de cada um dos produtos. Tudo para você vender mais.`,
+  },
+  {
+    iconPath: "/icons/icon.svg",
+    title: "Venda de assinaturas",
+    description: `Temos o modelo de cobrança por assinatura, também conhecido como recorrência, para que as cobranças aconteçam automaticamente no período desejado.`,
+  },
+  {
+    iconPath: "/icons/icon.svg",
+    title: "Sistema de coprodução",
+    description: `Temos toda a estrutura necessária para que o valor de cada venda seja dividida adequadamente entre os coprodutores de cada produto ou serviço vendido. `,
+  },
+  {
+    iconPath: "/icons/icon.svg",
+    title: "Notificações por WhatsApp",
+    description: `A cada venda realizada, abandono de carrinho ou alteração de status, receba uma mensagem por WhatsApp para não ficar por fora de nada.`,
+  },
+];
+---
+
+<LandingPageLayout title="Lucre+ Landing Page">
+  <Fragment slot="header"></Fragment>
+  <Fragment slot="footer"></Fragment>
+  <main>
+    <section class="landing-logo-section">
+      <img
+        src="/src/logo/lucre+ logo normal.svg"
+        alt="Lucre+ Logo"
+        class="landing-logo"
+      />
+    </section>
+
+    <section class="landing-hero-section">
+      <h1>Descubra como você pode reduzir as taxas sobre as vendas</h1>
+      <div class="video-placeholder">
+        <video
+          controls
+          src="/path/to/your/video.mp4"
+          poster="/path/to/your/video-poster.jpg"
+        >
+          Seu navegador não suporta a tag de vídeo.
+        </video>
+      </div>
+      <button class="primary">Quero Aumentar Meus Lucros Agora!</button>
+    </section>
+    <section class="landing-feature-blocks-section">
+      <div class="feature-blocks-container">
+        <FeatureBlock
+          iconPath="/icons/icon.svg"
+          title="Cansado de taxas abusivas?"
+        >
+          <div slot="description">
+            <p>
+              As plataformas de vendas costumam praticar taxas muito maiores do
+              que as que de fato você poderia ter, aqui na Lucre + oferecemos
+              taxas justas para negócios que já faturam bem.
+            </p>
+          </div>
+        </FeatureBlock>
+        <FeatureBlock
+          iconPath="/icons/icon.svg"
+          title="Quer ter o atendimento que merece?"
+        >
+          <div slot="description">
+            <p>
+              As plataformas em geral tratam os clientes somente como números
+              sem nenhuma personalização no atendimento. Na Lucre + você tem um
+              gerente de contas concierge.
+            </p>
+          </div>
+        </FeatureBlock>
+        <FeatureBlock
+          iconPath="/icons/integrações.svg"
+          title="Quer ter liberdade nas integrações?"
+        >
+          <div slot="description">
+            <p>
+              Aqui na Lucre+ você tem acesso a mais de 90 integrações para
+              tornar sua operação prática e lucrativa, são integrações de áreas
+              de membros, automações e muito mais.
+            </p>
+          </div>
+        </FeatureBlock>
+      </div>
+    </section>
+    <NeedsSection
+      title="Do que você precisa?"
+      paragraph="Temos todas as funcionalidades que você precisa para vender mais, com maior praticidade e maior lucratividade."
+      buttonText="LUCRE AGORA!"
+      features={features}
+    />
+
+    <HighlightSection
+      mainTitle="Comparação com concorrentes em forma de pergunta"
+      mainDescription="Essas fontes equilibram modernidade, sofisticação e acessibilidade, reforçando o posicionamento premium."
+      highlightItems={[
+        {
+          title: "Somos melhores nisso",
+          description: "Descrição para Somos melhores nisso.",
+          imageSrc: heroImage,
+        },
+        {
+          title: "Somos melhores nisso",
+          description: "Descrição para Somos melhores nisso.",
+          imageSrc: image36,
+        },
+        {
+          title: "Somos melhores nisso",
+          description: "Descrição para Somos melhores nisso.",
+          imageSrc: image58,
+        },
+        {
+          title: "Somos melhores nisso",
+          description: "Descrição para Somos melhores nisso.",
+          imageSrc: heroImage,
+        },
+      ]}
+    />
+
+    <section class="landing-simple-h1-section">
+      <h1>Comparativo</h1>
+    </section>
+
+    <IntegrationsSection />
+
+    <TestimonialsSection />
+
+    <ForYou />
+
+    <StandardCallToAction
+      title="Pronto para maximizar seus lucros?"
+      paragraph="Temos as melhores soluções para suas vendas via cartão de crédito."
+      buttonText="quero Lucrar mais agora"
+      buttonLink="/contato"
+      showParagraph={true}
+    />
+
+    <FounderSection
+      title="Nosso Fundador"
+      description="Amós Silva é Engenheiro Aeronáutico formado pelo Instituto Tecnológico de Aeronáutica (ITA), mestre em Engenharia pelo mesmo instituto e também professor no ITA.<br/><br/>Após anos de experiência no mercado digital, na liderança de um curso online pré-vestibular que aprova alunos em vestibulares altamente concorridos como ITA, IME e USP, Amós identificou um grande desafio enfrentado por Mentores,Educadores e Empreendedores Digitais: <strong>as altas taxas cobradas pelas plataformas de pagamento tradicionais.</strong><br/><br/>Foi a partir dessa dor que surgiu a <strong>Lucre+</strong>, uma solução criada para ajudar esses profissionais a maximizarem seus lucros e terem mais autonomia sobre seus negócios no digital.<br/><br/><h4>“Solucionar problemas é melhorar vidas e transformar o nosso país”<br/><br/>Amós Silva</h4>"
+      imagePath="/amos.png"
+    />
+
+    <FAQSection />
+
+    <footer class="landing-footer">
+      <p>Informações importantes</p>
+    </footer>
+  </main>
+</LandingPageLayout>
+
+<style is:global>
+  body {
+    background-color: var(
+      --color-background
+    ); /* Ensure consistent background */
+    color: var(--color-text); /* Ensure consistent text color */
+  }
+
+  .landing-logo-section {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-l); /* Using global spacing variable */
+    background-color: var(--color-background); /* Match body background */
+  }
+
+  .landing-hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 var(--space-xxl); /* Using global spacing variables */
+    gap: var(--space-l); /* Using global spacing variable */
+  }
+
+  .landing-hero-section h1 {
+    font-size: max(2.5em, 4cqw); /* Aligned with global h1 */
+    color: var(--color-text);
+    margin-bottom: 0;
+  }
+
+  .video-placeholder {
+    width: 80%;
+    background-color: #333; /* Consider defining a global placeholder color */
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Consider defining a global placeholder text color */
+    font-size: max(1.5rem, 2.5cqw); /* Using max() for consistency */
+  }
+
+  .video-placeholder video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .landing-hero-section button.primary {
+    /* Relying on global.css for button styles */
+    /* Removed redundant styles */
+  }
+
+  .landing-hero-section button.primary:hover {
+    /* Relying on global.css for button hover styles */
+  }
+
+  .landing-feature-blocks-section {
+    padding: var(--space-xxl); /* Using global spacing variables */
+    /* Removed redundant background-color as body already sets it */
+  }
+
+  .feature-blocks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20cqw, 1fr));
+    gap: 1.4cqw;
+    margin: 0 auto;
+  }
+
+  .landing-simple-h1-section {
+    padding: var(--space-xxl); /* Using global spacing variables */
+    text-align: center;
+    /* Removed redundant background-color as body already sets it */
+  }
+
+  .landing-simple-h1-section h1 {
+    font-size: max(2.5em, 4cqw); /* Aligned with global h1 */
+    color: var(--color-text);
+  }
+
+  .landing-footer {
+    background-color: var(--color-background); /* Match body background */
+    color: var(--color-text);
+    text-align: center;
+    padding: var(--space-l); /* Using global spacing variable */
+    border-top: 1px solid var(--color-background); /* Using background color for subtle border, or define a specific border color variable */
+  }
+</style>

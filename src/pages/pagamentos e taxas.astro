@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HighlightSection from "../components/HighlightSection.astro";
+import CallToAction from "../components/CallToAction.astro";
+import StandardCallToAction from "../components/StandardCallToAction.astro";
+import TestimonialsSection from "../components/TestimonialsSection.astro";
+import MeiosDePagamento from "../components/MeiosDePagamento.astro";
+import taxas from "../../public/taxas.png";
+import aprovação from "../../public/aprovação.png";
+import integrações from "../../public/integrações.png";
+import coprodução from "../../public/coprodução.png";
+---
+
+<BaseLayout title="Integrações - Lucre+">
+  <main>
+    <section class="payments-section">
+      <MeiosDePagamento />
+    </section>
+    <section id="highlight-section" style="padding: 0;">
+      <HighlightSection
+        mainTitle="Temos os melhores benefícios para o seu negócio"
+        highlightItems={[
+          {
+            title: "As melhores taxas e prazos",
+            description:
+              "Temos as melhores taxas do mercado para recebimento em dois dias úteis, trinta dias ou recebimento de uma parcela a cada mês.",
+            imageSrc: taxas,
+          },
+          {
+            title: "Aprovação de vendas maior que 98%",
+            description:
+              "Garantimos altas taxas de aprovação sobre as vendas com cartão de crédito, impedindo o bloqueio indevido de vendas e redução de conversão.",
+            imageSrc: aprovação,
+          },
+          {
+            title: "Mais de 90 integrações",
+            description:
+              "Temos integrações com áreas de membros, pixels de conversão, recuperação de vendas, sistemas de automação, emissão de notas fiscais e muitas outras.",
+            imageSrc: integrações,
+          },
+          {
+            title: "Sistema de coprodução",
+            description:
+              "Temos toda a estrutura necessária para que o valor de cada venda seja dividida adequadamente entre os coprodutores de cada produto ou serviço vendido.",
+            imageSrc: coprodução,
+          },
+        ]}
+      />
+    </section>
+    <CallToAction
+      title="Alavanque o seu negócio com as melhores taxas"
+      subtitle="Pare de deixar dinheiro na mesa!"
+      buttonText="Lucre mais agora"
+      buttonHref="https://api.whatsapp.com/send?phone=12982823850"
+      contentAlignment="left"
+      backgroundImage="/image 36.png"
+    />
+    <TestimonialsSection />
+    <StandardCallToAction
+      title="Pronto para maximizar seus lucros?"
+      buttonText="Lucre agora!"
+      buttonLink="https://api.whatsapp.com/send?phone=12982823850"
+      showParagraph={false}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .payments-section {
+    color: var(--color-button-text);
+    text-align: left;
+    margin-top: clamp(6rem, 5cqw, 14rem);
+  }
+</style>

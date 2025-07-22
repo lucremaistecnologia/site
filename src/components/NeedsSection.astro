@@ -1,0 +1,113 @@
+---
+import FeatureBlock from "./FeatureBlock.astro";
+
+interface Feature {
+  iconPath: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  paragraph?: string;
+  buttonText?: string;
+  features: Feature[];
+}
+
+const {
+  title = "Do que você precisa?",
+  paragraph = "Temos todas as funcionalidades que você precisa para vender mais, com maior praticidade e maior lucratividade.",
+  buttonText = "LUCRE AGORA!",
+  features,
+} = Astro.props;
+---
+
+<section class="needs-section">
+  <div class="needs-content-left">
+    <h1>{title}</h1>
+    <p>
+      {paragraph}
+    </p>
+    <button class="primary">{buttonText}</button>
+  </div>
+  <div class="needs-feature-grid">
+    {
+      features.map((feature) => (
+        <FeatureBlock
+          iconPath={feature.iconPath}
+          title={feature.title}
+          variant="light"
+        >
+          <div slot="description">
+            <p>{feature.description}</p>
+          </div>
+        </FeatureBlock>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .needs-section {
+    display: flex;
+    gap: var(--space-m); /* Using global spacing */
+    padding: var(--space-xxl); /* Using global spacing */
+    background-color: hsla(228, 12%, 10%, 1);
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start; /* Ensure alignment for sticky behavior */
+  }
+
+  .needs-feature-grid {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20cqw, 1fr));
+    gap: var(--space-xs); /* Spacing between feature blocks */
+    width: 100%;
+    min-height: 100vh; /* Ensure the grid is tall enough to allow scrolling */
+  }
+
+  .needs-content-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m); /* Spacing between elements */
+    max-width: 50cqw; /* Limit width for readability */
+    position: sticky; /* Make it sticky */
+    top: 0; /* Stick to the top of the viewport */
+    align-self: flex-start; /* Ensure it aligns to the start within the flex container */
+    height: 100vh; /* Ensure it takes full viewport height to allow scrolling of content next to it */
+    justify-content: center; /* Center content vertically within the sticky element */
+  }
+
+  .needs-content-left h1 {
+    font-size: max(2.5em, 4cqw); /* Aligned with global h1 */
+    color: var(--color-text);
+    margin-bottom: 0; /* Reset margin as gap handles spacing */
+  }
+
+  .needs-content-left p {
+    font-size: max(1.1em, 1.5cqw); /* Aligned with global p */
+    color: var(--color-text);
+    line-height: var(--line-height-base);
+  }
+
+  .needs-content-left button {
+    align-self: flex-start; /* Align button to start on larger screens */
+  }
+
+  @media (max-width: 960px) {
+    .needs-section {
+      flex-direction: column;
+      text-align: center;
+      align-items: center; /* Ensure alignment for sticky behavior */
+    }
+    .needs-content-left {
+      position: relative;
+      max-width: 100%;
+    }
+    .needs-content-left button {
+      align-self: center; /* Center button on small screens */
+    }
+  }
+</style>

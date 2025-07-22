@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ComoFuncionaSection from "../components/ComoFuncionaSection.astro";
+import CallToAction from "../components/CallToAction.astro";
+import StandardCallToAction from "../components/StandardCallToAction.astro";
+import SwiperComponentComoFunciona from "../components/SwiperComponentComoFunciona.astro";
+import IntegrationsSectionComplete from "../components/IntegrationsSectionComplete.astro";
+---
+
+<BaseLayout title="Serviços - Lucre+">
+  <main>
+    <ComoFuncionaSection
+      mainTitle="Como funciona?"
+      mainParagraph="Passo a passo para lucrar +"
+    />
+    <section class="comofunciona-section-feature-blocks-section">
+      <h2>Conecte-se facilmente com as principais ferramentas do mercado</h2>
+      <p class="subtitle">
+        Conecte-se facilmente com as principais ferramentas do mercado
+      </p>
+      <SwiperComponentComoFunciona />
+    </section>
+  </main>
+  <CallToAction
+    subtitle="Pare de deixar dinheiro na mesa!"
+    title="Alavanque o seu negócio com as melhores taxas"
+    buttonText="Lucre mais agora"
+    buttonHref="https://api.whatsapp.com/send?phone=12982823850"
+    contentAlignment="left"
+    backgroundImage="/image 36.png"
+  />
+  <IntegrationsSectionComplete />
+  <StandardCallToAction
+    title="Pronto para maximizar seus lucros?"
+    buttonText="quero Lucrar mais agora"
+    buttonLink="https://api.whatsapp.com/send?phone=12982823850"
+    showParagraph={false}
+  />
+</BaseLayout>
+<style>
+  .comofunciona-section-feature-blocks-section {
+    text-align: center;
+    padding: 0 var(--space-xxl) var(--space-xxl);
+  }
+  .comofunciona-section-feature-blocks-section h2 {
+    font-size: max(2em, 3.4cqw);
+  }
+  .comofunciona-section-feature-blocks-section .subtitle {
+    font-size: max(1.2em, 1.2cqw);
+    margin-bottom: 6cqb;
+  }
+  .integrations-section {
+    background-color: var(--color-background);
+    padding: max(4em, 6cqw) var(--space-xxl);
+    color: var(--color-button-text);
+  }
+
+  .integrations-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+
+  .integrations-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .integration-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .logo-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100px; /* Adjust as needed */
+  }
+
+  .logo-image {
+    width: 60px; /* Adjust as needed */
+    height: 60px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .logo-vector {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .logo-block span {
+    font-size: 0.9em;
+    color: #333;
+  }
+  @media (max-width: 960px) {
+    .comofunciona-section-feature-blocks-section {
+      padding: 12cqb 0;
+    }
+  }
+</style>

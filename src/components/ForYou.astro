@@ -1,0 +1,172 @@
+---
+import FeatureBlock from "./FeatureBlock.astro";
+---
+
+<section class="section-for-you">
+  <div class="container">
+    <h1>É para você?</h1>
+    <p class="subtitle">
+      Conecte-se facilmente com as principais ferramentas do mercado
+    </p>
+
+    <div class="content-blocks">
+      <FeatureBlock
+        iconPath="/icons/icon.svg"
+        title="Não é para você"
+        centered={true}
+      >
+        <div slot="description">
+          <ul style="list-style: none;">
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-x"
+                ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+              >Tem faturamento abaixo de 200 mil por ano
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-x"
+                ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+              >Faz venda de conteúdo voltado para apostas
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-x"
+                ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+              >Faz venda de outros conteúdos impróprios
+            </li>
+          </ul>
+        </div>
+      </FeatureBlock>
+
+      <FeatureBlock
+        iconPath="/icons/icon.svg"
+        title="É para você"
+        centered={true}
+      >
+        <div slot="description">
+          <ul style="list-style: none;">
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-check"
+                ><path d="M20 6 9 17l-5-5"></path></svg
+              >Tem faturamento acima de 200 mil por ano
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-check"
+                ><path d="M20 6 9 17l-5-5"></path></svg
+              >O produto que entrega tem resultados comprovados
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-check"
+                ><path d="M20 6 9 17l-5-5"></path></svg
+              >Os produtos contribuem para uma sociedade e país melhor
+            </li>
+          </ul>
+        </div>
+      </FeatureBlock>
+    </div>
+
+    <style>
+      .section-for-you {
+        padding: var(--space-xxl);
+        text-align: center;
+        background-color: var(--color-background);
+        color: var(--color-text);
+      }
+
+      .section-for-you h1 {
+        font-size: max(2.5em, 4cqw); /* Adjusted to match Project.md example */
+        margin-bottom: 1cqw;
+      }
+
+      .section-for-you .subtitle {
+        font-size: max(1.1em, 1.5cqw);
+        color: var(--color-text);
+        margin-bottom: var(--space-l);
+      }
+
+      .content-blocks {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-s);
+        margin: 0 auto;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 960px) {
+        .content-blocks {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+          scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        .content-blocks > :global(.feature-block) {
+          flex: 0 0 60%; /* Show 1.5 items */
+          scroll-snap-align: start;
+          margin-right: var(--space-s); /* Add gap between items */
+        }
+      }
+    </style>
+  </div>
+</section>
+
+<script>
+</script>
