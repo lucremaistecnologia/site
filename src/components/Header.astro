@@ -4,7 +4,7 @@ import LucreLogoNormal from "../../public/logos/lucre+ logo normal.svg";
 import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
 ---
 
-<header>
+<header data-normal-logo-src={LucreLogoNormal.src} data-scrolled-logo-src={LucreLogoPequeno.src}>
   <nav>
     <a href="/" class="site-logo">
       <Image src={LucreLogoNormal} alt="Lucre+ Logo" width={150} height={50} />
@@ -63,9 +63,6 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
     const logoImg = document.querySelector(
       ".site-logo img"
     ) as HTMLImageElement;
-    const normalLogoSrc = "../../public/logos/lucre+ logo normal.svg";
-    const scrolledLogoSrc = "../../public/logos/lucre+ logo pequeno.svg";
-
     function isDesktop() {
       return window.matchMedia("(min-width: 961px)").matches;
     }
@@ -112,6 +109,14 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
 
     function handleScroll() {
       if (header && logoImg) {
+        const normalLogoSrc = header.dataset.normalLogoSrc;
+        const scrolledLogoSrc = header.dataset.scrolledLogoSrc;
+
+        if (!normalLogoSrc || !scrolledLogoSrc) {
+          console.error("Atributos data-logo não encontrados no cabeçalho.");
+          return;
+        }
+
         if (window.scrollY > 0) {
           header.classList.add("scrolled");
           if (isDesktop()) {
