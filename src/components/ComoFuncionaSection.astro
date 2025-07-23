@@ -141,33 +141,6 @@ const { mainTitle, mainParagraph } = Astro.props;
     background-color: var(--color-blue);
     z-index: 4;
   }
-  .block::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: clamp(1rem, 1.5cqw, 8rem);
-    padding: 0.1cqw;
-    background: linear-gradient(
-      45deg,
-      hsl(40, 59%, 27%) 0%,
-      hsl(40, 64%, 52%) 40%,
-      hsl(40, 68%, 69%) 100%
-    );
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0; /* Escondido por padrão */
-    transition: opacity 0.3s ease;
-    z-index: 4; /* Atrás do conteúdo do card */
-  }
   .block:hover {
     transform: translateY(-0.1px);
     box-shadow:
