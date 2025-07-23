@@ -31,9 +31,7 @@ const { iconPath, title, linkHref, linkText, variant, centered, bigIcon } =
 <style>
   .feature-block {
     position: relative; /* Necessário para o pseudo-elemento */
-    background-color: var(
-      --color-background-light
-    ); /* Usando a nova variável */
+    background-color: var(--color-background-light); /* Usando a nova variável */
     border: var(--border);
     border-radius: clamp(1rem, 1.5cqw, 8rem);
     padding: var(--space-s);
@@ -102,7 +100,7 @@ const { iconPath, title, linkHref, linkText, variant, centered, bigIcon } =
   }
 
   .feature-block h3 {
-    font-size: clamp(1em, 2vw, 4rem);
+    font-size: clamp(1em, 2vw,4rem);
     margin-bottom: 0.5cqw;
     color: hsla(38, 70%, 95%, 1);
   }
@@ -111,10 +109,10 @@ const { iconPath, title, linkHref, linkText, variant, centered, bigIcon } =
   .feature-block:hover {
     transform: translateY(-0.1px);
     box-shadow:
-      0 0 0 0.1cqw #ffd9001a,
-      0 0 0 #ffd9001a,
-      0 0 0 0.1cqw #cca24e,
-      0 0 3cqw 0cqw #ffd90030;
+      0 0 2cqw hsla(51, 100%, 50%, 0.1),
+      0 0 2cqw hsla(51, 100%, 50%, 0.1),
+      0 0.1cqw 0.5cqw hsl(0, 0%, 0%, 0.5),
+      inset 0 0 0.02cqw 0.1cqw hsla(51, 100%, 50%, 0.5);
   }
 
   .feature-block:hover::before {
