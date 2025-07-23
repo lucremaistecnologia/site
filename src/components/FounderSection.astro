@@ -27,6 +27,7 @@ const { title, description, imagePath } = Astro.props;
     color: var(--color-button-text);
     text-align: center;
     overflow: hidden;
+    padding: 8cqb var(--space-xxl) 0;
   }
 
   .founder-content {
@@ -48,7 +49,6 @@ const { title, description, imagePath } = Astro.props;
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
-
   .founder-image-container {
     position: relative;
     width: 100%;
@@ -56,46 +56,41 @@ const { title, description, imagePath } = Astro.props;
     justify-content: center;
     align-items: center;
   }
-  
   .founder-image-container img {
-    width: max(10rem, 40cqw);
+    width: max(16rem, 40cqw);
     bottom: 0;
     height: auto;
     display: block;
     position: relative;
     z-index: 2;
   }
-
   .founder-image-container::before {
     content: "";
     position: absolute;
-    top: 12cqw;
-    left: 60%;
+    top: 70%;
+    left: 65%;
     transform: translate(-50%, -50%);
-    width: 50cqw;
-    height: 50cqw;
+    width: 50cqb;
+    height: 50cqb;
     border-radius: 50%;
     z-index: 1;
-    background: linear-gradient(94.28deg, #d39f36 0%, #e6b656 100%);
     box-shadow:
-      0px 0px 8px rgba(255, 215, 0, 0.6),
-      0px 0px 72px rgba(255, 215, 0, 0.32),
-      inset 0px 0px 2px #ffffff;
+      0px 0px 0px 0.1rem rgba(255, 215, 0, 0.6),
+      0px 0px 1px 0.1rem rgba(255, 215, 0, 0.32),
+      inset 0px 0px 1px #ffffff;
   }
-
   @media (min-width: 960px) {
     .founder-section {
       flex-direction: row;
       justify-content: space-between;
       text-align: left;
       position: relative; /* Added for positioning context */
+      padding: 8cqb var(--space-xxl);
     }
-
     .founder-content {
       max-width: 45%; /* Adjusted max-width */
       margin-bottom: 0;
     }
-
     .founder-image-container {
       position: absolute; /* Changed to absolute positioning */
       right: 0; /* Position from the right edge */
@@ -106,7 +101,6 @@ const { title, description, imagePath } = Astro.props;
       justify-content: flex-end; /* Align image to the right */
       align-items: flex-end; /* Align image to the bottom */
     }
-
     .founder-image-container img {
       width: 45cqw; /* Make image fill its container */
       height: auto;
@@ -114,7 +108,6 @@ const { title, description, imagePath } = Astro.props;
       position: relative;
       bottom: -5%; /* Adjust image position to overlap */
     }
-
     .founder-image-container::before {
       top: 80%; /* Center vertically */
       left: auto; /* Remove left positioning */
