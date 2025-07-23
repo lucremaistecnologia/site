@@ -39,15 +39,173 @@ Não foram encontrados arquivos como [`CONTRIBUTING.md`](CONTRIBUTING.md) ou doc
 
 ## 8. Estrutura de Pastas
 
-O projeto Lucre+ segue uma estrutura de pastas organizada para facilitar o desenvolvimento e a manutenção:
+<details>
+<summary>Clique para expandir a estrutura de pastas completa</summary>
 
-*   **`lucre+01/src/`**: Contém o código-fonte principal do projeto.
-    *   **`lucre+01/src/components/`**: Armazena os componentes reutilizáveis do Astro, como `HeroSection.astro`, `Header.astro`, `Footer.astro`, entre outros. Estes componentes são a base para a construção das páginas.
-    *   **`lucre+01/src/layouts/`**: Define os layouts de página, como `BaseLayout.astro` e `LandingPageLayout.astro`, que fornecem a estrutura básica (cabeçalho, rodapé, etc.) para diferentes tipos de páginas.
-    *   **`lucre+01/src/pages/`**: Contém os arquivos `.astro` que representam as páginas do site (ex: `index.astro`, `comofunciona.astro`, `sobre.astro`). Cada arquivo nesta pasta corresponde a uma rota no site.
-    *   **`lucre+01/src/styles/`**: Inclui arquivos CSS globais, como `global.css`, que definem estilos e variáveis CSS aplicáveis a todo o projeto.
-    *   **`lucre+01/src/logo/`**: Armazena os arquivos SVG do logo da marca em diferentes variações.
-*   **`lucre+01/public/`**: Contém ativos estáticos que são servidos diretamente pelo servidor web, como imagens (`heroimage.png`, `favicon.svg`) e ícones (`icons/icon.svg`, `logos/`).
+```
+lucre+01/
+├── .gitignore
+├── astro.config.mjs
+├── GEMINI.md
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.json
+├── .astro/
+│   ├── content-assets.mjs
+│   ├── content-modules.mjs
+│   ├── content.d.ts
+│   ├── data-store.json
+│   ├── settings.json
+│   ├── types.d.ts
+│   └── collections/
+├── .git/...
+├── .vscode/
+│   ├── extensions.json
+│   └── launch.json
+├── context/
+│   ├── ADR.md
+│   ├── ComoUsarContexto.md
+│   ├── Project.md
+│   └── RegistroDeTarefas.md
+├── node_modules/...
+├── public/
+│   ├── amos.png
+│   ├── aprovação.png
+│   ├── atendimento.png
+│   ├── coprodução.png
+│   ├── entrevista.png
+│   ├── favicon.svg
+│   ├── heroimage.png
+│   ├── image 36.png
+│   ├── image 58.png
+│   ├── integrações.png
+│   ├── logoline.png
+│   ├── ofertas.png
+│   ├── soluções.png
+│   ├── standartcta.png
+│   ├── taxas.png
+│   ├── venda.png
+│   ├── icons/
+│   │   ├── afiliados.svg
+│   │   ├── atendimento.svg
+│   │   ├── boleto.svg
+│   │   ├── cartão.svg
+│   │   ├── checkout.svg
+│   │   ├── coprodução.svg
+│   │   ├── icon.svg
+│   │   ├── integrações.svg
+│   │   ├── notifications.svg
+│   │   ├── pix.svg
+│   │   ├── subscription.svg
+│   │   └── taxas.svg
+│   ├── logos/
+│   │   ├── AlpaClass.png
+│   │   ├── AppSell.png
+│   │   ├── Astron members.svg
+│   │   ├── automation.svg
+│   │   ├── Builderall.png
+│   │   ├── cademi.png
+│   │   ├── checkout.svg
+│   │   ├── circle.svg
+│   │   ├── contaazul.png
+│   │   ├── conversão.svg
+│   │   ├── Curseduca.png
+│   │   ├── Ead plataforma.png
+│   │   ├── eduvem.png
+│   │   ├── enotas.png
+│   │   ├── entregadigital.svg
+│   │   ├── Escola avançada.png
+│   │   ├── facebook.png
+│   │   ├── google-logo.svg
+│   │   ├── google.svg
+│   │   ├── Herospark.png
+│   │   ├── hiiatus.svg
+│   │   ├── hotscool.png
+│   │   ├── hubspot.svg
+│   │   ├── hubspotCompleto.svg
+│   │   ├── kajabi.png
+│   │   ├── leadlovers.png
+│   │   ├── learnworlds.png
+│   │   ├── logo01.png
+│   │   ├── logo02.png
+│   │   ├── logo03.png
+│   │   ├── logo04.png
+│   │   ├── logo05.png
+│   │   ├── logotoolzz.svg
+│   │   ├── lucre+ logo normal.svg
+│   │   ├── lucre+ logo pequeno.svg
+│   │   ├── Lucre+-1.svg
+│   │   ├── Lucre+-2.svg
+│   │   ├── Lucre+-3.svg
+│   │   ├── Lucre+-4.svg
+│   │   ├── Lucre+-5.svg
+│   │   ├── Lucre+-6.svg
+│   │   ├── member hub.png
+│   │   ├── memberkit.svg
+│   │   ├── membros.svg
+│   │   ├── mentorfy.png
+│   │   ├── moodle.png
+│   │   ├── notazz.png
+│   │   ├── outbrain.png
+│   │   ├── systeme.png
+│   │   ├── themembers.png
+│   │   ├── thinkific.svg
+│   │   └── wix-logo.png
+│   └── vectors/
+│       ├── drawLinesSimplesvg.svg
+│       └── drawLinesSimplesvgComplete.svg
+└── src/
+    ├── components/
+    │   ├── CallToAction.astro
+    │   ├── ComoFuncionaSection.astro
+    │   ├── FAQItem.astro
+    │   ├── FAQSection.astro
+    │   ├── FeatureBlock.astro
+    │   ├── Footer.astro
+    │   ├── ForYou.astro
+    │   ├── FounderSection.astro
+    │   ├── Header.astro
+    │   ├── HeroSection.astro
+    │   ├── HighlightSection.astro
+    │   ├── HistorySection.astro
+    │   ├── IntegrationsSection.astro
+    │   ├── IntegrationsSectionComplete.astro
+    │   ├── MeiosDePagamento.astro
+    │   ├── NeedsSection.astro
+    │   ├── ServiceBlock.astro
+    │   ├── ServicesSection.astro
+    │   ├── StandardCallToAction.astro
+    │   ├── SwiperComponent.astro
+    │   ├── SwiperComponentComoFunciona.astro
+    │   ├── TestimonialCard.astro
+    │   ├── TestimonialsSection.astro
+    │   └── WhatsAppIcon.astro
+    ├── layouts/
+    │   ├── BaseLayout.astro
+    │   └── LandingPageLayout.astro
+    ├── logo/
+    │   ├── lucre+ logo normal.svg
+    │   ├── lucre+ logo pequeno.svg
+    │   ├── lucre+ logo.svg
+    │   ├── Lucre+-2.svg
+    │   ├── Lucre+-3.svg
+    │   ├── Lucre+-4.svg
+    │   ├── Lucre+-5.svg
+    │   └── Lucre+-6.svg
+    ├── pages/
+    │   ├── comofunciona.astro
+    │   ├── index.astro
+    │   ├── landing-page.astro
+    │   ├── pagamentos e taxas.astro
+    │   ├── perguntas frequentes.astro
+    │   └── sobre.astro
+    ├── scripts/
+    └── styles/
+        └── global.css
+```
+
+</details>
 
 ## 9. Fluxo de Dados/Componentes
 

@@ -51,7 +51,11 @@ const { mainTitle, mainParagraph } = Astro.props;
     </div>
     <div class="block-4">
       <h2>Não perca tempo!</h2>
-      <button class="primary" onclick="window.location.href='https://api.whatsapp.com/send?phone=12982823850'">Lucre mais agora</button>
+      <button
+        class="primary"
+        onclick="window.location.href='https://api.whatsapp.com/send?phone=12982823850'"
+        >Lucre mais agora</button
+      >
     </div>
   </div>
 </section>
@@ -167,10 +171,10 @@ const { mainTitle, mainParagraph } = Astro.props;
   .block:hover {
     transform: translateY(-0.1px);
     box-shadow:
-      0 0 2cqw hsla(51, 100%, 50%, 0.1),
-      0 0 2cqw hsla(51, 100%, 50%, 0.1),
-      0 0.1cqw 0.5cqw hsl(0, 0%, 0%, 0.5),
-      inset 0 0 0.02cqw 0.1cqw hsla(51, 100%, 50%, 0.5);
+      0 0 0 0.1cqw #ffd9001a,
+      0 0 0 #ffd9001a,
+      0 0 0 0.1cqw #cca24e,
+      0 0 3cqw 0cqw #ffd90030;
   }
   .block:hover::before {
     opacity: 1;
