@@ -3,7 +3,6 @@ import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro'; /* Importa o componente Footer */
 import WhatsAppIcon from '../components/WhatsAppIcon.astro'; // Importa o ícone do WhatsApp
-import '../styles/global.css'; /* Importa o CSS global */
 
 interface Props {
 	title: string;
@@ -22,6 +21,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://wa.me https://api.whatsapp.com; img-src 'self' data:; frame-src 'self';">
+		<link rel="stylesheet" href="/src/styles/global.css" />
 		<ClientRouter />
 	</head>
 	<body>
