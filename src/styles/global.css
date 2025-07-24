@@ -68,6 +68,10 @@ html {
   color: var(--color-text);
 }
 
+main {
+  overflow: hidden;
+}
+
 /*
 ==============================================
 TIPOGRAFIA
@@ -214,6 +218,7 @@ LAYOUT
 /* Padding geral para todas as seções */
 section {
   padding: var(--space-xxl);
+  position: relative;
 }
 
 @media (max-width: 960px) {

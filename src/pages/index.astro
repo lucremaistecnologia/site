@@ -30,47 +30,74 @@ import Swiper from "../components/SwiperComponent.astro";
     </section>
     <section class="swiper-feature-blocks-section">
       <Swiper />
+      <img
+        src="/vectors/Vector3.svg"
+        alt="Lucre+ Integrations"
+        class="vector vector-3"
+      />
+      <img
+        src="/vectors/Vector4.svg"
+        alt="Lucre+ Integrations"
+        class="vector vector-4"
+      />
     </section>
-    <ServicesSection
-      mainTitle="Nossos diferenciais"
-      mainParagraph="Nossas soluções são criadas com base nas dores reais dos nossos clientes, estamos sempre dispostos a te ouvir para te atender da melhor forma sempre."
-      buttonText="Lucre mais agora"
-      buttonLink="https://api.whatsapp.com/send?phone=12982823850"
-      serviceBlocks={[
-        {
-          class: "service-block-1",
-          title: "Atendimento concierge",
-          description:
-            "Aqui você terá acesso direto a um gerente de contas que dará todo o suporte para a sua operação, incluindo a configuração de suas páginas de pagamento, instalação de pixels, integração com áreas de membros e muito mais.",
-          linkText: "Saiba mais",
-          linkHref: "/comofunciona",
-        },
-        {
-          class: "service-block-2",
-          title: "Menores taxas do mercado",
-          description:
-            "Já está cansado vender por plataformas que cobram muito e entregam pouco? Aqui você encontra as melhores taxas do mercado junto com atendimento e entregas de altíssimo nível.",
-          linkText: "Saiba mais",
-          linkHref: "/comofunciona",
-        },
-        {
-          class: "service-block-3",
-          title: "Aprovações acima de 98%",
-          description:
-            "Garantimos altas taxas de aprovação sobre as vendas com cartão de crédito, impedindo o bloqueio indevido de vendas e redução de conversão.",
-          linkText: "Saiba mais",
-          linkHref: "/comofunciona",
-        },
-        {
-          class: "service-block-4",
-          title: "Criação de ofertas por WhatsApp ",
-          description:
-            "Quer mais agilidade para vender? Na Lucre + você consegue gerar ofertas com novos preços conversando pelo WhatsApp com nossa IA de atendimento. Rápido, prático e eficiente para quem vende com processo comercial estruturado.",
-          linkText: "Saiba mais",
-          linkHref: "/comofunciona",
-        },
-      ]}
-    />
+    <section class="services-section">
+      <img
+        src="/vectors/Vector1.svg"
+        alt="Lucre+ Integrations"
+        class="vector vector-1--2"
+      />
+      <ServicesSection
+        mainTitle="Nossos diferenciais"
+        mainParagraph="Nossas soluções são criadas com base nas dores reais dos nossos clientes, estamos sempre dispostos a te ouvir para te atender da melhor forma sempre."
+        buttonText="Lucre mais agora"
+        buttonLink="https://api.whatsapp.com/send?phone=12982823850"
+        serviceBlocks={[
+          {
+            class: "service-block-1",
+            title: "Atendimento concierge",
+            description:
+              "Aqui você terá acesso direto a um gerente de contas que dará todo o suporte para a sua operação, incluindo a configuração de suas páginas de pagamento, instalação de pixels, integração com áreas de membros e muito mais.",
+            linkText: "Saiba mais",
+            linkHref: "/comofunciona",
+          },
+          {
+            class: "service-block-2",
+            title: "Menores taxas do mercado",
+            description:
+              "Já está cansado vender por plataformas que cobram muito e entregam pouco? Aqui você encontra as melhores taxas do mercado junto com atendimento e entregas de altíssimo nível.",
+            linkText: "Saiba mais",
+            linkHref: "/comofunciona",
+          },
+          {
+            class: "service-block-3",
+            title: "Aprovações acima de 98%",
+            description:
+              "Garantimos altas taxas de aprovação sobre as vendas com cartão de crédito, impedindo o bloqueio indevido de vendas e redução de conversão.",
+            linkText: "Saiba mais",
+            linkHref: "/comofunciona",
+          },
+          {
+            class: "service-block-4",
+            title: "Criação de ofertas por WhatsApp ",
+            description:
+              "Quer mais agilidade para vender? Na Lucre + você consegue gerar ofertas com novos preços conversando pelo WhatsApp com nossa IA de atendimento. Rápido, prático e eficiente para quem vende com processo comercial estruturado.",
+            linkText: "Saiba mais",
+            linkHref: "/comofunciona",
+          },
+        ]}
+      />
+      <img
+        src="/vectors/Vector5.svg"
+        alt="Lucre+ Integrations"
+        class="vector vector-5"
+      />
+      <img
+        src="/vectors/Vector6.svg"
+        alt="Lucre+ Integrations"
+        class="vector vector-6"
+      />
+    </section>
     <CallToAction
       subtitle="Pare de deixar dinheiro na mesa!"
       title="Alavanque o seu negócio com as melhores taxas"
@@ -80,13 +107,30 @@ import Swiper from "../components/SwiperComponent.astro";
       backgroundImage="/image 36.png"
     />
     <TestimonialsSection />
-    <IntegrationsSection />
+    <section class="integrations-section">
+      <IntegrationsSection />
+      <img
+        src="/vectors/Vector2.svg"
+        alt="Lucre+ Integrations"
+        class="vector vector-2"
+      />
+      <img
+        src="/vectors/Vector5.svg"
+        alt="Lucre+ Integrations"
+        class="vector vector-5--2"
+      />
+    </section>
     <StandardCallToAction
       title="Pronto para maximizar seus lucros?"
       paragraph="Temos as melhores soluções para suas vendas via cartão de crédito."
       buttonText="quero Lucrar mais agora"
       buttonLink="https://api.whatsapp.com/send?phone=12982823850"
       showParagraph={true}
+    />
+    <img
+      src="/vectors/Vector1.svg"
+      alt="Lucre+ Integrations"
+      class="vector vector-1"
     />
   </main>
 </BaseLayout>
@@ -181,6 +225,58 @@ import Swiper from "../components/SwiperComponent.astro";
   }
   .swiper-feature-blocks-section {
     padding: 2cqw var(--space-xxl);
+  }
+  .services-section {
+    padding: 0;
+  }
+  .integrations-section {
+    padding: 0;
+  }
+  .vector {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.8;
+  }
+  .vector-1 {
+    top: 11cqw;
+    left: -4cqw;
+    height: 10cqw;
+  }
+  .vector-1--2 {
+    top: 10cqw;
+    right: 3cqw;
+    height: 10cqw;
+    z-index: 1;
+  }
+  .vector-2 {
+    bottom: 15%;
+    left: 0;
+    height: 18cqw;
+  }
+  .vector-3 {
+    bottom: 5%;
+    right: 0;
+    height: 15cqw;
+  }
+  .vector-4 {
+    bottom: -25%;
+    left: 5%;
+    height: 7cqw;
+  }
+  .vector-5 {
+    bottom: 8%;
+    left: 43%;
+    height: 16cqw;
+  }
+  .vector-5--2 {
+    top: -80px;
+    right: -4%;
+    height: 16cqw;
+  }
+  .vector-6 {
+    bottom: -4%;
+    left: 0;
+    height: 12cqw;
   }
   @media (max-width: 960px) {
     .swiper-feature-blocks-section {
