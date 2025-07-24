@@ -9,7 +9,22 @@ import IntegrationsSection from "../components/IntegrationsSection.astro";
 import Swiper from "../components/SwiperComponent.astro";
 ---
 
-<BaseLayout title="Home - Lucre+">
+<BaseLayout 
+  title="Home - Lucre+"
+  description="A Lucre+ é a plataforma de pagamentos premium para mentores, produtores e empresários digitais que buscam escalar seus negócios com taxas justas, tecnologia de ponta e um ecossistema completo."
+>
+	<script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://lucre.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://lucre.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
   <main>
     <HeroSection
       h1Text="Pronto para maximizar seus lucros?"

@@ -11,7 +11,27 @@ import integrações from "../../public/integrações.png";
 import coprodução from "../../public/coprodução.png";
 ---
 
-<BaseLayout title="Integrações - Lucre+">
+<BaseLayout 
+  title="Pagamentos e Taxas - Lucre+"
+  description="Conheça as taxas competitivas e os prazos de recebimento da Lucre+. Oferecemos as melhores condições para você maximizar seus lucros."
+>
+	<script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://lucre.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Pagamentos e Taxas",
+        "item": "https://lucre.com/pagamentos-e-taxas"
+      }]
+    }
+  </script>
   <main>
     <section class="payments-section">
       <MeiosDePagamento />
