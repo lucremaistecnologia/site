@@ -14,6 +14,7 @@ import image58 from "../../public/image 58.png";
 import ForYou from "../components/ForYou.astro";
 import IntegrationsSection from "../components/IntegrationsSection.astro";
 import LucreLogoNormal from "../../public/logos/lucre+ logo normal.svg";
+import Form from "../components/Form.astro";
 
 const features = [
   {
@@ -180,6 +181,7 @@ const features = [
       <p>Informações importantes</p>
     </footer>
   </main>
+  <Form />
 </LandingPageLayout>
 
 <style is:global>
@@ -269,3 +271,31 @@ const features = [
     border-top: 1px solid var(--color-background); /* Using background color for subtle border, or define a specific border color variable */
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const formModal = document.getElementById('form-modal');
+    document.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', (event) => {
+        // Prevent opening the modal if the clicked button is inside the modal itself
+        if (!formModal.contains(event.target)) {
+          formModal.style.display = 'flex';
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const formModal = document.getElementById('form-modal');
+    document.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', (event) => {
+        // Prevent opening the modal if the clicked button is inside the modal itself
+        if (!formModal.contains(event.target)) {
+          formModal.style.display = 'flex';
+        }
+      });
+    });
+  });
+</script>
