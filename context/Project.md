@@ -16,7 +16,7 @@ Não foram encontrados arquivos ou documentação relacionados a estratégias de
 
 ## 4. Dependências Chave
 
-A principal e única dependência listada no [`package.json`](lucre+01/package.json) é o `astro` (versão `^5.12.3`).
+A principal e única dependência listada no [`package.json`](package.json) é o `astro` (versão `^5.12.3`).
 
 ## 5. Variáveis de Ambiente
 
@@ -28,9 +28,9 @@ Não foram encontrados arquivos como [`CONTRIBUTING.md`](CONTRIBUTING.md) ou doc
 
 ## 7. Visão Geral de Componentes Chave
 
-*   **HeroSection.astro** (`lucre+01/src/components/HeroSection.astro`): Responsável por exibir o conteúdo principal da página inicial, incluindo um título chamativo (`h1Text`), um texto descritivo (`pText`), e botões de ação (`primaryButtonText`, `secondaryButtonText`), frequentemente com uma imagem de fundo. Seu objetivo é capturar a atenção do usuário e direcioná-lo para ações importantes.
-*   **Header.astro** (`lucre+01/src/components/Header.astro`): Contém a navegação principal do site, com o logo da marca, um menu hambúrguer responsivo para dispositivos móveis e links para as seções importantes do site. Implementa também efeitos visuais ao rolar a página.
-*   **Footer.astro** (`lucre+01/src/components/Footer.astro`): Agrupa links essenciais para navegação (como "Como Funciona", "Pagamentos e Taxas", "Sobre Nós"), informações de serviços, links para redes sociais e detalhes legais (política de privacidade, termos de uso), além de informações de copyright. Ele reitera o propósito do projeto como uma plataforma de pagamentos premium.
+*   **HeroSection.astro** (`src/components/HeroSection.astro`): Responsável por exibir o conteúdo principal da página inicial, incluindo um título chamativo (`h1Text`), um texto descritivo (`pText`), e botões de ação (`primaryButtonText`, `secondaryButtonText`), frequentemente com uma imagem de fundo. Seu objetivo é capturar a atenção do usuário e direcioná-lo para ações importantes.
+*   **Header.astro** (`src/components/Header.astro`): Contém a navegação principal do site, com o logo da marca, um menu hambúrguer responsivo para dispositivos móveis e links para as seções importantes do site. Implementa também efeitos visuais ao rolar a página.
+*   **Footer.astro** (`src/components/Footer.astro`): Agrupa links essenciais para navegação (como "Como Funciona", "Pagamentos e Taxas", "Sobre Nós"), informações de serviços, links para redes sociais e detalhes legais (política de privacidade, termos de uso), além de informações de copyright. Ele reitera o propósito do projeto como uma plataforma de pagamentos premium.
 
 ---
 *Este documento foi atualizado com as informações coletadas sobre o projeto Lucre+.*
@@ -39,10 +39,6 @@ Não foram encontrados arquivos como [`CONTRIBUTING.md`](CONTRIBUTING.md) ou doc
 
 ## 8. Estrutura de Pastas
 
-<details>
-<summary>Clique para expandir a estrutura de pastas completa</summary>
-
-```
 site/
 ├── .gitignore
 ├── astro.config.mjs
@@ -203,9 +199,6 @@ site/
     ├── scripts/
     └── styles/
         └── global.css
-```
-
-</details>
 
 ## 9. Fluxo de Dados/Componentes
 
@@ -218,7 +211,7 @@ No Astro, o fluxo de dados entre componentes é primariamente baseado em proprie
 
 ## 10. Configurações de Build
 
-O projeto utiliza o Astro para o processo de build. A configuração principal é definida em [`astro.config.mjs`](lucre+01/astro.config.mjs).
+O projeto utiliza o Astro para o processo de build. A configuração principal é definida em [`astro.config.mjs`](astro.config.mjs).
 
 *   **Comando Padrão**: O comando `npm run build` é usado para compilar o projeto para produção, gerando arquivos estáticos otimizados.
 *   **Configuração Vite**: O arquivo `astro.config.mjs` inclui uma configuração `vite` que define aliases de caminho. Por exemplo, `'~': resolve(__dirname, './src')` permite importar módulos de `src` usando o atalho `~`, como `import Header from '~/components/Header.astro';`. Isso simplifica os caminhos de importação e melhora a legibilidade do código.
@@ -231,7 +224,7 @@ O Astro é inerentemente otimizado para performance, gerando HTML estático por 
 *   **HTML Estático por Padrão**: A maior parte do site é renderizada como HTML estático, o que resulta em tempos de carregamento muito rápidos e excelente performance de Core Web Vitals.
 *   **Ilhas de Interatividade**: Componentes que exigem JavaScript no cliente (como o menu hambúrguer no `Header.astro`) são isolados como "ilhas", minimizando a quantidade de JS enviada.
 *   **Otimização de Imagens**: O uso de `astro:assets` (como visto no `Footer.astro` com `import { Image } from 'astro:assets';`) permite otimização automática de imagens, incluindo lazy loading e tamanhos responsivos, melhorando o desempenho de carregamento.
-*   **CSS Otimizado**: O uso de unidades `cqw` e a função `max()` no CSS global contribuem para um layout responsivo e eficiente, que se adapta sem a necessidade de múltiplos media queries complexos, potencialmente reduzindo o tamanho do CSS final.
+*   **CSS Otimizado**: O uso de unidades `cqw` e a função `max()` no CSS global contribui para um layout responsivo e eficiente, que se adapta sem a necessidade de múltiplos media queries complexos, potencialmente reduzindo o tamanho do CSS final.
 
 ## 12. Acessibilidade
 
@@ -282,7 +275,7 @@ O Lucre+ é apresentado como uma plataforma de pagamentos premium, focada em imp
 
 ## Práticas de SEO Implementadas
 
-Não foram encontradas informações específicas sobre práticas de SEO implementadas no projeto, nem em `GEMINI.md` (agora `Project.md`) nem no [`README.md`](lucre+01/README.md) fornecido.
+Não foram encontradas informações específicas sobre práticas de SEO implementadas no projeto, nem em `GEMINI.md` (agora `Project.md`) nem no [`README.md`](README.md) fornecido.
 
 ## Estilo de Texto
 
@@ -300,7 +293,7 @@ Exemplos de tamanhos de fonte:
 
 ## Detalhes Específicos de CSS
 
-O arquivo [`global.css`](lucre+01/src/styles/global.css) demonstra um uso extensivo de unidades de viewport de contêiner (`cqw`) em conjunto com a função `max()` para definir espaçamentos e tamanhos de fonte. Isso permite que os elementos se ajustem de forma mais granular ao tamanho do seu contêiner pai, em vez de dependerem apenas do viewport geral.
+O arquivo [`global.css`](src/styles/global.css) demonstra um uso extensivo de unidades de viewport de contêiner (`cqw`) em conjunto com a função `max()` para definir espaçamentos e tamanhos de fonte. Isso permite que os elementos se ajustem de forma mais granular ao tamanho do seu contêiner pai, em vez de dependerem apenas do viewport geral.
 
 Exemplos de uso de `max()` com `cqw`:
 *   Espaçamentos: `--space-xxs: max(0.25em, 0.5cqw);` até `--space-xxl: var(--space-xxl);`
