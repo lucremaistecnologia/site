@@ -16,7 +16,7 @@ Não foram encontrados arquivos ou documentação relacionados a estratégias de
 
 ## 4. Dependências Chave
 
-A principal e única dependência listada no [`package.json`](lucre+01/package.json) é o `astro` (versão `^5.11.0`).
+A principal e única dependência listada no [`package.json`](lucre+01/package.json) é o `astro` (versão `^5.12.3`).
 
 ## 5. Variáveis de Ambiente
 
@@ -43,7 +43,7 @@ Não foram encontrados arquivos como [`CONTRIBUTING.md`](CONTRIBUTING.md) ou doc
 <summary>Clique para expandir a estrutura de pastas completa</summary>
 
 ```
-lucre+01/
+site/
 ├── .gitignore
 ├── astro.config.mjs
 ├── GEMINI.md
