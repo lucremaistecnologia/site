@@ -67,22 +67,22 @@ context/
 └── RegistroDeTarefas.md
 node_modules/...
 public/
-├── amos.png
-├── aprovação.png
-├── atendimento.png
-├── coprodução.png
-├── entrevista.png
+├── amos.webp
+├── aprovação.webp
+├── atendimento.webp
+├── coprodução.webp
+├── entrevista.webp
 ├── favicon.svg
-├── heroimage.png
-├── image 36.png
-├── image 58.png
-├── integrações.png
-├── logoline.png
-├── ofertas.png
-├── soluções.png
-├── standartcta.png
-├── taxas.png
-├── venda.png
+├── heroimage.webp
+├── image 36.webp
+├── image 58.webp
+├── integrações.webp
+├── logoline.webp
+├── ofertas.webp
+├── soluções.webp
+├── standartcta.webp
+├── taxas.webp
+├── venda.webp
 ├── icons/
 │   ├── afiliados.svg
 │   ├── atendimento.svg
@@ -97,38 +97,38 @@ public/
 │   ├── subscription.svg
 │   └── taxas.svg
 ├── logos/
-│   ├── AlpaClass.png
-│   ├── AppSell.png
+│   ├── AlpaClass.webp
+│   ├── AppSell.webp
 │   ├── Astron members.svg
 │   ├── automation.svg
-│   ├── Builderall.png
-│   ├── cademi.png
+│   ├── Builderall.webp
+│   ├── cademi.webp
 │   ├── checkout.svg
 │   ├── circle.svg
-│   ├── contaazul.png
+│   ├── contaazul.webp
 │   ├── conversão.svg
-│   ├── Curseduca.png
-│   ├── Ead plataforma.png
-│   ├── eduvem.png
-│   ├── enotas.png
+│   ├── Curseduca.webp
+│   ├── Ead plataforma.webp
+│   ├── eduvem.webp
+│   ├── enotas.webp
 │   ├── entregadigital.svg
-│   ├── Escola avançada.png
-│   ├── facebook.png
+│   ├── Escola avançada.webp
+│   ├── facebook.webp
 │   ├── google-logo.svg
 │   ├── google.svg
-│   ├── Herospark.png
+│   ├── Herospark.webp
 │   ├── hiiatus.svg
-│   ├── hotscool.png
+│   ├── hotscool.webp
 │   ├── hubspot.svg
 │   ├── hubspotCompleto.svg
-│   ├── kajabi.png
-│   ├── leadlovers.png
-│   ├── learnworlds.png
-│   ├── logo01.png
-│   ├── logo02.png
-│   ├── logo03.png
-│   ├── logo04.png
-│   ├── logo05.png
+│   ├── kajabi.webp
+│   ├── leadlovers.webp
+│   ├── learnworlds.webp
+│   ├── logo01.webp
+│   ├── logo02.webp
+│   ├── logo03.webp
+│   ├── logo04.webp
+│   ├── logo05.webp
 │   ├── logotoolzz.svg
 │   ├── lucre+ logo normal.svg
 │   ├── lucre+ logo pequeno.svg
@@ -138,17 +138,17 @@ public/
 │   ├── Lucre+-4.svg
 │   ├── Lucre+-5.svg
 │   ├── Lucre+-6.svg
-│   ├── member hub.png
+│   ├── member hub.webp
 │   ├── memberkit.svg
 │   ├── membros.svg
-│   ├── mentorfy.png
-│   ├── moodle.png
-│   ├── notazz.png
-│   ├── outbrain.png
-│   ├── systeme.png
-│   ├── themembers.png
+│   ├── mentorfy.webp
+│   ├── moodle.webp
+│   ├── notazz.webp
+│   ├── outbrain.webp
+│   ├── systeme.webp
+│   ├── themembers.webp
 │   ├── thinkific.svg
-│   └── wix-logo.png
+│   └── wix-logo.webp
 └── vectors/
     ├── drawLinesSimplesvg.svg
     └── drawLinesSimplesvgComplete.svg

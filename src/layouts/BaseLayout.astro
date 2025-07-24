@@ -25,14 +25,14 @@ const { title } = Astro.props;
 		<meta property="og:url" content={Astro.site ? Astro.site.href : 'default-url'}>
 		<meta property="og:title" content={title}>
 		<meta property="og:description" content={Astro.props.description || "A Lucre+ é a plataforma de pagamentos premium para mentores, produtores e empresários digitais que buscam escalar seus negócios com taxas justas, tecnologia de ponta e um ecossistema completo."} />
-		<meta property="og:image" content={Astro.site ? new URL('/public/heroimage.png', Astro.site.href).href : 'default-image-url'} />
+		<meta property="og:image" content={Astro.site ? new URL('/public/heroimage.webp', Astro.site.href).href : 'default-image-url'} />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image">
 		<meta property="twitter:url" content={Astro.site ? Astro.site.href : 'default-url'}>
 		<meta property="twitter:title" content={title}>
 		<meta property="twitter:description" content={Astro.props.description || "A Lucre+ é a plataforma de pagamentos premium para mentores, produtores e empresários digitais que buscam escalar seus negócios com taxas justas, tecnologia de ponta e um ecossistema completo."} />
-		<meta property="twitter:image" content={Astro.site ? new URL('/public/heroimage.png', Astro.site.href).href : 'default-image-url'} />
+		<meta property="twitter:image" content={Astro.site ? new URL('/public/heroimage.webp', Astro.site.href).href : 'default-image-url'} />
 
 		<script type="application/ld+json">
 			{
@@ -40,7 +40,7 @@ const { title } = Astro.props;
 				"@type": "Organization",
 				"name": "Lucre+",
 				"url": "https://lucre.com",
-				"logo": "https://lucre.com/logo.png",
+				"logo": "https://lucre.com/logo.webp",
 				"sameAs": [
 					"https://www.facebook.com/lucremais/",
 					"https://www.instagram.com/lucremais/"
