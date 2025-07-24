@@ -39,166 +39,168 @@ Não foram encontrados arquivos como [`CONTRIBUTING.md`](CONTRIBUTING.md) ou doc
 
 ## 8. Estrutura de Pastas
 
-site/
-├── .gitignore
-├── astro.config.mjs
-├── GEMINI.md
-├── package-lock.json
-├── package.json
-├── README.md
-├── tsconfig.json
-├── .astro/
-│   ├── content-assets.mjs
-│   ├── content-modules.mjs
-│   ├── content.d.ts
-│   ├── data-store.json
-│   ├── settings.json
-│   ├── types.d.ts
-│   └── collections/
-├── .git/...
-├── .vscode/
-│   ├── extensions.json
-│   └── launch.json
-├── context/
-│   ├── ADR.md
-│   ├── ComoUsarContexto.md
-│   ├── Project.md
-│   └── RegistroDeTarefas.md
-├── node_modules/...
-├── public/
-│   ├── amos.png
-│   ├── aprovação.png
-│   ├── atendimento.png
-│   ├── coprodução.png
-│   ├── entrevista.png
-│   ├── favicon.svg
-│   ├── heroimage.png
-│   ├── image 36.png
-│   ├── image 58.png
-│   ├── integrações.png
-│   ├── logoline.png
-│   ├── ofertas.png
-│   ├── soluções.png
-│   ├── standartcta.png
-│   ├── taxas.png
-│   ├── venda.png
-│   ├── icons/
-│   │   ├── afiliados.svg
-│   │   ├── atendimento.svg
-│   │   ├── boleto.svg
-│   │   ├── cartão.svg
-│   │   ├── checkout.svg
-│   │   ├── coprodução.svg
-│   │   ├── icon.svg
-│   │   ├── integrações.svg
-│   │   ├── notifications.svg
-│   │   ├── pix.svg
-│   │   ├── subscription.svg
-│   │   └── taxas.svg
-│   ├── logos/
-│   │   ├── AlpaClass.png
-│   │   ├── AppSell.png
-│   │   ├── Astron members.svg
-│   │   ├── automation.svg
-│   │   ├── Builderall.png
-│   │   ├── cademi.png
-│   │   ├── checkout.svg
-│   │   ├── circle.svg
-│   │   ├── contaazul.png
-│   │   ├── conversão.svg
-│   │   ├── Curseduca.png
-│   │   ├── Ead plataforma.png
-│   │   ├── eduvem.png
-│   │   ├── enotas.png
-│   │   ├── entregadigital.svg
-│   │   ├── Escola avançada.png
-│   │   ├── facebook.png
-│   │   ├── google-logo.svg
-│   │   ├── google.svg
-│   │   ├── Herospark.png
-│   │   ├── hiiatus.svg
-│   │   ├── hotscool.png
-│   │   ├── hubspot.svg
-│   │   ├── hubspotCompleto.svg
-│   │   ├── kajabi.png
-│   │   ├── leadlovers.png
-│   │   ├── learnworlds.png
-│   │   ├── logo01.png
-│   │   ├── logo02.png
-│   │   ├── logo03.png
-│   │   ├── logo04.png
-│   │   ├── logo05.png
-│   │   ├── logotoolzz.svg
-│   │   ├── lucre+ logo normal.svg
-│   │   ├── lucre+ logo pequeno.svg
-│   │   ├── Lucre+-1.svg
-│   │   ├── Lucre+-2.svg
-│   │   ├── Lucre+-3.svg
-│   │   ├── Lucre+-4.svg
-│   │   ├── Lucre+-5.svg
-│   │   ├── Lucre+-6.svg
-│   │   ├── member hub.png
-│   │   ├── memberkit.svg
-│   │   ├── membros.svg
-│   │   ├── mentorfy.png
-│   │   ├── moodle.png
-│   │   ├── notazz.png
-│   │   ├── outbrain.png
-│   │   ├── systeme.png
-│   │   ├── themembers.png
-│   │   ├── thinkific.svg
-│   │   └── wix-logo.png
-│   └── vectors/
-│       ├── drawLinesSimplesvg.svg
-│       └── drawLinesSimplesvgComplete.svg
-└── src/
-    ├── components/
-    │   ├── CallToAction.astro
-    │   ├── ComoFuncionaSection.astro
-    │   ├── FAQItem.astro
-    │   ├── FAQSection.astro
-    │   ├── FeatureBlock.astro
-    │   ├── Footer.astro
-    │   ├── ForYou.astro
-    │   ├── FounderSection.astro
-    │   ├── Header.astro
-    │   ├── HeroSection.astro
-    │   ├── HighlightSection.astro
-    │   ├── HistorySection.astro
-    │   ├── IntegrationsSection.astro
-    │   ├── IntegrationsSectionComplete.astro
-    │   ├── MeiosDePagamento.astro
-    │   ├── NeedsSection.astro
-    │   ├── ServiceBlock.astro
-    │   ├── ServicesSection.astro
-    │   ├── StandardCallToAction.astro
-    │   ├── SwiperComponent.astro
-    │   ├── SwiperComponentComoFunciona.astro
-    │   ├── TestimonialCard.astro
-    │   ├── TestimonialsSection.astro
-    │   └── WhatsAppIcon.astro
-    ├── layouts/
-    │   ├── BaseLayout.astro
-    │   └── LandingPageLayout.astro
-    ├── logo/
-    │   ├── lucre+ logo normal.svg
-    │   ├── lucre+ logo pequeno.svg
-    │   ├── lucre+ logo.svg
-    │   ├── Lucre+-2.svg
-    │   ├── Lucre+-3.svg
-    │   ├── Lucre+-4.svg
-    │   ├── Lucre+-5.svg
-    │   └── Lucre+-6.svg
-    ├── pages/
-    │   ├── comofunciona.astro
-    │   ├── index.astro
-    │   ├── landing-page.astro
-    │   ├── pagamentos e taxas.astro
-    │   ├── perguntas frequentes.astro
-    │   └── sobre.astro
-    ├── scripts/
-    └── styles/
-        └── global.css
+```
+.gitignore
+astro.config.mjs
+GEMINI.md
+package-lock.json
+package.json
+README.md
+ttsconfig.json
+.astro/
+├── content-assets.mjs
+├── content-modules.mjs
+├── content.d.ts
+├── data-store.json
+├── settings.json
+├── types.d.ts
+└── collections/
+.git/...
+.vscode/
+├── extensions.json
+└── launch.json
+context/
+├── ADR.md
+├── ComoUsarContexto.md
+├── Project.md
+└── RegistroDeTarefas.md
+node_modules/...
+public/
+├── amos.png
+├── aprovação.png
+├── atendimento.png
+├── coprodução.png
+├── entrevista.png
+├── favicon.svg
+├── heroimage.png
+├── image 36.png
+├── image 58.png
+├── integrações.png
+├── logoline.png
+├── ofertas.png
+├── soluções.png
+├── standartcta.png
+├── taxas.png
+├── venda.png
+├── icons/
+│   ├── afiliados.svg
+│   ├── atendimento.svg
+│   ├── boleto.svg
+│   ├── cartão.svg
+│   ├── checkout.svg
+│   ├── coprodução.svg
+│   ├── icon.svg
+│   ├── integrações.svg
+│   ├── notifications.svg
+│   ├── pix.svg
+│   ├── subscription.svg
+│   └── taxas.svg
+├── logos/
+│   ├── AlpaClass.png
+│   ├── AppSell.png
+│   ├── Astron members.svg
+│   ├── automation.svg
+│   ├── Builderall.png
+│   ├── cademi.png
+│   ├── checkout.svg
+│   ├── circle.svg
+│   ├── contaazul.png
+│   ├── conversão.svg
+│   ├── Curseduca.png
+│   ├── Ead plataforma.png
+│   ├── eduvem.png
+│   ├── enotas.png
+│   ├── entregadigital.svg
+│   ├── Escola avançada.png
+│   ├── facebook.png
+│   ├── google-logo.svg
+│   ├── google.svg
+│   ├── Herospark.png
+│   ├── hiiatus.svg
+│   ├── hotscool.png
+│   ├── hubspot.svg
+│   ├── hubspotCompleto.svg
+│   ├── kajabi.png
+│   ├── leadlovers.png
+│   ├── learnworlds.png
+│   ├── logo01.png
+│   ├── logo02.png
+│   ├── logo03.png
+│   ├── logo04.png
+│   ├── logo05.png
+│   ├── logotoolzz.svg
+│   ├── lucre+ logo normal.svg
+│   ├── lucre+ logo pequeno.svg
+│   ├── Lucre+-1.svg
+│   ├── Lucre+-2.svg
+│   ├── Lucre+-3.svg
+│   ├── Lucre+-4.svg
+│   ├── Lucre+-5.svg
+│   ├── Lucre+-6.svg
+│   ├── member hub.png
+│   ├── memberkit.svg
+│   ├── membros.svg
+│   ├── mentorfy.png
+│   ├── moodle.png
+│   ├── notazz.png
+│   ├── outbrain.png
+│   ├── systeme.png
+│   ├── themembers.png
+│   ├── thinkific.svg
+│   └── wix-logo.png
+└── vectors/
+    ├── drawLinesSimplesvg.svg
+    └── drawLinesSimplesvgComplete.svg
+src/
+├── components/
+│   ├── CallToAction.astro
+│   ├── ComoFuncionaSection.astro
+│   ├── FAQItem.astro
+│   ├── FAQSection.astro
+│   ├── FeatureBlock.astro
+│   ├── Footer.astro
+│   ├── Form.astro
+│   ├── ForYou.astro
+│   ├── FounderSection.astro
+│   ├── Header.astro
+│   ├── HeroSection.astro
+│   ├── HighlightSection.astro
+│   ├── HistorySection.astro
+│   ├── IntegrationsSection.astro
+│   ├── IntegrationsSectionComplete.astro
+│   ├── MeiosDePagamento.astro
+│   ├── NeedsSection.astro
+│   ├── ServiceBlock.astro
+│   ├── ServicesSection.astro
+│   ├── StandardCallToAction.astro
+│   ├── SwiperComponent.astro
+│   ├── SwiperComponentComoFunciona.astro
+│   ├── TestimonialCard.astro
+│   ├── TestimonialsSection.astro
+│   └── WhatsAppIcon.astro
+├── layouts/
+│   ├── BaseLayout.astro
+│   └── LandingPageLayout.astro
+├── logo/
+│   ├── lucre+ logo normal.svg
+│   ├── lucre+ logo pequeno.svg
+│   ├── lucre+ logo.svg
+│   ├── Lucre+-2.svg
+│   ├── Lucre+-3.svg
+│   ├── Lucre+-4.svg
+│   ├── Lucre+-5.svg
+│   └── Lucre+-6.svg
+├── pages/
+│   ├── comofunciona.astro
+│   ├── index.astro
+│   ├── landing-page.astro
+│   ├── pagamentos e taxas.astro
+│   ├── perguntas frequentes.astro
+│   └── sobre.astro
+├── scripts/
+└── styles/
+    └── global.css
+```
 
 ## 9. Fluxo de Dados/Componentes
 
