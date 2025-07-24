@@ -1,6 +1,6 @@
 # GEMINI - Contexto do Projeto Lucre+
 
-Este documento fornece um contexto consolidado para o projeto Lucre+, servindo como a principal fonte de informações para o desenvolvimento e manutenção. Ele é baseado nos arquivos encontrados em `lucre+01/context/`.
+Este documento fornece um contexto consolidado para o projeto Lucre+, servindo como a principal fonte de informações para o desenvolvimento e manutenção. Ele é baseado nos arquivos encontrados em `context/`.
 
 ## 1. Objetivo do Projeto
 
@@ -8,7 +8,7 @@ O Lucre+ é uma plataforma de pagamentos premium projetada para impulsionar ment
 
 ## 2. Tecnologias e Dependências
 
-- **Framework Principal:** Astro (`^5.11.0`)
+- **Framework Principal:** Astro (`^5.12.3`)
 - **Dependências Chave:** A única dependência principal listada é o próprio `astro`.
 - **Variáveis de Ambiente:** Nenhuma variável de ambiente foi especificada.
 
@@ -20,14 +20,14 @@ O Lucre+ é uma plataforma de pagamentos premium projetada para impulsionar ment
 
 O projeto segue uma estrutura de pastas padrão do Astro para facilitar o desenvolvimento:
 
-- `lucre+01/src/`: Código-fonte principal.
+- `src/`: Código-fonte principal.
   - `components/`: Componentes reutilizáveis do Astro (`.astro`).
   - `layouts/`: Estruturas de página base (`BaseLayout.astro`).
   - `pages/`: Arquivos que representam as rotas/páginas do site.
   - `styles/`: Arquivos CSS globais (`global.css`).
   - `logo/`: Arquivos SVG do logo.
-- `lucre+01/public/`: Ativos estáticos (imagens, favicons, etc.).
-- `lucre+01/context/`: Documentação de contexto do projeto (`Project.md`, etc.).
+- `public/`: Ativos estáticos (imagens, favicons, etc.).
+- `context/`: Documentação de contexto do projeto (`Project.md`, etc.).
 
 ## 5. Visão Geral dos Componentes Chave
 
@@ -44,7 +44,7 @@ O projeto segue uma estrutura de pastas padrão do Astro para facilitar o desenv
 
 ## 7. Decisões de Arquitetura
 
-Um registro de decisões de design e arquitetura é mantido em [`lucre+01/context/Project.md`](lucre+01/context/Project.md). As decisões chave incluem:
+Um registro de decisões de design e arquitetura é mantido em [`context/Project.md`](context/Project.md). As decisões chave incluem:
 
 - **Uso do Astro:** Escolhido pela alta performance (HTML estático por padrão) e arquitetura de "ilhas" para interatividade.
 - **Design Responsivo com `cqw` e `max()`**: Para criar um design altamente flexível e granular.
@@ -57,4 +57,4 @@ Um registro de decisões de design e arquitetura é mantido em [`lucre+01/contex
 
 ## 9. Registro de Tarefas
 
-Um registro de tarefas pendentes e concluídas é mantido no arquivo [`lucre+01/context/RegistroDeTarefas.md`](lucre+01/context/RegistroDeTarefas.md). Consulte-o para acompanhar o progresso do desenvolvimento.
+Um registro de tarefas pendentes e concluídas é mantido no arquivo [`context/RegistroDeTarefas.md`](context/RegistroDeTarefas.md). Consulte-o para acompanhar o progresso do desenvolvimento.
