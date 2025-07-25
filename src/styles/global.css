@@ -254,4 +254,7 @@ section {
   .subtitle {
     font-size: clamp(1.1em, 3cqi, 1.4rem);
   }
+  .vector {
+    display: none;
+  }
 }
