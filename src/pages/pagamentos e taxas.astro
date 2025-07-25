@@ -9,6 +9,7 @@ import taxas from "../../public/taxas.webp";
 import aprovação from "../../public/aprovação.webp";
 import integrações from "../../public/integrações.webp";
 import coprodução from "../../public/coprodução.webp";
+import destaque from "../../public/destaque.webp";
 ---
 
 <BaseLayout
@@ -38,6 +39,11 @@ import coprodução from "../../public/coprodução.webp";
   <main>
     <section class="payments-section">
       <img
+        src="/vectors/Vector2.svg"
+        alt="Lucre+ Integrations"
+        class="vector vector-2"
+      />
+      <img
         src="/vectors/Vector4.svg"
         alt="Lucre+ Integrations"
         class="vector vector-4"
@@ -64,7 +70,7 @@ import coprodução from "../../public/coprodução.webp";
             title: "OOOOOOOO",
             description:
               "oooooooooooooooooooooooooooooooo ooooooooooooooooooooooooooooooo.",
-            imageSrc: coprodução,
+            imageSrc: destaque,
           },
           {
             title: "Mais de 90 integrações",
@@ -100,6 +106,12 @@ import coprodução from "../../public/coprodução.webp";
 </BaseLayout>
 
 <style>
+  .vector-2 {
+    top: 10cqw;
+    right: 0;
+    height: 20cqw;
+    transform: rotate(90deg);
+  }
   .vector-4 {
     bottom: -12%;
     left: -20%;
