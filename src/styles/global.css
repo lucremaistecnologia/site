@@ -69,6 +69,7 @@ html {
 }
 
 main {
+  position: relative;
   overflow: hidden;
 }
 
@@ -219,6 +220,15 @@ LAYOUT
 section {
   padding: var(--space-xxl);
   position: relative;
+}
+.p0 {
+  padding: 0;
+}
+
+.vector {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.8;
 }
 
 @media (max-width: 960px) {

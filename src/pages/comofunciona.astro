@@ -7,28 +7,36 @@ import SwiperComponentComoFunciona from "../components/SwiperComponentComoFuncio
 import IntegrationsSectionComplete from "../components/IntegrationsSectionComplete.astro";
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Como Funciona - Lucre+"
   description="Descubra como a Lucre+ pode te ajudar a lucrar mais com um passo a passo simples e transparente. Conecte-se com as principais ferramentas do mercado e comece a escalar seu negócio."
 >
-	<script type="application/ld+json" slot="head">
+  <script type="application/ld+json" slot="head">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://lucre.com/"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Como Funciona",
-        "item": "https://lucre.com/comofunciona"
-      }]
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lucre.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Como Funciona",
+          "item": "https://lucre.com/comofunciona"
+        }
+      ]
     }
   </script>
   <main>
+    <img
+      src="/vectors/Vector1.svg"
+      alt="Lucre+ Integrations"
+      class="vector vector-1--2"
+    />
     <ComoFuncionaSection
       mainTitle="Como funciona?"
       mainParagraph="Passo a passo para lucrar +"
@@ -40,24 +48,64 @@ import IntegrationsSectionComplete from "../components/IntegrationsSectionComple
       </p>
       <SwiperComponentComoFunciona />
     </section>
-  </main>
-  <CallToAction
-    subtitle="Pare de deixar dinheiro na mesa!"
-    title="Alavanque o seu negócio com as melhores taxas"
-    buttonText="Lucre mais agora"
-    buttonHref="https://api.whatsapp.com/send?phone=12982823850"
-    contentAlignment="left"
-    backgroundImage="/image 36.webp"
-  />
-  <IntegrationsSectionComplete />
-  <StandardCallToAction
+    <CallToAction
+      subtitle="Pare de deixar dinheiro na mesa!"
+      title="Alavanque o seu negócio com as melhores taxas"
+      buttonText="Lucre mais agora"
+      buttonHref="https://api.whatsapp.com/send?phone=12982823850"
+      contentAlignment="left"
+      backgroundImage="/image 36.webp"
+    />
+    <section class="p0">
+      <img
+        src="/vectors/Vector1.svg"
+        alt="Lucre+ Integrations"
+        class="vector vector-1"
+      />
+      <img
+      src="/vectors/Vector5.svg"
+      alt="Lucre+ Integrations"
+      class="vector vector-5"
+      />
+      <IntegrationsSectionComplete />
+    </section>
+    <StandardCallToAction
     title="Pronto para maximizar seus lucros?"
     buttonText="quero Lucrar mais agora"
     buttonLink="https://api.whatsapp.com/send?phone=12982823850"
     showParagraph={false}
-  />
+    />
+    <img
+      src="/vectors/Vector3.svg"
+      alt="Lucre+ Integrations"
+      class="vector vector-3"
+    />
+  </main>
 </BaseLayout>
 <style>
+  .vector-1 {
+    top: 8%;
+    left: 0%;
+    width: 8vw;
+    z-index: 10;
+  }
+  .vector-1--2 {
+    top: 4%;
+    right: 2%;
+    width: 8vw;
+    z-index: 10;
+  }
+  .vector-3 {
+    bottom: -1%;
+    left: 0%;
+    width: 60vw;
+    rotate: 180deg;
+  }
+  .vector-5 {
+    bottom: -25%;
+    right: 0;
+    width: 20vw;
+  }
   .comofunciona-section-feature-blocks-section {
     text-align: center;
     padding: 0 var(--space-xxl) var(--space-xxl);

@@ -191,6 +191,9 @@ const features = [
     ); /* Ensure consistent background */
     color: var(--color-text); /* Ensure consistent text color */
   }
+  main {
+    overflow: clip;
+  }
 
   .landing-logo-section {
     display: flex;
@@ -273,13 +276,13 @@ const features = [
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const formModal = document.getElementById('form-modal');
-    document.querySelectorAll('button').forEach(button => {
-      button.addEventListener('click', (event) => {
+  document.addEventListener("DOMContentLoaded", () => {
+    const formModal = document.getElementById("form-modal");
+    document.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", (event) => {
         // Prevent opening the modal if the clicked button is inside the modal itself
         if (!formModal.contains(event.target)) {
-          formModal.style.display = 'flex';
+          formModal.style.display = "flex";
         }
       });
     });
@@ -287,13 +290,13 @@ const features = [
 </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const formModal = document.getElementById('form-modal');
-    document.querySelectorAll('button').forEach(button => {
-      button.addEventListener('click', (event) => {
+  document.addEventListener("DOMContentLoaded", () => {
+    const formModal = document.getElementById("form-modal");
+    document.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", (event) => {
         // Prevent opening the modal if the clicked button is inside the modal itself
         if (!formModal.contains(event.target)) {
-          formModal.style.display = 'flex';
+          formModal.style.display = "flex";
         }
       });
     });

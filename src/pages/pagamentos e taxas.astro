@@ -11,29 +11,37 @@ import integrações from "../../public/integrações.webp";
 import coprodução from "../../public/coprodução.webp";
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Pagamentos e Taxas - Lucre+"
   description="Conheça as taxas competitivas e os prazos de recebimento da Lucre+. Oferecemos as melhores condições para você maximizar seus lucros."
 >
-	<script type="application/ld+json" slot="head">
+  <script type="application/ld+json" slot="head">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://lucre.com/"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Pagamentos e Taxas",
-        "item": "https://lucre.com/pagamentos-e-taxas"
-      }]
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lucre.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pagamentos e Taxas",
+          "item": "https://lucre.com/pagamentos-e-taxas"
+        }
+      ]
     }
   </script>
   <main>
     <section class="payments-section">
+      <img
+        src="/vectors/Vector4.svg"
+        alt="Lucre+ Integrations"
+        class="vector vector-4"
+      />
       <MeiosDePagamento />
     </section>
     <section id="highlight-section" style="padding: 0;">
@@ -86,6 +94,11 @@ import coprodução from "../../public/coprodução.webp";
 </BaseLayout>
 
 <style>
+  .vector-4 {
+    bottom: -12%;
+    left: -20%;
+    height: 7cqw;
+  }
   .payments-section {
     color: var(--color-button-text);
     text-align: left;
