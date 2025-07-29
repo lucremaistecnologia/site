@@ -1,7 +1,7 @@
 export async function post({ request }) {
   try {
     const data = await request.json();
-    const webhookUrl = import.meta.env.WEBHOOK_URL;
+    const webhookUrl = process.env.WEBHOOK_URL;
 
     if (!webhookUrl) {
       console.error("WEBHOOK_URL não está definida no arquivo .env");
