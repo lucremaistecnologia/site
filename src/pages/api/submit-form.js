@@ -1,7 +1,4 @@
-
-import type { APIRoute } from 'astro';
-
-export const POST: APIRoute = async ({ request }) => {
+export async function post({ request }) {
   try {
     const data = await request.json();
     const webhookUrl = import.meta.env.WEBHOOK_URL;
@@ -42,4 +39,4 @@ export const POST: APIRoute = async ({ request }) => {
       headers: { "Content-Type": "application/json" },
     });
   }
-};
+}
