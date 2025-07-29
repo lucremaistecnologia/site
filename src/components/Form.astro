@@ -142,6 +142,10 @@
     height: -webkit-fill-available;
     overflow: auto;
   }
+  h2 {
+    font-size: max(2em, 2.4cqw);
+    margin-bottom: var(--space-s);
+  }
   .integrations-modal {
     display: none; /* Hidden by default */
     position: fixed;
@@ -188,18 +192,18 @@
   }
 
   .form-group {
-    margin-bottom: var(--space-s);
+    margin-bottom: 2cqb;
   }
 
   .form-group label {
     display: block;
-    margin-bottom: var(--space-s);
+    margin-bottom: 1cqb;
     font-weight: var(--font-weight-semibold);
   }
 
   .form-field {
     width: 100%;
-    padding: var(--space-s);
+    padding: 2cqb;
     border: var(--border);
     border-radius: 0.7cqw;
     background-color: var(--color-background-light);
@@ -331,7 +335,7 @@
     };
 
     try {
-      const response = await fetch("URL_DO_SEU_WEBHOOK_AQUI", {
+      const response = await fetch("https://hooks.zapier.com/hooks/catch/14532270/uuz50q2/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
