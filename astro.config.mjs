@@ -1,5 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import dotenv from 'dotenv';
+
+dotenv.config();
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 const __filename = fileURLToPath(import.meta.url);

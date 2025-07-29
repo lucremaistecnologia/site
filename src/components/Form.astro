@@ -332,20 +332,8 @@
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(form);
-    const data = {
-      token: "HykZs0UcIzPqDM9ZMZ6HDph9KcwY74mfOp9TB7RXkY23KvOa2Qgy2DpufFrwfoca", // Exemplo de token
-      nome: formData.get("name"),
-      whatsapp: formData.get("whatsapp"),
-      email: formData.get("email"),
-      empresa: formData.get("company"),
-      cargo: formData.get("role"),
-      faturamentoAnual: formData.get("revenue"),
-      site: formData.get("site"),
-      instagram: formData.get("instagram"),
-      ajuda: formData.get("help"),
-      prioridade: formData.get("priority"),
-    };
+    const data = Object.fromEntries(new FormData(event.target));
+    data.token = "HykZs0UcIzPqDM9ZMZ6HDph9KcwY74mfOp9TB7RXkY23KvOa2Qgy2DpufFrwfoca"; // Exemplo de token
 
     try {
       const response = await fetch("/api/enviar-form", {
