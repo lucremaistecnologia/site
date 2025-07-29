@@ -1,4 +1,5 @@
 // src/pages/api/enviar-form.js
+export const prerender = false;
 export const post = async ({ request }) => {
   const data = await request.json();
 
