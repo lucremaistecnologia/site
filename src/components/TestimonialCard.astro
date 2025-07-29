@@ -36,6 +36,7 @@ const { testimonial, clientName, clientJob, avatar } = Astro.props;
     gap: max(0.8em, 1.2cqw); /* Adjusted gap, responsive with cqw */
     transition: transform 0.3s ease;
     width: 100%; /* Ensure cards take full width of their container */
+    height: clamp(14rem, 20cqw, 25rem); /* Responsive height */
     flex-shrink: 0; /* Prevent cards from shrinking */
   }
 

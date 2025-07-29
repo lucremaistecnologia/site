@@ -4,9 +4,7 @@ import LandingPageLayout from "../layouts/LandingPageLayout.astro";
 import TestimonialsSection from "../components/TestimonialsSection.astro";
 import StandardCallToAction from "../components/StandardCallToAction.astro";
 import FounderSection from "../components/FounderSection.astro";
-import FeatureBlock from "../components/FeatureBlock.astro";
 import FAQSection from "../components/FAQSection.astro";
-import NeedsSection from "../components/NeedsSection.astro";
 import HighlightSection from "../components/HighlightSection.astro";
 import heroImage from "../../public/heroimage.webp";
 import image36 from "../../public/image 36.webp";
@@ -15,39 +13,8 @@ import ForYou from "../components/ForYou.astro";
 import IntegrationsSection from "../components/IntegrationsSection.astro";
 import LucreLogoNormal from "../../public/logos/lucre+ logo normal.svg";
 import Form from "../components/Form.astro";
-
-const features = [
-  {
-    iconPath: "/icons/taxas.svg",
-    title: "As melhores taxas e prazos",
-    description: `Temos as melhores taxas do mercado para recebimento em dois dias úteis, trinta dias ou recebimento de uma parcela a cada mês. Tudo adequado para o seu negócio.`,
-  },
-  {
-    iconPath: "/icons/atendimento.svg",
-    title: "Atendimento concierge",
-    description: `Aqui você terá acesso direto a um gerente de contas que dará todo o suporte, incluindo a configuração de suas páginas de pagamento e integrações.`,
-  },
-  {
-    iconPath: "/icons/checkout.svg",
-    title: "Checkout personalizado",
-    description: `Na Lucre + entregamos páginas de pagamento de alta conversão com a identidade visual da sua empresa e de cada um dos produtos. Tudo para você vender mais.`,
-  },
-  {
-    iconPath: "/icons/icon.svg",
-    title: "Venda de assinaturas",
-    description: `Temos o modelo de cobrança por assinatura, também conhecido como recorrência, para que as cobranças aconteçam automaticamente no período desejado.`,
-  },
-  {
-    iconPath: "/icons/icon.svg",
-    title: "Sistema de coprodução",
-    description: `Temos toda a estrutura necessária para que o valor de cada venda seja dividida adequadamente entre os coprodutores de cada produto ou serviço vendido. `,
-  },
-  {
-    iconPath: "/icons/icon.svg",
-    title: "Notificações por WhatsApp",
-    description: `A cada venda realizada, abandono de carrinho ou alteração de status, receba uma mensagem por WhatsApp para não ficar por fora de nada.`,
-  },
-];
+import Swiper1 from "../components/SwiperComponentLanding1.astro";
+import Swiper2 from "../components/SwiperComponentLanding2.astro";
 ---
 
 <LandingPageLayout title="Lucre+ Landing Page">
@@ -69,117 +36,86 @@ const features = [
       <div class="video-placeholder">
         <video
           controls
-          src="/path/to/your/video.mp4"
+          src="/videos/This Christmas.mp4"
           poster="/path/to/your/video-poster.jpg"
+          id="vsl-video"
         >
           Seu navegador não suporta a tag de vídeo.
         </video>
       </div>
       <button class="primary">Quero Aumentar Meus Lucros Agora!</button>
     </section>
-    <section class="landing-feature-blocks-section">
-      <div class="feature-blocks-container">
-        <FeatureBlock
-          iconPath="/icons/icon.svg"
-          title="Cansado de taxas abusivas?"
-        >
-          <div slot="description">
-            <p>
-              As plataformas de vendas costumam praticar taxas muito maiores do
-              que as que de fato você poderia ter, aqui na Lucre + oferecemos
-              taxas justas para negócios que já faturam bem.
-            </p>
-          </div>
-        </FeatureBlock>
-        <FeatureBlock
-          iconPath="/icons/icon.svg"
-          title="Quer ter o atendimento que merece?"
-        >
-          <div slot="description">
-            <p>
-              As plataformas em geral tratam os clientes somente como números
-              sem nenhuma personalização no atendimento. Na Lucre + você tem um
-              gerente de contas concierge.
-            </p>
-          </div>
-        </FeatureBlock>
-        <FeatureBlock
-          iconPath="/icons/integrações.svg"
-          title="Quer ter liberdade nas integrações?"
-        >
-          <div slot="description">
-            <p>
-              Aqui na Lucre+ você tem acesso a mais de 90 integrações para
-              tornar sua operação prática e lucrativa, são integrações de áreas
-              de membros, automações e muito mais.
-            </p>
-          </div>
-        </FeatureBlock>
-      </div>
-    </section>
-    <NeedsSection
-      title="Do que você precisa?"
-      paragraph="Temos todas as funcionalidades que você precisa para vender mais, com maior praticidade e maior lucratividade."
-      buttonText="LUCRE AGORA!"
-      features={features}
-    />
+    <div id="vsl-content" style="display: none;">
+      <section class="landing-feature-blocks-section">
+        <Swiper1 />
+      </section>
+      <section class="needs-section">
+        <div class="needs-content-left">
+          <h1>O que você precisa para vender mais?</h1>
+          <p>
+            Temos todas as funcionalidades que você precisa para vender mais,
+            com maior praticidade e maior lucratividade.
+          </p>
+          <button class="primary">Lucre agora</button>
+        </div>
+        <div class="landing-feature-blocks-section needs-content-right">
+          <Swiper2 />
+        </div>
+      </section>
 
-    <HighlightSection
-      mainTitle="Comparação com concorrentes em forma de pergunta"
-      mainDescription="Essas fontes equilibram modernidade, sofisticação e acessibilidade, reforçando o posicionamento premium."
-      highlightItems={[
-        {
-          title: "Somos melhores nisso",
-          description: "Descrição para Somos melhores nisso.",
-          imageSrc: heroImage,
-        },
-        {
-          title: "Somos melhores nisso",
-          description: "Descrição para Somos melhores nisso.",
-          imageSrc: image36,
-        },
-        {
-          title: "Somos melhores nisso",
-          description: "Descrição para Somos melhores nisso.",
-          imageSrc: image58,
-        },
-        {
-          title: "Somos melhores nisso",
-          description: "Descrição para Somos melhores nisso.",
-          imageSrc: heroImage,
-        },
-      ]}
-    />
+      <HighlightSection
+        mainTitle="Comparação com concorrentes em forma de pergunta"
+        mainDescription="Essas fontes equilibram modernidade, sofisticação e acessibilidade, reforçando o posicionamento premium."
+        highlightItems={[
+          {
+            title: "Somos melhores nisso",
+            description: "Descrição para Somos melhores nisso.",
+            imageSrc: heroImage,
+          },
+          {
+            title: "Somos melhores nisso",
+            description: "Descrição para Somos melhores nisso.",
+            imageSrc: image36,
+          },
+          {
+            title: "Somos melhores nisso",
+            description: "Descrição para Somos melhores nisso.",
+            imageSrc: image58,
+          },
+          {
+            title: "Somos melhores nisso",
+            description: "Descrição para Somos melhores nisso.",
+            imageSrc: heroImage,
+          },
+        ]}
+      />
 
-    <section class="landing-simple-h1-section">
-      <h1>Comparativo</h1>
-    </section>
+      <IntegrationsSection />
 
-    <IntegrationsSection />
+      <TestimonialsSection />
 
-    <TestimonialsSection />
+      <ForYou />
 
-    <ForYou />
+      <StandardCallToAction
+        title="Pronto para maximizar seus lucros?"
+        paragraph="Temos as melhores soluções para suas vendas via cartão de crédito."
+        buttonText="quero Lucrar mais agora"
+        buttonLink="/contato"
+        showParagraph={true}
+      />
 
-    <StandardCallToAction
-      title="Pronto para maximizar seus lucros?"
-      paragraph="Temos as melhores soluções para suas vendas via cartão de crédito."
-      buttonText="quero Lucrar mais agora"
-      buttonLink="/contato"
-      showParagraph={true}
-    />
+      <FounderSection
+        title="Nosso Fundador"
+        description="Amós Silva é Engenheiro Aeronáutico formado pelo Instituto Tecnológico de Aeronáutica (ITA), mestre em Engenharia pelo mesmo instituto e também professor no ITA.<br/><br/>Após anos de experiência no mercado digital, na liderança de um curso online pré-vestibular que aprova alunos em vestibulares altamente concorridos como ITA, IME e USP, Amós identificou um grande desafio enfrentado por Mentores,Educadores e Empreendedores Digitais: <strong>as altas taxas cobradas pelas plataformas de pagamento tradicionais.</strong><br/><br/>Foi a partir dessa dor que surgiu a <strong>Lucre+</strong>, uma solução criada para ajudar esses profissionais a maximizarem seus lucros e terem mais autonomia sobre seus negócios no digital.<br/><br/><h4>“Solucionar problemas é melhorar vidas e transformar o nosso país”<br/><br/>Amós Silva</h4>"
+        imagePath="/amos.webp"
+      />
 
-    <FounderSection
-      title="Nosso Fundador"
-      description="Amós Silva é Engenheiro Aeronáutico formado pelo Instituto Tecnológico de Aeronáutica (ITA), mestre em Engenharia pelo mesmo instituto e também professor no ITA.<br/><br/>Após anos de experiência no mercado digital, na liderança de um curso online pré-vestibular que aprova alunos em vestibulares altamente concorridos como ITA, IME e USP, Amós identificou um grande desafio enfrentado por Mentores,Educadores e Empreendedores Digitais: <strong>as altas taxas cobradas pelas plataformas de pagamento tradicionais.</strong><br/><br/>Foi a partir dessa dor que surgiu a <strong>Lucre+</strong>, uma solução criada para ajudar esses profissionais a maximizarem seus lucros e terem mais autonomia sobre seus negócios no digital.<br/><br/><h4>“Solucionar problemas é melhorar vidas e transformar o nosso país”<br/><br/>Amós Silva</h4>"
-      imagePath="/amos.webp"
-    />
+      <FAQSection />
 
-    <FAQSection />
-
-    <footer class="landing-footer">
-      <p>Informações importantes</p>
-    </footer>
+      <footer class="landing-footer">
+        <p>Informações importantes</p>
+      </footer>
+    </div>
   </main>
   <Form />
 </LandingPageLayout>
@@ -247,31 +183,66 @@ const features = [
     padding: var(--space-xxl); /* Using global spacing variables */
     /* Removed redundant background-color as body already sets it */
   }
-
-  .feature-blocks-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20cqw, 1fr));
-    gap: 1.4cqw;
-    margin: 0 auto;
+  .needs-section {
+    display: flex;
+    gap: var(--space-m); /* Using global spacing */
+    padding: var(--space-xxl); /* Using global spacing */
+    background-color: hsla(228, 12%, 10%, 1);
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start; /* Ensure alignment for sticky behavior */
   }
-
-  .landing-simple-h1-section {
-    padding: var(--space-xxl); /* Using global spacing variables */
-    text-align: center;
-    /* Removed redundant background-color as body already sets it */
+  .needs-content-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m); /* Spacing between elements */
+    max-width: 50cqw; /* Limit width for readability */
+    position: sticky; /* Make it sticky */
+    top: 0; /* Stick to the top of the viewport */
+    align-self: flex-start; /* Ensure it aligns to the start within the flex container */
+    height: 100vh; /* Ensure it takes full viewport height to allow scrolling of content next to it */
+    justify-content: center; /* Center content vertically within the sticky element */
   }
-
-  .landing-simple-h1-section h1 {
+  .needs-content-right {
+    max-width: 50vw; /* Limit width for readability */
+    padding: 0;
+  }
+  .needs-content-left h1 {
     font-size: max(2.5em, 4cqw); /* Aligned with global h1 */
     color: var(--color-text);
+    margin-bottom: 0; /* Reset margin as gap handles spacing */
   }
-
+  .needs-content-left p {
+    font-size: max(1.1em, 1.5cqw); /* Aligned with global p */
+    color: var(--color-text);
+    line-height: var(--line-height-base);
+  }
   .landing-footer {
     background-color: var(--color-background); /* Match body background */
     color: var(--color-text);
     text-align: center;
     padding: var(--space-l); /* Using global spacing variable */
     border-top: 1px solid var(--color-background); /* Using background color for subtle border, or define a specific border color variable */
+  }
+  @media (max-width: 960px) {
+    .landing-feature-blocks-section {
+      padding: 8cqb 0;
+    }
+    .needs-section {
+      flex-direction: column;
+      padding: 8cqb;
+    }
+    .needs-content-left {
+      position: static;
+      height: auto;
+      max-width: 100%;
+      padding: var(--space-xxl);
+    }
+    .needs-content-right {
+      max-width: 100vw; /* Limit width for readability */
+      padding: 0;
+    }
   }
 </style>
 
@@ -287,6 +258,18 @@ const features = [
       });
     });
   });
+  const vslVideo = document.getElementById("vsl-video");
+  const vslContent = document.getElementById("vsl-content");
+  let contentShown = false;
+
+  if (vslVideo && vslContent) {
+    vslVideo.addEventListener("timeupdate", () => {
+      if (vslVideo.currentTime >= 120 && !contentShown) {
+        vslContent.style.display = "block";
+        contentShown = true;
+      }
+    });
+  }
 </script>
 
 <script>

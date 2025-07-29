@@ -48,7 +48,7 @@ import TestimonialCard from "./TestimonialCard.astro";
   const swiper = new Swiper("#testimonials-swiper", {
     modules: [Mousewheel],
     direction: "vertical",
-    slidesPerView: 2,
+    slidesPerView: 2.1,
     mousewheel: true,
     loop: true,
   });
@@ -75,7 +75,7 @@ import TestimonialCard from "./TestimonialCard.astro";
   }
   #testimonials-swiper {
     width: 100%;
-    max-height: 40cqw;
+    max-height: 80vh;
     mask-image: linear-gradient(
       to bottom,
       transparent,
@@ -98,6 +98,10 @@ import TestimonialCard from "./TestimonialCard.astro";
       justify-content: space-between;
       align-items: center; /* Align items vertically in the center */
       text-align: left;
+    }
+    #testimonials-swiper {
+      max-height: 45cqw;
+      ); /* Efeito de aparecimento/desaparecimento */
     }
   }
 </style>

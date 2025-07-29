@@ -24,9 +24,14 @@ Manter este arquivo atualizado é crucial para a colaboração da equipe e para 
 
   - [ ]
 
+- Landing Page:
+
+  - [x] coloquei um vídeo na pasta "site" chamado "This Christmas.mp4" sua tarefa é colocar ele na pasta correta e inserir na landing-page.
+  - [x] depois de inserir o video, quero aplicar uma tecnica de Video Sales Letter da seguinte forma: Todo conteudo abaixo do video só pode aparecer depois de 2 minutos de video
+
 - Versão mobile do site @media (max-width: 960px):
 
-  - [ ]
+  - [x] Na landing-page.astro, configure a .needs-section para column corretamente, e remova o sticky do .needs-content-left
 
 - SEO:
 
