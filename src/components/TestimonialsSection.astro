@@ -10,94 +10,51 @@ import TestimonialCard from "./TestimonialCard.astro";
       empresários.
     </p>
   </div>
-  <div class="testimonials-slider-container">
-    <div class="testimonials-slider">
-      <TestimonialCard
-        testimonial="Tínhamos muitos problemas com a aprovação das vendas, mas a Lucre + aumentou exponencialmente nossas taxas de aprovação e com isso nossa lucratividade."
-        clientName="Jeykson Kalyl"
-        clientJob="Mentor em Gestão de Milhas Aéreas"
-        avatar="/Jeykson kalyl.webp"
-      />
-      <TestimonialCard
-        testimonial="A redução de taxas sobre as vendas aumentaram nossa lucratividade e a praticidade para gerar novos links via WhatsApp"
-        clientName="Renan Pires"
-        clientJob="Mentor de Empresários de Alto Desempenho"
-        avatar="/Renan Pires.webp"
-      />
-      <TestimonialCard
-        testimonial="A redução de taxas aumentou a lucratividade do nosso negócio, mas o que me impressionou mais além disso foi o atendimento sempre próximo e disposto sem a nos atender da melhor forma."
-        clientName="Idma Socha"
-        clientJob="Nutricionista Gestacional"
-        avatar="/Idma Socha.webp"
-      />
+  <div id="testimonials-swiper" class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <TestimonialCard
+          testimonial="Tínhamos muitos problemas com a aprovação das vendas, mas a Lucre + aumentou exponencialmente nossas taxas de aprovação e com isso nossa lucratividade."
+          clientName="Jeykson Kalyl"
+          clientJob="Mentor em Gestão de Milhas Aéreas"
+          avatar="/Jeykson kalyl.webp"
+        />
+      </div>
+      <div class="swiper-slide">
+        <TestimonialCard
+          testimonial="A redução de taxas sobre as vendas aumentaram nossa lucratividade e a praticidade para gerar novos links via WhatsApp"
+          clientName="Renan Pires"
+          clientJob="Mentor de Empresários de Alto Desempenho"
+          avatar="/Renan Pires.webp"
+        />
+      </div>
+      <div class="swiper-slide">
+        <TestimonialCard
+          testimonial="A redução de taxas aumentou a lucratividade do nosso negócio, mas o que me impressionou mais além disso foi o atendimento sempre próximo e disposto sem a nos atender da melhor forma."
+          clientName="Idma Socha"
+          clientJob="Nutricionista Gestacional"
+          avatar="/Idma Socha.webp"
+        />
+      </div>
     </div>
   </div>
 </section>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sliderContainer = document.querySelector(
-      ".testimonials-slider-container"
-    );
-    const slider = document.querySelector(".testimonials-slider");
-    if (!slider || !sliderContainer) return;
+<script>
+  import Swiper from "swiper";
+  import { Mousewheel } from "swiper/modules";
+  import "swiper/css";
 
-    const cards = Array.from(slider.children);
-    if (cards.length === 0) return;
-
-    const cardHeight =
-      cards[0].offsetHeight + parseFloat(getComputedStyle(slider).gap);
-
-    const totalCards = cards.length;
-    const visibleCards = 3;
-    let currentIndex = 0;
-    let slideInterval;
-
-    for (let i = 0; i < visibleCards; i++) {
-      slider.appendChild(cards[i].cloneNode(true));
-    }
-
-    function slideTestimonials() {
-      currentIndex++;
-      slider.style.transform = `translateY(-${currentIndex * cardHeight}px)`;
-
-      if (currentIndex >= totalCards) {
-        setTimeout(() => {
-          slider.style.transition = "none";
-          currentIndex = 0;
-          slider.style.transform = `translateY(-${currentIndex * cardHeight}px)`;
-        }, 500);
-        setTimeout(() => {
-          slider.style.transition = "transform 0.5s ease-in-out";
-        }, 550);
-      }
-    }
-
-    function startSlider() {
-      slideInterval = setInterval(slideTestimonials, 3000);
-    }
-
-    function stopSlider() {
-      clearInterval(slideInterval);
-    }
-
-    // Iniciar a rolagem automática
-    startSlider();
-
-    // Pausar ao passar o mouse
-    sliderContainer.addEventListener("mouseenter", stopSlider);
-
-    // Retomar ao tirar o mouse
-    sliderContainer.addEventListener("mouseleave", startSlider);
+  const swiper = new Swiper("#testimonials-swiper", {
+    modules: [Mousewheel],
+    direction: "vertical",
+    slidesPerView: 2,
+    mousewheel: true,
+    loop: true,
   });
 </script>
 
-<style
-  define:vars={{
-    testimonialCardHeight: "max(12em, 18cqw)" /* Valor fixo para depuração */,
-    testimonialCardGap: "2cqw" /* Valor fixo para depuração */,
-  }}
->
+<style>
   /* Testimonials Section */
   .testimonials-section {
     background-color: var(--color-background-light);
@@ -107,26 +64,18 @@ import TestimonialCard from "./TestimonialCard.astro";
     color: var(--color-button-text);
     text-align: center;
   }
-
   .testimonials-content {
     text-align: left;
   }
-
   .testimonials-content h2 {
     font-size: max(2.2em, 3.4cqw);
     margin-bottom: 1.5cqb;
     font-weight: var(--font-weight-bold);
     font-family: "Montserrat", sans-serif;
   }
-
-  .testimonials-slider-container {
-    /* Calculate height for 3 cards dynamically based on card height and margin */
-    height: calc(
-      3 * var(--testimonialCardHeight) + 2 * var(--testimonialCardGap)
-    );
-    position: relative;
+  #testimonials-swiper {
     width: 100%;
-    box-shadow: 0px 8px 20px hsl(218, 15%, 14%); /* Sombra mais pronunciada no hover */
+    max-height: 40cqw;
     mask-image: linear-gradient(
       to bottom,
       transparent,
@@ -136,16 +85,10 @@ import TestimonialCard from "./TestimonialCard.astro";
     ); /* Efeito de aparecimento/desaparecimento */
   }
 
-  .testimonials-slider {
+  .swiper-slide {
     display: flex;
-    flex-direction: column;
-    gap: var(--testimonialCardGap);
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .testimonial-card {
-    height: var(--testimonialCardHeight);
-    flex-shrink: 0; /* Prevent cards from shrinking */
+    justify-content: center;
+    align-items: center;
   }
 
   /* Desktop layout for testimonials (a partir de 960px) */
@@ -155,12 +98,6 @@ import TestimonialCard from "./TestimonialCard.astro";
       justify-content: space-between;
       align-items: center; /* Align items vertically in the center */
       text-align: left;
-    }
-
-    .testimonials-slider-container {
-      height: calc(
-        3 * var(--testimonialCardHeight) + 2 * var(--testimonialCardGap)
-      );
     }
   }
 </style>

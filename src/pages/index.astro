@@ -150,64 +150,6 @@ import Swiper from "../components/SwiperComponent.astro";
   </main>
 </BaseLayout>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sliderContainer = document.querySelector(
-      ".testimonials-slider-container"
-    );
-    const slider = document.querySelector(".testimonials-slider");
-    if (!slider || !sliderContainer) return;
-
-    const cards = Array.from(slider.children);
-    if (cards.length === 0) return;
-
-    const cardHeight =
-      cards[0].offsetHeight + parseFloat(getComputedStyle(slider).gap);
-
-    const totalCards = cards.length;
-    const visibleCards = 3;
-    let currentIndex = 0;
-    let slideInterval;
-
-    for (let i = 0; i < visibleCards; i++) {
-      slider.appendChild(cards[i].cloneNode(true));
-    }
-
-    function slideTestimonials() {
-      currentIndex++;
-      slider.style.transform = `translateY(-${currentIndex * cardHeight}px)`;
-
-      if (currentIndex >= totalCards) {
-        setTimeout(() => {
-          slider.style.transition = "none";
-          currentIndex = 0;
-          slider.style.transform = `translateY(-${currentIndex * cardHeight}px)`;
-        }, 500);
-        setTimeout(() => {
-          slider.style.transition = "transform 0.5s ease-in-out";
-        }, 550);
-      }
-    }
-
-    function startSlider() {
-      slideInterval = setInterval(slideTestimonials, 3000);
-    }
-
-    function stopSlider() {
-      clearInterval(slideInterval);
-    }
-
-    // Iniciar a rolagem automática
-    startSlider();
-
-    // Pausar ao passar o mouse
-    sliderContainer.addEventListener("mouseenter", stopSlider);
-
-    // Retomar ao tirar o mouse
-    sliderContainer.addEventListener("mouseleave", startSlider);
-  });
-</script>
-
 <style>
   /* Estilos da Seção Clientes */
   .clientes-section {
