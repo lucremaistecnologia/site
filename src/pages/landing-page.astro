@@ -34,17 +34,15 @@ import Swiper2 from "../components/SwiperComponentLanding2.astro";
     <section class="landing-hero-section">
       <h1>Descubra como você pode reduzir as taxas sobre as vendas</h1>
       <div class="video-placeholder">
-        <video
-          controls
-          src="/videos/This Christmas.mp4"
-          id="vsl-video"
-        >
+        <video controls src="/videos/This Christmas.mp4" id="vsl-video">
           Seu navegador não suporta a tag de vídeo.
         </video>
       </div>
-      <button class="primary">Quero Aumentar Meus Lucros Agora!</button>
     </section>
     <div id="vsl-content" style="display: none;">
+      <div class="button">
+        <button class="primary">Quero Aumentar Meus Lucros Agora!</button>
+      </div>
       <section class="landing-feature-blocks-section">
         <Swiper1 />
       </section>
@@ -129,7 +127,6 @@ import Swiper2 from "../components/SwiperComponentLanding2.astro";
   main {
     overflow: clip;
   }
-
   .landing-logo-section {
     display: flex;
     justify-content: center;
@@ -168,14 +165,19 @@ import Swiper2 from "../components/SwiperComponentLanding2.astro";
     height: 100%;
     object-fit: cover;
   }
-
-  .landing-hero-section button.primary {
-    /* Relying on global.css for button styles */
-    /* Removed redundant styles */
+  .button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-l); /* Using global spacing variable */
   }
-
-  .landing-hero-section button.primary:hover {
-    /* Relying on global.css for button hover styles */
+  .button button.primary {
+    background-color: var(--color-button-background);
+    color: var(--color-button-text);
+    padding: var(--space-s) var(--space-m);
+    font-size: var(--space-s);
+    border-radius: var(--border-radius);
+    cursor: pointer;
   }
 
   .landing-feature-blocks-section {

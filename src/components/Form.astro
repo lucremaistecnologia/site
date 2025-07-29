@@ -14,38 +14,42 @@
             required
           />
         </div>
-        <div class="form-group">
-          <label for="whatsapp">WhatsApp:*</label>
-          <input
-            type="text"
-            id="whatsapp"
-            name="whatsapp"
-            class="form-field"
-            required
-          />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp:*</label>
+            <input
+              type="text"
+              id="whatsapp"
+              name="whatsapp"
+              class="form-field"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail:*</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-field"
+              required
+            />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="email">E-mail:*</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-field"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="site">Site:</label>
-          <input type="text" id="site" name="site" class="form-field" />
-        </div>
-        <div class="form-group">
-          <label for="instagram">Instagram:</label>
-          <input
-            type="text"
-            id="instagram"
-            name="instagram"
-            class="form-field"
-          />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="site">Site:</label>
+            <input type="text" id="site" name="site" class="form-field" />
+          </div>
+          <div class="form-group">
+            <label for="instagram">Instagram:</label>
+            <input
+              type="text"
+              id="instagram"
+              name="instagram"
+              class="form-field"
+            />
+          </div>
         </div>
       </div>
       <div class="section">
@@ -189,6 +193,15 @@
 
   .section:not(:first-child) {
     display: none;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .form-row .form-group {
+    flex: 1;
   }
 
   .form-group {
@@ -335,13 +348,16 @@
     };
 
     try {
-      const response = await fetch("https://hooks.zapier.com/hooks/catch/14532270/uuz50q2/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "https://hooks.zapier.com/hooks/catch/14532270/uuz50q2/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (response.ok) {
         alert("Formulário enviado com sucesso!");
