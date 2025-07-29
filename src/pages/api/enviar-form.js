@@ -8,7 +8,7 @@ export const post = async ({ request }) => {
   headers.set('Access-Control-Allow-Origin', '*');
   headers.set('Access-Control-Allow-Methods', 'POST');
   headers.set('Access-Control-Allow-Headers', 'Content-Type');
-  
+
   // 1. Valide os dados aqui (recomendo Zod)
   // 2. Envie para o webhook externo
   const webhookURL = process.env.WEBHOOK_URL; // Mantendo process.env.WEBHOOK_URL
@@ -20,7 +20,7 @@ export const post = async ({ request }) => {
       headers: { ...Object.fromEntries(headers.entries()), "Content-Type": "application/json" },
     });
   }
-  
+
   try {
     const response = await fetch(webhookURL, {
       method: 'POST',
