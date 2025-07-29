@@ -1,5 +1,5 @@
 // src/pages/api/enviar-form.js
-export const post = async ({ request }) => {
+export async function POST({ request }) {
   const data = await request.json();
 
   // Adiciona os headers CORS
