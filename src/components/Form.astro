@@ -1,61 +1,109 @@
-
 <div id="form-modal" class="integrations-modal">
   <div class="integrations-modal-content">
     <span class="integrations-modal-close">&times;</span>
     <form>
       <div class="section">
-        <h2 class="text-xl font-bold mb-4">Dados Pessoais</h2>
-        <div class="mb-4">
-          <label for="name" class="block text-gray-700">Nome:*</label>
-          <input type="text" id="name" name="name" class="form-field" required>
+        <h2>Dados Pessoais</h2>
+        <div class="form-group">
+          <label for="name">Nome:*</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-field"
+            required
+          />
         </div>
-        <div class="mb-4">
-          <label for="whatsapp" class="block text-gray-700">WhatsApp:*</label>
-          <input type="text" id="whatsapp" name="whatsapp" class="form-field" required>
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp:*</label>
+          <input
+            type="text"
+            id="whatsapp"
+            name="whatsapp"
+            class="form-field"
+            required
+          />
         </div>
-        <div class="mb-4">
-          <label for="email" class="block text-gray-700">E-mail:*</label>
-          <input type="email" id="email" name="email" class="form-field" required>
+        <div class="form-group">
+          <label for="email">E-mail:*</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-field"
+            required
+          />
         </div>
-        <div class="mb-4">
-          <label for="site" class="block text-gray-700">Site:</label>
-          <input type="text" id="site" name="site" class="form-field">
+        <div class="form-group">
+          <label for="site">Site:</label>
+          <input type="text" id="site" name="site" class="form-field" />
         </div>
-        <div class="mb-4">
-          <label for="instagram" class="block text-gray-700">Instagram:</label>
-          <input type="text" id="instagram" name="instagram" class="form-field">
+        <div class="form-group">
+          <label for="instagram">Instagram:</label>
+          <input
+            type="text"
+            id="instagram"
+            name="instagram"
+            class="form-field"
+          />
         </div>
       </div>
       <div class="section">
-        <h2 class="text-xl font-bold mb-4">Informações da Empresa</h2>
-        <div class="mb-4">
-          <label for="company" class="block text-gray-700">Empresa:*</label>
-          <input type="text" id="company" name="company" class="form-field" required>
+        <h2>Informações da Empresa</h2>
+        <div class="form-group">
+          <label for="company">Empresa:*</label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            class="form-field"
+            required
+          />
         </div>
-        <div class="mb-4">
-          <label for="role" class="block text-gray-700">Cargo ou função:*</label>
-          <input type="text" id="role" name="role" class="form-field" required>
+        <div class="form-group">
+          <label for="role">Cargo ou função:*</label>
+          <input
+            type="text"
+            id="role"
+            name="role"
+            class="form-field"
+            required
+          />
         </div>
-        <div class="mb-4">
-          <label for="revenue" class="block text-gray-700">Qual é o Faturamento anual da empresa em reais?*</label>
+        <div class="form-group">
+          <label for="revenue"
+            >Qual é o Faturamento anual da empresa em reais?*</label
+          >
           <select id="revenue" name="revenue" class="form-field" required>
             <option value="até 1 Milhão">até 1 Milhão</option>
-            <option value="entre 1 Milhão e 2 Milhões">entre 1 Milhão e 2 Milhões</option>
-            <option value="entre 2 Milhões e 10 Milhões">entre 2 Milhões e 10 Milhões</option>
-            <option value="entre 10 Milhões e 30 Milhões">entre 10 Milhões e 30 Milhões</option>
-            <option value="entre 30 Milhões e 50 Milhões">entre 30 Milhões e 50 Milhões</option>
+            <option value="entre 1 Milhão e 2 Milhões"
+              >entre 1 Milhão e 2 Milhões</option
+            >
+            <option value="entre 2 Milhões e 10 Milhões"
+              >entre 2 Milhões e 10 Milhões</option
+            >
+            <option value="entre 10 Milhões e 30 Milhões"
+              >entre 10 Milhões e 30 Milhões</option
+            >
+            <option value="entre 30 Milhões e 50 Milhões"
+              >entre 30 Milhões e 50 Milhões</option
+            >
             <option value="maior que 50 Milhões">maior que 50 Milhões</option>
           </select>
         </div>
       </div>
       <div class="section">
-        <h2 class="text-xl font-bold mb-4">Como podemos ajudar?</h2>
-        <div class="mb-4">
-          <label for="help" class="block text-gray-700">Como você gostaria que a Lucre+ ajudasse o seu negócio?</label>
+        <h2>Como podemos ajudar?</h2>
+        <div class="form-group">
+          <label for="help"
+            >Como você gostaria que a Lucre+ ajudasse o seu negócio?</label
+          >
           <textarea id="help" name="help" class="form-field"></textarea>
         </div>
-        <div class="mb-4">
-          <label for="priority" class="block text-gray-700">Qual o nível de prioridade que gostaria para o seu atendimento:*</label>
+        <div class="form-group">
+          <label for="priority"
+            >Qual o nível de prioridade que gostaria para o seu atendimento:*</label
+          >
           <select id="priority" name="priority" class="form-field" required>
             <option value="1">em até uma semana</option>
             <option value="2">até o fim do dia</option>
@@ -64,25 +112,41 @@
           </select>
         </div>
       </div>
-      <div class="flex justify-between items-center mt-4">
-        <button type="button" id="prevBtn" class="secondary">&larr; Anterior</button>
-        <div class="flex space-x-2">
+      <div class="form-actions">
+        <button type="button" id="prevBtn" class="secondary"
+          >&larr; Anterior</button
+        >
+        <div class="dots-container">
           <span class="dot active"></span>
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
-        <button type="button" id="nextBtn" class="primary">Próximo &rarr;</button>
-        <button type="submit" id="submitBtn" class="primary hidden">Enviar</button>
+        <div>
+          <button type="button" id="nextBtn" class="primary"
+            >Próximo &rarr;</button
+          >
+          <button type="submit" id="submitBtn" class="primary hidden"
+            >Enviar</button
+          >
+        </div>
       </div>
     </form>
   </div>
 </div>
 
 <style>
+  .hidden {
+    display: none;
+  }
+  form {
+    height: -webkit-fill-available;
+    overflow: auto;
+  }
   .integrations-modal {
     display: none; /* Hidden by default */
     position: fixed;
     align-items: center;
+    justify-content: center;
     z-index: 1000;
     left: 0;
     top: 0;
@@ -95,11 +159,12 @@
   .integrations-modal-content {
     background-color: var(--color-background);
     margin: 5% auto;
-    padding: 20px;
+    padding: var(--space-m);
     border: var(--border);
-    border-radius: clamp(1rem, 1.5cqw, 8rem);
+    border-radius: var(--border-radius);
     width: 90%;
     max-width: 600px;
+    height: 90vh;
     position: relative;
   }
 
@@ -117,27 +182,26 @@
     text-decoration: none;
     cursor: pointer;
   }
-  .dot {
-    height: 10px;
-    width: 10px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-  }
-  .dot.active {
-    background-color: #717171;
-  }
-  /* Ensure only the first section is visible by default */
+
   .section:not(:first-child) {
     display: none;
   }
 
-  /* New styles for form fields */
+  .form-group {
+    margin-bottom: var(--space-s);
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: var(--space-s);
+    font-weight: var(--font-weight-semibold);
+  }
+
   .form-field {
     width: 100%;
-    padding: var(--space-xs);
+    padding: var(--space-s);
     border: var(--border);
-    border-radius: var(--border-radius);
+    border-radius: 0.7cqw;
     background-color: var(--color-background-light);
     color: var(--color-text);
     font-family: var(--font-secondary);
@@ -156,7 +220,6 @@
     opacity: 0.7;
   }
 
-  /* Style for select dropdown arrow */
   select.form-field {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -167,61 +230,127 @@
     background-size: 0.65em auto;
     padding-right: 2.5em;
   }
+
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-l);
+  }
+
+  .dots-container {
+    display: flex;
+    gap: var(--space-xs);
+  }
+
+  .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot.active {
+    background-color: #717171;
+  }
 </style>
 
 <script>
-  const modal = document.getElementById('form-modal');
-  const closeModal = document.querySelector('.integrations-modal-close');
-  const sections = document.querySelectorAll('.section');
-  const dots = document.querySelectorAll('.dot');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const submitBtn = document.getElementById('submitBtn');
+  const modal = document.getElementById("form-modal");
+  const closeModal = document.querySelector(".integrations-modal-close");
+  const sections = document.querySelectorAll(".section");
+  const dots = document.querySelectorAll(".dot");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const submitBtn = document.getElementById("submitBtn");
   let currentSection = 0;
 
   function showSection(sectionIndex) {
     sections.forEach((section, index) => {
-      section.style.display = (index === sectionIndex) ? 'block' : 'none';
+      section.style.display = index === sectionIndex ? "block" : "none";
     });
     dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === sectionIndex);
+      dot.classList.toggle("active", index === sectionIndex);
     });
-    prevBtn.style.display = (sectionIndex === 0) ? 'none' : 'inline-block';
-    
+    prevBtn.style.display = sectionIndex === 0 ? "none" : "inline-block";
+
     // Logic for Next and Submit buttons
     if (sectionIndex === sections.length - 1) {
-      nextBtn.style.display = 'none'; // Hide Next button on last section
-      submitBtn.style.display = 'inline-block'; // Show Submit button on last section
+      nextBtn.style.display = "none"; // Hide Next button on last section
+      submitBtn.style.display = "inline-block"; // Show Submit button on last section
     } else {
-      nextBtn.style.display = 'inline-block'; // Show Next button on other sections
-      submitBtn.style.display = 'none'; // Hide Submit button on other sections
+      nextBtn.style.display = "inline-block"; // Show Next button on other sections
+      submitBtn.style.display = "none"; // Hide Submit button on other sections
     }
   }
 
-  prevBtn.addEventListener('click', () => {
+  prevBtn.addEventListener("click", () => {
     if (currentSection > 0) {
       currentSection--;
       showSection(currentSection);
     }
   });
 
-  nextBtn.addEventListener('click', () => {
+  nextBtn.addEventListener("click", () => {
     if (currentSection < sections.length - 1) {
       currentSection++;
       showSection(currentSection);
     }
   });
 
-  closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
   });
 
-  modal.addEventListener('click', (event) => {
+  modal.addEventListener("click", (event) => {
     if (event.target === modal) {
-      modal.style.display = 'none';
+      modal.style.display = "none";
     }
   });
 
   // Initialize the first section on page load
   showSection(currentSection);
+
+  const form = document.querySelector("form");
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const data = {
+      token: "HykZs0UcIzPqDM9ZMZ6HDph9KcwY74mfOp9TB7RXkY23KvOa2Qgy2DpufFrwfoca", // Exemplo de token
+      nome: formData.get("name"),
+      whatsapp: formData.get("whatsapp"),
+      email: formData.get("email"),
+      empresa: formData.get("company"),
+      cargo: formData.get("role"),
+      faturamentoAnual: formData.get("revenue"),
+      site: formData.get("site"),
+      instagram: formData.get("instagram"),
+      ajuda: formData.get("help"),
+      prioridade: formData.get("priority"),
+    };
+
+    try {
+      const response = await fetch("URL_DO_SEU_WEBHOOK_AQUI", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        alert("Formulário enviado com sucesso!");
+        modal.style.display = "none";
+        form.reset();
+        currentSection = 0;
+        showSection(currentSection);
+      } else {
+        alert("Ocorreu um erro ao enviar o formulário.");
+      }
+    } catch (error) {
+      console.error("Erro:", error);
+      alert("Ocorreu um erro ao enviar o formulário.");
+    }
+  });
 </script>

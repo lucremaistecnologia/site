@@ -22,12 +22,14 @@ Manter este arquivo atualizado é crucial para a colaboração da equipe e para 
 
 - Footer:
 
-  - [ ]
+  - [ ] no footer, temos os links de "Política de Privacidade" e "Termos de Uso". adicione também o link "Política de Cookies"
+  - [ ] Crie uma página para "Política de Privacidade", "Termos de Uso" e "Política de Cookies". O conteúdo está nos arquivos "Política de Cookies.md", "Política de Privacidade.md" e "Termos de Uso.md
 
 - Landing Page:
 
   - [x] coloquei um vídeo na pasta "site" chamado "This Christmas.mp4" sua tarefa é colocar ele na pasta correta e inserir na landing-page.
   - [x] depois de inserir o video, quero aplicar uma tecnica de Video Sales Letter da seguinte forma: Todo conteudo abaixo do video só pode aparecer depois de 2 minutos de video
+  - [x] section-for-you: Sua tarefa é alterar os feature-blocks alterando os svgs "check" e "cancel" para os que estão na pasta icons, eles deve ficar em um div com o background --color-background, --border-radius e --border
 
 - Versão mobile do site @media (max-width: 960px):
 
