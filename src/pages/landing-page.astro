@@ -15,6 +15,12 @@ import LucreLogoNormal from "../../public/logos/lucre+ logo normal.svg";
 import Form from "../components/Form.astro";
 import Swiper1 from "../components/SwiperComponentLanding1.astro";
 import Swiper2 from "../components/SwiperComponentLanding2.astro";
+import taxas from "../../public/taxas.webp";
+import aprovação from "../../public/aprovação.webp";
+import integrações from "../../public/integrações.webp";
+import coprodução from "../../public/coprodução.webp";
+import destaque from "../../public/destaque.webp";
+import ofertas from "../../public/ofertas.webp";
 ---
 
 <LandingPageLayout title="Lucre+ Landing Page">
@@ -33,9 +39,13 @@ import Swiper2 from "../components/SwiperComponentLanding2.astro";
     <section class="landing-hero-section">
       <h1>Descubra como você pode reduzir as taxas sobre as vendas</h1>
       <div class="video-placeholder">
-        <video controls src="/videos/This Christmas.mp4" id="vsl-video">
+        <video autoplay muted playsinline src="/videos/This Christmas.mp4" id="vsl-video">
           Seu navegador não suporta a tag de vídeo.
         </video>
+        <div id="unmute-overlay" class="unmute-overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sound"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+          <span>Clique para ativar o som</span>
+        </div>
       </div>
     </section>
     <div id="vsl-content" style="display: none;">
@@ -58,33 +68,49 @@ import Swiper2 from "../components/SwiperComponentLanding2.astro";
           <Swiper2 />
         </div>
       </section>
-
-      <HighlightSection
-        mainTitle="Comparação com concorrentes em forma de pergunta"
-        mainDescription="Essas fontes equilibram modernidade, sofisticação e acessibilidade, reforçando o posicionamento premium."
-        highlightItems={[
-          {
-            title: "Somos melhores nisso",
-            description: "Descrição para Somos melhores nisso.",
-            imageSrc: heroImage,
-          },
-          {
-            title: "Somos melhores nisso",
-            description: "Descrição para Somos melhores nisso.",
-            imageSrc: image36,
-          },
-          {
-            title: "Somos melhores nisso",
-            description: "Descrição para Somos melhores nisso.",
-            imageSrc: image58,
-          },
-          {
-            title: "Somos melhores nisso",
-            description: "Descrição para Somos melhores nisso.",
-            imageSrc: heroImage,
-          },
-        ]}
-      />
+      <section id="highlight-section" style="padding: 0;">
+        <HighlightSection
+          mainTitle="Temos os melhores benefícios para o seu negócio"
+          highlightItems={[
+            {
+              title: "As melhores taxas e prazos",
+              description:
+                "Temos as melhores taxas do mercado para recebimento em dois dias úteis, trinta dias ou recebimento de uma parcela a cada mês.",
+              imageSrc: taxas,
+            },
+            {
+              title: "Aprovação de vendas maior que 98%",
+              description:
+                "Garantimos altas taxas de aprovação sobre as vendas com cartão de crédito, impedindo o bloqueio indevido de vendas e redução de conversão.",
+              imageSrc: aprovação,
+            },
+            {
+              title: "Criação de ofertas por WhatsApp",
+              description:
+                "Quer mais agilidade para vender? Na Lucre + você consegue gerar ofertas com novos preços conversando pelo WhatsApp com nossa IA de atendimento. Rápido, prático e eficiente para quem vende com processo comercial estruturado.",
+              imageSrc: ofertas,
+            },
+            {
+              title: "Venda de assinaturas",
+              description:
+                "Você pode escolher o período de recorrência que melhor se adapta ao seu negócio.",
+              imageSrc: destaque,
+            },
+            {
+              title: "Mais de 90 integrações",
+              description:
+                "Temos integrações com áreas de membros, pixels de conversão, recuperação de vendas, sistemas de automação, emissão de notas fiscais e muitas outras.",
+              imageSrc: integrações,
+            },
+            {
+              title: "Sistema de coprodução",
+              description:
+                "Temos toda a estrutura necessária para que o valor de cada venda seja dividida adequadamente entre os coprodutores de cada produto ou serviço vendido.",
+              imageSrc: coprodução,
+            },
+          ]}
+        />
+      </section>
 
       <IntegrationsSection />
 
@@ -157,6 +183,31 @@ import Swiper2 from "../components/SwiperComponentLanding2.astro";
     justify-content: center;
     color: #fff; /* Consider defining a global placeholder text color */
     font-size: max(1.5rem, 2.5cqw); /* Using max() for consistency */
+    position: relative; /* Add relative positioning to contain the overlay */
+  }
+
+  .unmute-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .unmute-overlay .icon-sound {
+    margin-bottom: 1rem;
+  }
+
+  .unmute-overlay span {
+    font-size: 1.2rem;
   }
 
   .video-placeholder video {
@@ -260,6 +311,7 @@ import Swiper2 from "../components/SwiperComponentLanding2.astro";
   });
   const vslVideo = document.getElementById("vsl-video");
   const vslContent = document.getElementById("vsl-content");
+  const unmuteOverlay = document.getElementById("unmute-overlay");
   let contentShown = false;
 
   if (vslVideo && vslContent) {
@@ -268,6 +320,13 @@ import Swiper2 from "../components/SwiperComponentLanding2.astro";
         vslContent.style.display = "block";
         contentShown = true;
       }
+    });
+  }
+
+  if (unmuteOverlay && vslVideo) {
+    unmuteOverlay.addEventListener("click", () => {
+      vslVideo.muted = false;
+      unmuteOverlay.style.display = "none";
     });
   }
 </script>
