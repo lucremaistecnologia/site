@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css"; /* Importa o CSS global */
+import Form from "../components/Form.astro";
 
 interface Props {
   title: string;
@@ -27,6 +28,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
+    <Form />
   </body>
 </html>
 <style is:global>
@@ -45,15 +47,45 @@ const { title } = Astro.props;
   }
 </style>
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+  console.log("LandingPageLayout.astro script is executing!");
+
+  // Define handleButtonClick outside to ensure a stable reference for removeEventListener
+  function handleButtonClick(event) {
     const formModal = document.getElementById("form-modal");
-    document.querySelectorAll("button").forEach((button) => {
-      button.addEventListener("click", (event) => {
-        // Prevent opening the modal if the clicked button is inside the modal itself
-        if (!formModal.contains(event.target)) {
-          formModal.style.display = "flex";
-        }
-      });
+    console.log("Button clicked! Event target:", event.target);
+    if (formModal) {
+      console.log("formModal found. Current display:", formModal.style.display);
+      // Prevent opening the modal if the clicked button is inside the modal itself
+      if (!formModal.contains(event.target)) {
+        formModal.style.display = "flex";
+        console.log("formModal display set to flex.");
+      } else {
+        console.log("Click originated inside formModal, not opening.");
+      }
+    } else {
+      console.error("formModal not found when button was clicked.");
+    }
+  }
+
+  function initializeModal() {
+    const formModal = document.getElementById("form-modal");
+    console.log("initializeModal called.");
+    if (!formModal) {
+      console.error("formModal element not found during initialization.");
+      return;
+    }
+    console.log("formModal found during initialization.");
+
+    document.querySelectorAll("button.primary").forEach((button) => {
+      console.log("Attaching listener to button:", button);
+      button.removeEventListener("click", handleButtonClick); // Remove existing to prevent duplicates
+      button.addEventListener("click", handleButtonClick);
     });
-  });
+  }
+
+  // Add the listener for the DOMContentLoaded event
+  document.addEventListener("DOMContentLoaded", initializeModal);
+
+  // Keep astro:page-load for View Transitions compatibility if needed, but prioritize DOMContentLoaded for initial load
+  // document.addEventListener("astro:page-load", initializeModal);
 </script>

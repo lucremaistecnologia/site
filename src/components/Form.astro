@@ -1,7 +1,3 @@
---- 
-import ConfirmationScreen from './Confirmation.astro';
----
-
 <div id="form-modal" class="integrations-modal">
   <!-- SEU HTML DO FORMULÁRIO AQUI (SEM ALTERAÇÕES) -->
   <div class="integrations-modal-content">
@@ -169,8 +165,6 @@ import ConfirmationScreen from './Confirmation.astro';
     </form>
   </div>
 </div>
-
-<ConfirmationScreen />
 
 <!-- SEU CSS AQUI (SEM ALTERAÇÕES) -->
 <style>
@@ -350,7 +344,6 @@ import ConfirmationScreen from './Confirmation.astro';
     const nextBtn = document.getElementById("nextBtn");
     const submitBtn = document.getElementById("submitBtn");
     const formMessage = document.getElementById("formMessage");
-    const confirmationScreen = document.getElementById("confirmation-screen");
     let currentSection = 0; // Reinicia a seção atual ao carregar a página
 
     // Verifica se os elementos cruciais existem. Se o script estiver em um layout
@@ -433,7 +426,6 @@ import ConfirmationScreen from './Confirmation.astro';
       currentSection = 0;
       showSection(currentSection);
       formMessage.textContent = "";
-      confirmationScreen.style.display = 'none';
     });
 
     modal.addEventListener("click", (event) => {
@@ -443,7 +435,6 @@ import ConfirmationScreen from './Confirmation.astro';
         currentSection = 0;
         showSection(currentSection);
         formMessage.textContent = "";
-        confirmationScreen.style.display = 'none';
       }
     });
 
@@ -491,8 +482,8 @@ import ConfirmationScreen from './Confirmation.astro';
           form.reset();
           currentSection = 0;
           showSection(currentSection);
-          modal.style.display = 'none'; // Fechar o modal do formulário
-          confirmationScreen.style.display = 'flex'; // Exibir a tela de confirmação
+          // Opcional: feche o modal após o envio bem-sucedido
+          // modal.style.display = 'none';
         } else {
           formMessage.textContent =
             result.message || "Erro ao enviar o formulário. Tente novamente.";
@@ -514,6 +505,8 @@ import ConfirmationScreen from './Confirmation.astro';
   // Opcional: Para ambientes onde 'astro:page-load' possa não cobrir 100% da primeira carga
   // (ex: se View Transitions não estiverem ativas por algum motivo em um cenário específico),
   // você pode manter o DOMContentLoaded, mas 'astro:page-load' geralmente é suficiente
-  // quando View Transitions estão habilitadas.
-  // document.addEventListener("DOMContentLoaded", setupMultiStepForm);
-</script>
+ment.addEventListener("astro:page-load", setupMultiStepForm);
+
+  // Opcional: Para ambientes onde 'astro:page-load' possa não cobrir 100% da primeira carga
+  // (ex: se View Transitions não estiverem ativas por algum motivo em um cenário específico),
+  // você pode manter o DOMContentLoaded, mas 'astro:page-load' geralmente é suficiente

@@ -9,7 +9,6 @@ import HighlightSection from "../components/HighlightSection.astro";
 import ForYou from "../components/ForYou.astro";
 import IntegrationsSection from "../components/IntegrationsSection.astro";
 import LucreLogoNormal from "../../public/logos/lucre+ logo normal.svg";
-import Form from "../components/Form.astro";
 import Swiper1 from "../components/SwiperComponentLanding1.astro";
 import Swiper2 from "../components/SwiperComponentLanding2.astro";
 import taxas from "../../public/taxas.webp";
@@ -166,7 +165,6 @@ import ofertas from "../../public/ofertas.webp";
       </footer>
     </div>
   </main>
-  <Form />
 </LandingPageLayout>
 
 <style is:global>
@@ -330,7 +328,7 @@ import ofertas from "../../public/ofertas.webp";
 </style>
 
 <script>
-  const vslVideo = document.getElementById("vsl-video");
+  const vslVideo = document.getElementById("vsl-video") as HTMLVideoElement;
   const vslContent = document.getElementById("vsl-content");
   const unmuteOverlay = document.getElementById("unmute-overlay");
   let contentShown = false;
