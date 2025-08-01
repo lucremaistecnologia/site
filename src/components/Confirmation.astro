@@ -40,13 +40,9 @@
       pelo WhatsApp:
     </p>
     <div class="links">
-      <a
-        href="https://wa.me/5512983010571"
-        target="_blank"
-        class="close-button"
-      >
+      <button id="closeConfirmationButton" type="button" class="close-button">
         Retornar à página
-      </a>
+      </button>
       <a
         href="https://wa.me/5512983010571"
         target="_blank"
@@ -150,6 +146,7 @@
   .links {
     display: flex;
     justify-content: space-around;
+    gap: 2cqb;
     margin-top: 4cqb;
   }
   .close-button {
@@ -172,7 +169,7 @@
   .whatsapp-button {
     font-size: small;
     padding: 0.6rem 1rem;
-    border: 0.41cqw solid hsl(0, 0%, 100%, 0.1);
+    border: 0.41cqb solid hsl(0, 0%, 100%, 0.1);
     border-radius: 1.4cqb;
     display: inline-block;
     background: var(--color-button-secondary);
@@ -185,4 +182,21 @@
   .whatsapp-button:hover {
     background-color: var(--color-green);
   }
+
+  @media (max-width: 600px) {
+    .links {
+      flex-direction: column;
+    }
+  }
 </style>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const closeButton = document.getElementById("closeConfirmationButton");
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        document.dispatchEvent(new CustomEvent("close-form-modal"));
+      });
+    }
+  });
+</script>

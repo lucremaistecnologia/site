@@ -493,10 +493,6 @@ import ConfirmationScreen from './Confirmation.astro';
           showSection(currentSection);
           modal.style.display = 'none'; // Fechar o modal do formulário
           confirmationScreen.style.display = 'flex'; // Exibir a tela de confirmação
-        } else {
-          formMessage.textContent =
-            result.message || "Erro ao enviar o formulário. Tente novamente.";
-          formMessage.style.color = "red";
         }
       } catch (error) {
         console.error("Erro na requisição:", error);
@@ -505,16 +501,21 @@ import ConfirmationScreen from './Confirmation.astro';
         formMessage.style.color = "red";
       }
     });
+
+    // --- EVENT LISTENER PARA FECHAR O MODAL DE CONFIRMAÇÃO VIA BOTÃO --- 
+    document.addEventListener('close-form-modal', () => {
+      modal.style.display = 'none';
+      form.reset();
+      currentSection = 0;
+      showSection(currentSection);
+      formMessage.textContent = '';
+      confirmationScreen.style.display = 'none';
+    });
   }
 
   // Anexa a função de inicialização ao evento 'astro:page-load'
   // Este evento é disparado tanto na carga inicial da página quanto em navegações client-side (View Transitions)
   document.addEventListener("astro:page-load", setupMultiStepForm);
-
-  // Opcional: Para ambientes onde 'astro:page-load' possa não cobrir 100% da primeira carga
-  // (ex: se View Transitions não estiverem ativas por algum motivo em um cenário específico),
-  // você pode manter o DOMContentLoaded, mas 'astro:page-load' geralmente é suficiente
-ment.addEventListener("astro:page-load", setupMultiStepForm);
 
   // Opcional: Para ambientes onde 'astro:page-load' possa não cobrir 100% da primeira carga
   // (ex: se View Transitions não estiverem ativas por algum motivo em um cenário específico),

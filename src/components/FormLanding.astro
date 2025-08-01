@@ -504,6 +504,16 @@ import ConfirmationScreen from "./Confirmation.astro";
         formMessage.style.color = "red";
       }
     });
+
+    // --- EVENT LISTENER PARA FECHAR O MODAL DE CONFIRMAÇÃO VIA BOTÃO --- 
+    document.addEventListener('close-form-modal', () => {
+      modal.style.display = 'none';
+      form.reset();
+      currentSection = 0;
+      showSection(currentSection);
+      formMessage.textContent = '';
+      confirmationScreen.style.display = 'none';
+    });
   }
 
   // CHAME A FUNÇÃO AQUI PARA QUE ELA SEJA EXECUTADA QUANDO O SCRIPT É CARREGADO
