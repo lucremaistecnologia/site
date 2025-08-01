@@ -22,6 +22,7 @@ DESIGN TOKENS
   --color-shadow-black: hsla(0, 0%, 0%, 1);
   --color-shadow-white-inset: hsla(0, 0%, 100%, 0.3);
   --color-feature-block-dark: hsl(228, 12%, 8%);
+  --color-green: hsl(120, 60%, 40%); /* Um tom de verde para o checkmark */
 
   /* Tipografia */
   --font-primary: "Montserrat", sans-serif;

@@ -330,17 +330,6 @@ import ofertas from "../../public/ofertas.webp";
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const formModal = document.getElementById("form-modal");
-    document.querySelectorAll("button").forEach((button) => {
-      button.addEventListener("click", (event) => {
-        // Prevent opening the modal if the clicked button is inside the modal itself
-        if (!formModal.contains(event.target)) {
-          formModal.style.display = "flex";
-        }
-      });
-    });
-  });
   const vslVideo = document.getElementById("vsl-video");
   const vslContent = document.getElementById("vsl-content");
   const unmuteOverlay = document.getElementById("unmute-overlay");

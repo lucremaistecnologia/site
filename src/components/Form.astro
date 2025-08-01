@@ -1,3 +1,7 @@
+--- 
+import ConfirmationScreen from './Confirmation.astro';
+---
+
 <div id="form-modal" class="integrations-modal">
   <!-- SEU HTML DO FORMULÁRIO AQUI (SEM ALTERAÇÕES) -->
   <div class="integrations-modal-content">
@@ -166,6 +170,8 @@
   </div>
 </div>
 
+<ConfirmationScreen />
+
 <!-- SEU CSS AQUI (SEM ALTERAÇÕES) -->
 <style>
   /* MANTÉM TODO O SEU CSS EXISTENTE SEM ALTERAÇÕES */
@@ -202,6 +208,7 @@
     width: 90%;
     max-width: 600px;
     position: relative;
+    max-height: 90vh;
     overflow: hidden;
   }
 
@@ -343,6 +350,7 @@
     const nextBtn = document.getElementById("nextBtn");
     const submitBtn = document.getElementById("submitBtn");
     const formMessage = document.getElementById("formMessage");
+    const confirmationScreen = document.getElementById("confirmation-screen");
     let currentSection = 0; // Reinicia a seção atual ao carregar a página
 
     // Verifica se os elementos cruciais existem. Se o script estiver em um layout
@@ -425,6 +433,7 @@
       currentSection = 0;
       showSection(currentSection);
       formMessage.textContent = "";
+      confirmationScreen.style.display = 'none';
     });
 
     modal.addEventListener("click", (event) => {
@@ -434,6 +443,7 @@
         currentSection = 0;
         showSection(currentSection);
         formMessage.textContent = "";
+        confirmationScreen.style.display = 'none';
       }
     });
 
@@ -481,8 +491,8 @@
           form.reset();
           currentSection = 0;
           showSection(currentSection);
-          // Opcional: feche o modal após o envio bem-sucedido
-          // modal.style.display = 'none';
+          modal.style.display = 'none'; // Fechar o modal do formulário
+          confirmationScreen.style.display = 'flex'; // Exibir a tela de confirmação
         } else {
           formMessage.textContent =
             result.message || "Erro ao enviar o formulário. Tente novamente.";

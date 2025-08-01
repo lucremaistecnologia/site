@@ -44,3 +44,16 @@ const { title } = Astro.props;
       monospace;
   }
 </style>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const formModal = document.getElementById("form-modal");
+    document.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        // Prevent opening the modal if the clicked button is inside the modal itself
+        if (!formModal.contains(event.target)) {
+          formModal.style.display = "flex";
+        }
+      });
+    });
+  });
+</script>
