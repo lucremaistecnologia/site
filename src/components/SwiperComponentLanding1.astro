@@ -2,7 +2,7 @@
 import FeatureBlock from "../components/FeatureBlock.astro";
 ---
 
-<div id="swiper-container">
+<div id="swiper-container-1">
   <!-- Additional required wrapper -->
   <div class="blocks-container">
     <div class="swiper-slide-placeholder">
@@ -52,8 +52,9 @@ import FeatureBlock from "../components/FeatureBlock.astro";
   <div class="swiper-pagination"></div>
 </div>
 <style>
-  #swiper-container.swiper {
+  #swiper-container-1.swiper {
     width: 100%;
+    max-height: clamp(5em, 60cqb, 40em);
   }
   .blocks-container {
     display: grid;
@@ -85,12 +86,12 @@ import FeatureBlock from "../components/FeatureBlock.astro";
   import "swiper/css";
   import "swiper/css/pagination";
 
-  let swiperInstance = null;
+  let swiperInstance1 = null;
 
   function initializeSwiper() {
-    if (swiperInstance) return;
+    if (swiperInstance1) return;
 
-    const swiperContainer = document.getElementById("swiper-container");
+    const swiperContainer = document.getElementById("swiper-container-1");
     if (!swiperContainer) return;
 
     const blocksContainer = swiperContainer.querySelector(".blocks-container");
@@ -102,7 +103,7 @@ import FeatureBlock from "../components/FeatureBlock.astro";
     blocksContainer.classList.add("swiper-wrapper");
     slides.forEach((slide) => slide.classList.add("swiper-slide"));
 
-    swiperInstance = new Swiper(swiperContainer, {
+    swiperInstance1 = new Swiper(swiperContainer, {
       modules: [Pagination],
       direction: "horizontal",
       loop: true,
@@ -117,9 +118,9 @@ import FeatureBlock from "../components/FeatureBlock.astro";
   }
 
   function destroySwiper() {
-    if (!swiperInstance) return;
+    if (!swiperInstance1) return;
 
-    const swiperContainer = document.getElementById("swiper-container");
+    const swiperContainer = document.getElementById("swiper-container-1");
     // Check if the container is still in the DOM before trying to modify it
     if (swiperContainer) {
       const blocksContainer =
@@ -135,8 +136,8 @@ import FeatureBlock from "../components/FeatureBlock.astro";
       }
     }
 
-    swiperInstance.destroy(true, true);
-    swiperInstance = null;
+    swiperInstance1.destroy(true, true);
+    swiperInstance1 = null;
   }
 
   function handleResize() {

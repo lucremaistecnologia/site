@@ -45,13 +45,32 @@ import TestimonialCard from "./TestimonialCard.astro";
   import { Mousewheel } from "swiper/modules";
   import "swiper/css";
 
-  const swiper = new Swiper("#testimonials-swiper", {
-    modules: [Mousewheel],
-    direction: "vertical",
-    slidesPerView: 2.1,
-    mousewheel: true,
-    loop: true,
-  });
+  let swiperInstance = null;
+
+  function initializeSwiper() {
+    if (swiperInstance) return;
+
+    const swiperContainer = document.getElementById("testimonials-swiper");
+    if (!swiperContainer) return;
+
+    swiperInstance = new Swiper(swiperContainer, {
+      modules: [Mousewheel],
+      direction: "vertical",
+      slidesPerView: 2.1,
+      mousewheel: true,
+      loop: true,
+    });
+  }
+
+  function destroySwiper() {
+    if (swiperInstance) {
+      swiperInstance.destroy(true, true);
+      swiperInstance = null;
+    }
+  }
+
+  document.addEventListener("astro:page-load", initializeSwiper);
+  document.addEventListener("astro:before-swap", destroySwiper);
 </script>
 
 <style>
