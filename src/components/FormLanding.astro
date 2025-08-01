@@ -1,5 +1,5 @@
---- 
-import ConfirmationScreen from './Confirmation.astro';
+---
+import ConfirmationScreen from "./Confirmation.astro";
 ---
 
 <div id="form-modal" class="integrations-modal">
@@ -338,6 +338,7 @@ import ConfirmationScreen from './Confirmation.astro';
 <script is:inline>
   // Esta função encapsula toda a lógica de inicialização do formulário
   function setupMultiStepForm() {
+    console.log("setupMultiStepForm executada.");
     // É CRUCIAL RE-SELECIONAR TODOS OS ELEMENTOS AQUI
     // para garantir que você esteja interagindo com os elementos do DOM ATUAL
     const whatsappInput = document.getElementById("whatsapp");
@@ -365,7 +366,9 @@ import ConfirmationScreen from './Confirmation.astro';
       !submitBtn ||
       !formMessage
     ) {
-      // console.warn("Um ou mais elementos do formulário não foram encontrados na página atual. Ignorando a inicialização do formulário.");
+      console.warn(
+        "Um ou mais elementos do formulário não foram encontrados na página atual. Ignorando a inicialização do formulário."
+      );
       return;
     }
 
@@ -433,7 +436,7 @@ import ConfirmationScreen from './Confirmation.astro';
       currentSection = 0;
       showSection(currentSection);
       formMessage.textContent = "";
-      confirmationScreen.style.display = 'none';
+      confirmationScreen.style.display = "none";
     });
 
     modal.addEventListener("click", (event) => {
@@ -443,7 +446,7 @@ import ConfirmationScreen from './Confirmation.astro';
         currentSection = 0;
         showSection(currentSection);
         formMessage.textContent = "";
-        confirmationScreen.style.display = 'none';
+        confirmationScreen.style.display = "none";
       }
     });
 
@@ -467,11 +470,7 @@ import ConfirmationScreen from './Confirmation.astro';
       dataToSend.ajuda = formData.get("help");
       dataToSend.prioridade = formData.get("priority");
 
-      // Adição da verificação do campo 'site'
-      // O campo 'site' não está presente no HTML fornecido, então ele resultará em 'null'.
-      // Se você pretende ter um campo 'site', adicione um input com name="site" e id="site".
-      // Por enquanto, ele será undefined no objeto `dataToSend`.
-      dataToSend.site = formData.get("site");
+      dataToSend.site = formData.get("site"); // Note: 'site' field is not present in your HTML, so it will be null/undefined
 
       try {
         const response = await fetch("/api/submit-form", {
@@ -491,8 +490,8 @@ import ConfirmationScreen from './Confirmation.astro';
           form.reset();
           currentSection = 0;
           showSection(currentSection);
-          modal.style.display = 'none'; // Fechar o modal do formulário
-          confirmationScreen.style.display = 'flex'; // Exibir a tela de confirmação
+          modal.style.display = "none"; // Fechar o modal do formulário
+          confirmationScreen.style.display = "flex"; // Exibir a tela de confirmação
         } else {
           formMessage.textContent =
             result.message || "Erro ao enviar o formulário. Tente novamente.";
@@ -507,15 +506,6 @@ import ConfirmationScreen from './Confirmation.astro';
     });
   }
 
-  // Anexa a função de inicialização ao evento 'astro:page-load'
-  // Este evento é disparado tanto na carga inicial da página quanto em navegações client-side (View Transitions)
-  document.addEventListener("astro:page-load", setupMultiStepForm);
-
-  // Opcional: Para ambientes onde 'astro:page-load' possa não cobrir 100% da primeira carga
-  // (ex: se View Transitions não estiverem ativas por algum motivo em um cenário específico),
-  // você pode manter o DOMContentLoaded, mas 'astro:page-load' geralmente é suficiente
-ment.addEventListener("astro:page-load", setupMultiStepForm);
-
-  // Opcional: Para ambientes onde 'astro:page-load' possa não cobrir 100% da primeira carga
-  // (ex: se View Transitions não estiverem ativas por algum motivo em um cenário específico),
-  // você pode manter o DOMContentLoaded, mas 'astro:page-load' geralmente é suficiente
+  // CHAME A FUNÇÃO AQUI PARA QUE ELA SEJA EXECUTADA QUANDO O SCRIPT É CARREGADO
+  setupMultiStepForm();
+</script>

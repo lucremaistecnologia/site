@@ -247,7 +247,7 @@ section {
   }
   button {
     font-size: clamp(1rem, 3cqi, 1.2rem);
-    border: 0.41cqw solid hsl(0, 0%, 100%, 0.1);
+    border: 0.41cqb solid hsl(0, 0%, 100%, 0.1);
     border-radius: 1.4cqb;
     padding: clamp(0.9rem, 3cqw, 1rem);
     width: -webkit-fill-available;

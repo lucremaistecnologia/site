@@ -119,8 +119,8 @@ const integrationCategories: IntegrationCategory[] = [
       { src: Leadlovers, alt: "Leadlovers Logo", name: "Leadlovers" },
       { src: Kajabi, alt: "Kajabi Logo", name: "Kajabi" },
       { src: Hotscool, alt: "Hotscool Logo", name: "Hotscool" },
-      { src: Herospark, alt: "Herospark Logo", name: "Herospark" },
-      { src: Eduvem, alt: "Eduvem Logo", name: "eduvem" },
+      // { src: Herospark, alt: "Herospark Logo", name: "Herospark" },
+      // { src: Eduvem, alt: "Eduvem Logo", name: "eduvem" },
       {
         src: EadPlataforma,
         alt: "Ead plataforma Logo",
@@ -317,7 +317,7 @@ const initialCategory = jsIntegrationCategories[0];
   </div>
 </section>
 
-<script client:load>
+<script is:inline>
   document.addEventListener("astro:page-load", () => {
     const highlightList = document.querySelector(".highlight-list");
     if (!highlightList) return;
@@ -496,7 +496,7 @@ const initialCategory = jsIntegrationCategories[0];
     font-size: max(0.7em, 0.8cqw);
     color: white;
     font-weight: var(--font-weight-semi-bold);
-    margin-top: 3cqb;
+    margin-top: 2cqb;
   }
   .highlight-main-title {
     margin-bottom: 0;
@@ -520,7 +520,7 @@ const initialCategory = jsIntegrationCategories[0];
 
   .integration-logos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16cqb, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(12cqb, 1fr));
     align-content: center;
     gap: 1cqb;
     width: 100%;
@@ -543,7 +543,7 @@ const initialCategory = jsIntegrationCategories[0];
     background-color: rgba(255, 255, 255, 0.05);
     border: var(--border);
     border-radius: clamp(1rem, 1.5cqw, 8rem);
-    height: 20cqb;
+    height: 18cqb;
   }
 
   .logo-image {
@@ -555,8 +555,8 @@ const initialCategory = jsIntegrationCategories[0];
   }
 
   .logo-vector {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 80%;
+    max-height: 80%;
     object-fit: contain;
   }
 
@@ -617,6 +617,9 @@ const initialCategory = jsIntegrationCategories[0];
     }
     #integration-logos-grid-mobile {
       grid-template-columns: repeat(auto-fit, minmax(13cqb, 1fr));
+    }
+    .integration-logos-grid {
+      grid-template-columns: repeat(auto-fit, minmax(16cqb, 1fr));
     }
   }
 
