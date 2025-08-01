@@ -1,7 +1,8 @@
 <div id="form-modal" class="integrations-modal">
   <div class="integrations-modal-content">
     <span class="integrations-modal-close">×</span>
-    <form id="multiStepForm"> <!-- Adicionei um ID ao formulário para fácil seleção no JS -->
+    <form id="multiStepForm">
+      <!-- Adicionei um ID ao formulário para fácil seleção no JS -->
       <div class="section">
         <h2>Dados Pessoais</h2>
         <div class="form-group">
@@ -11,6 +12,7 @@
             id="name"
             name="name"
             class="form-field"
+            placeholder="Seu nome completo"
             required
           />
         </div>
@@ -22,6 +24,7 @@
               id="whatsapp"
               name="whatsapp"
               class="form-field"
+              placeholder="(XX) XXXXX-XXXX"
               required
             />
           </div>
@@ -32,6 +35,7 @@
               id="email"
               name="email"
               class="form-field"
+              placeholder="seuemail@exemplo.com"
               required
             />
           </div>
@@ -39,7 +43,13 @@
         <div class="form-row">
           <div class="form-group">
             <label for="site">Site:</label>
-            <input type="text" id="site" name="site" class="form-field" />
+            <input
+              type="text"
+              id="site"
+              name="site"
+              class="form-field"
+              placeholder="seusite.com.br"
+            />
           </div>
           <div class="form-group">
             <label for="instagram">Instagram:</label>
@@ -48,6 +58,7 @@
               id="instagram"
               name="instagram"
               class="form-field"
+              placeholder="@seuinstagram"
             />
           </div>
         </div>
@@ -61,6 +72,7 @@
             id="company"
             name="company"
             class="form-field"
+            placeholder="Nome da sua empresa"
             required
           />
         </div>
@@ -71,6 +83,7 @@
             id="role"
             name="role"
             class="form-field"
+            placeholder="Seu cargo na empresa"
             required
           />
         </div>
@@ -79,6 +92,9 @@
             >Qual é o Faturamento anual da empresa em reais?*</label
           >
           <select id="revenue" name="revenue" class="form-field" required>
+            <option value="" disabled selected
+              >Selecione uma faixa de faturamento</option
+            >
             <option value="até 1 Milhão">até 1 Milhão</option>
             <option value="entre 1 Milhão e 2 Milhões"
               >entre 1 Milhão e 2 Milhões</option
@@ -102,41 +118,62 @@
           <label for="help"
             >Como você gostaria que a Lucre+ ajudasse o seu negócio?</label
           >
-          <textarea id="help" name="help" class="form-field"></textarea>
+          <textarea
+            id="help"
+            name="help"
+            class="form-field"
+            placeholder="Descreva como podemos ajudar..."></textarea>
         </div>
         <div class="form-group">
           <label for="priority"
             >Qual o nível de prioridade que gostaria para o seu atendimento:*</label
           >
           <select id="priority" name="priority" class="form-field" required>
+            <option value="" disabled selected>Selecione a prioridade</option>
             <!-- Ajustei os 'values' para corresponderem exatamente ao texto do exemplo JSON -->
             <option value="1 - em até uma semana">em até uma semana</option>
             <option value="2 - até o fim do dia">até o fim do dia</option>
             <option value="3 - até 4 horas">até 4 horas</option>
-            <option value="4 - nos próximos minutos">nos próximos minutos</option>
+            <option value="4 - nos próximos minutos"
+              >nos próximos minutos</option
+            >
           </select>
         </div>
       </div>
       <div class="form-actions">
-        <button type="button" id="prevBtn" class="secondary"
-          >← Anterior</button
-        >
-        <div class="dots-container">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-        <div>
-          <button type="button" id="nextBtn" class="primary"
-            >Próximo →</button
+        <button type="button" id="prevBtn" class="secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="arrow-icon"
+            ><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg
           >
+        </button>
+        <div class="button-group">
+          <button type="button" id="nextBtn" class="primary">Próximo →</button>
           <button type="submit" id="submitBtn" class="primary hidden"
             >Enviar</button
           >
         </div>
       </div>
+      <div class="dots-container">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
       <!-- Elemento para exibir mensagens de sucesso/erro -->
-      <p id="formMessage" style="margin-top: 1rem; text-align: center; font-weight: bold;"></p>
+      <p
+        id="formMessage"
+        style="margin-top: 1rem; text-align: center; font-weight: bold;"
+      >
+      </p>
     </form>
   </div>
 </div>
@@ -148,7 +185,6 @@
   }
   form {
     height: -webkit-fill-available;
-    overflow: auto;
   }
   h2 {
     font-size: max(2em, 2.4cqw);
@@ -176,7 +212,6 @@
     border-radius: var(--border-radius);
     width: 90%;
     max-width: 600px;
-    height: 90vh;
     position: relative;
   }
 
@@ -186,6 +221,9 @@
     font-size: 28px;
     font-weight: bold;
     line-height: 1;
+    position: absolute;
+    top: 2cqb;
+    right: 2.8cqb;
   }
 
   .integrations-modal-close:hover,
@@ -222,7 +260,7 @@
     width: 100%;
     padding: 2cqb;
     border: var(--border);
-    border-radius: 0.7cqw;
+    border-radius: 2cqw;
     background-color: var(--color-background-light);
     color: var(--color-text);
     font-family: var(--font-secondary);
@@ -256,12 +294,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: var(--space-l);
+    margin-top: var(--space-s);
   }
 
   .dots-container {
     display: flex;
-    gap: var(--space-xs);
+    justify-content: center;
+    margin-top: var(--space-s);
+    gap: 2cqb;
   }
 
   .dot {
@@ -272,11 +312,42 @@
     display: inline-block;
   }
   .dot.active {
-    background-color: #717171;
+    background-color: var(--color-button-primary-end);
+  }
+  #prevBtn.secondary {
+    background: none !important;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: fit-content;
+  }
+  .button-group {
+    margin-left: auto;
+  }
+  #nextBtn.primary,
+  #submitBtn.primary {
+    font-size: small;
+    padding: 0.6rem 1rem;
+  }
+
+  #prevBtn.secondary .arrow-icon {
+    stroke: hsl(0, 0%, 55%);
+  }
+  #prevBtn.secondary .arrow-icon:hover {
+    stroke: hsl(0, 0%, 100%);
   }
 </style>
 
 <script is:inline>
+  const whatsappInput = document.getElementById("whatsapp");
+
+  whatsappInput.addEventListener("input", (e) => {
+    let value = e.target.value.replace(/\D/g, "");
+    value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
+    value = value.replace(/(\d)(\d{4})$/, "$1-$2");
+    e.target.value = value;
+  });
+
   const modal = document.getElementById("form-modal");
   const closeModal = document.querySelector(".integrations-modal-close");
   const form = document.getElementById("multiStepForm"); // Seleciona o formulário pelo ID
@@ -306,7 +377,7 @@
       submitBtn.style.display = "none"; // Esconde Enviar nas outras seções
     }
     // Limpa qualquer mensagem anterior ao mudar de seção
-    formMessage.textContent = '';
+    formMessage.textContent = "";
   }
 
   // Inicializa a exibição da primeira seção ao carregar
@@ -321,7 +392,8 @@
 
   nextBtn.addEventListener("click", () => {
     // Validação básica dos campos obrigatórios da seção atual antes de avançar
-    const currentSectionFields = sections[currentSection].querySelectorAll('[required]');
+    const currentSectionFields =
+      sections[currentSection].querySelectorAll("[required]");
     let allFieldsFilled = true;
     for (const field of currentSectionFields) {
       if (!field.value.trim()) {
@@ -342,7 +414,7 @@
     form.reset(); // Reseta o formulário
     currentSection = 0; // Volta para a primeira seção
     showSection(currentSection); // Mostra a primeira seção
-    formMessage.textContent = ''; // Limpa a mensagem
+    formMessage.textContent = ""; // Limpa a mensagem
   });
 
   modal.addEventListener("click", (event) => {
@@ -351,38 +423,38 @@
       form.reset(); // Reseta o formulário
       currentSection = 0; // Volta para a primeira seção
       showSection(currentSection); // Mostra a primeira seção
-      formMessage.textContent = ''; // Limpa a mensagem
+      formMessage.textContent = ""; // Limpa a mensagem
     }
   });
 
   // --- NOVA LÓGICA PARA ENVIO DO FORMULÁRIO ---
-  form.addEventListener('submit', async (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault(); // Impede o envio padrão do formulário (recarregamento da página)
 
-    formMessage.textContent = 'Enviando...';
-    formMessage.style.color = '#007bff'; // Cor de "carregando"
+    formMessage.textContent = "Enviando...";
+    formMessage.style.color = "#007bff"; // Cor de "carregando"
 
     const formData = new FormData(form);
     const dataToSend = {};
 
     // Mapeia os nomes dos campos do formulário para as chaves JSON esperadas pelo Zapier
-    dataToSend.nome = formData.get('name');
-    dataToSend.whatsapp = formData.get('whatsapp');
-    dataToSend.email = formData.get('email');
-    dataToSend.empresa = formData.get('company');
-    dataToSend.cargo = formData.get('role');
-    dataToSend.faturamentoAnual = formData.get('revenue');
-    dataToSend.site = formData.get('site');
-    dataToSend.instagram = formData.get('instagram');
-    dataToSend.ajuda = formData.get('help');
-    dataToSend.prioridade = formData.get('priority'); // Agora o 'value' do select já é a string completa
+    dataToSend.nome = formData.get("name");
+    dataToSend.whatsapp = formData.get("whatsapp");
+    dataToSend.email = formData.get("email");
+    dataToSend.empresa = formData.get("company");
+    dataToSend.cargo = formData.get("role");
+    dataToSend.faturamentoAnual = formData.get("revenue");
+    dataToSend.site = formData.get("site");
+    dataToSend.instagram = formData.get("instagram");
+    dataToSend.ajuda = formData.get("help");
+    dataToSend.prioridade = formData.get("priority"); // Agora o 'value' do select já é a string completa
 
     try {
       // Envia os dados para a sua API Route do Astro
-      const response = await fetch('/api/submit-form', {
-        method: 'POST',
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(dataToSend), // Converte o objeto JavaScript em uma string JSON
       });
@@ -390,21 +462,24 @@
       const result = await response.json(); // Tenta ler a resposta como JSON
 
       if (response.ok) {
-        formMessage.textContent = result.message || 'Formulário enviado com sucesso!';
-        formMessage.style.color = 'green';
+        formMessage.textContent =
+          result.message || "Formulário enviado com sucesso!";
+        formMessage.style.color = "green";
         form.reset(); // Limpa todos os campos do formulário
         currentSection = 0; // Volta para a primeira seção
         showSection(currentSection); // Exibe a primeira seção
         // Opcional: feche o modal após o envio bem-sucedido
         // modal.style.display = 'none';
       } else {
-        formMessage.textContent = result.message || 'Erro ao enviar o formulário. Tente novamente.';
-        formMessage.style.color = 'red';
+        formMessage.textContent =
+          result.message || "Erro ao enviar o formulário. Tente novamente.";
+        formMessage.style.color = "red";
       }
     } catch (error) {
-      console.error('Erro na requisição:', error);
-      formMessage.textContent = 'Ocorreu um erro na conexão. Verifique sua internet e tente novamente.';
-      formMessage.style.color = 'red';
+      console.error("Erro na requisição:", error);
+      formMessage.textContent =
+        "Ocorreu um erro na conexão. Verifique sua internet e tente novamente.";
+      formMessage.style.color = "red";
     }
   });
 </script>

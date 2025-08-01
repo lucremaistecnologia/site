@@ -6,9 +6,6 @@ import StandardCallToAction from "../components/StandardCallToAction.astro";
 import FounderSection from "../components/FounderSection.astro";
 import FAQSection from "../components/FAQSection.astro";
 import HighlightSection from "../components/HighlightSection.astro";
-import heroImage from "../../public/heroimage.webp";
-import image36 from "../../public/image 36.webp";
-import image58 from "../../public/image 58.webp";
 import ForYou from "../components/ForYou.astro";
 import IntegrationsSection from "../components/IntegrationsSection.astro";
 import LucreLogoNormal from "../../public/logos/lucre+ logo normal.svg";
@@ -72,7 +69,10 @@ import ofertas from "../../public/ofertas.webp";
             ><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path
               d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg
           >
-          <span>Seu vídeo começou!<br /><strong>Clique para ativar o som</strong></span>
+          <span
+            >Seu vídeo começou!<br /><strong>Clique para ativar o som</strong
+            ></span
+          >
         </div>
       </div>
     </section>
@@ -212,6 +212,8 @@ import ofertas from "../../public/ofertas.webp";
     color: #fff; /* Consider defining a global placeholder text color */
     font-size: max(1.5rem, 2.5cqw); /* Using max() for consistency */
     position: relative; /* Add relative positioning to contain the overlay */
+    border-radius: 2cqb;
+    overflow: hidden;
   }
 
   .unmute-overlay {
@@ -310,17 +312,20 @@ import ofertas from "../../public/ofertas.webp";
     }
     .needs-section {
       flex-direction: column;
-      padding: 8cqb;
+      padding: 0cqb;
     }
     .needs-content-left {
       position: static;
       height: auto;
       max-width: 100%;
-      padding: var(--space-xxl);
+      padding: 8cqb var(--space-xxl);
     }
     .needs-content-right {
       max-width: 100vw; /* Limit width for readability */
-      padding: 0;
+      padding: 0 0 8cqb 0;
+    }
+    .video-placeholder {
+      width: 100%;
     }
   }
 </style>
@@ -344,7 +349,7 @@ import ofertas from "../../public/ofertas.webp";
 
   if (vslVideo && vslContent) {
     vslVideo.addEventListener("timeupdate", () => {
-      if (vslVideo.currentTime >= 5 && !contentShown) {
+      if (vslVideo.currentTime >= 1 && !contentShown) {
         vslContent.style.display = "block";
         contentShown = true;
       }

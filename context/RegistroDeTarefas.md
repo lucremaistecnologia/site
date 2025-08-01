@@ -30,6 +30,7 @@ Manter este arquivo atualizado é crucial para a colaboração da equipe e para 
   - [x] coloquei um vídeo na pasta "site" chamado "This Christmas.mp4" sua tarefa é colocar ele na pasta correta e inserir na landing-page.
   - [x] depois de inserir o video, quero aplicar uma tecnica de Video Sales Letter da seguinte forma: Todo conteudo abaixo do video só pode aparecer depois de 2 minutos de video
   - [x] section-for-you: Sua tarefa é alterar os feature-blocks alterando os svgs "check" e "cancel" para os que estão na pasta icons, eles deve ficar em um div com o background --color-background, --border-radius e --border
+  - [ ] Sua tarefa é trabalhar no design do componente Form.astro: 1. Deixe o dot active com o background-color: var(--color-button-primary-end) 2. insira um placeholder nos campos 3. deixe o campo whatsapp pronto para receber um número de telefone brasileiro com os dois primeiros números entre parenteses, exemplo (11)99999-9999 4. remova o botão "anterior" e deixe apenas a setinha branca sem background (matenha a funcionalidade)
 
 - Versão mobile do site @media (max-width: 960px):
 
@@ -37,7 +38,7 @@ Manter este arquivo atualizado é crucial para a colaboração da equipe e para 
 
 - SEO:
 
-  - [ ] Adicionei algumas páginas e modificações no site depois de já ter feito o SEO do site. Pode checar para mim se todo o SEO está correto, não se esqueça do   <script type="application/ld+json" slot="head"> nas páginas (incluindo a landing-page e as páginas de políticas e termo de uso), veja também se o robots e o sitemap estão corretos mostrando todas as páginas... enfim.. de uma passada completa e extremamente eficiente no SEO do projeto
+  - [x] Adicionei algumas páginas e modificações no site depois de já ter feito o SEO do site. Pode checar para mim se todo o SEO está correto, não se esqueça do   <script type="application/ld+json" slot="head"> nas páginas (incluindo a landing-page e as páginas de políticas e termo de uso), veja também se o robots e o sitemap estão corretos mostrando todas as páginas... enfim.. de uma passada completa e extremamente eficiente no SEO do projeto
 
 - Correção de erros:
 

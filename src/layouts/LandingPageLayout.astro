@@ -1,8 +1,8 @@
 ---
-import '../styles/global.css'; /* Importa o CSS global */
+import "../styles/global.css"; /* Importa o CSS global */
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -10,30 +10,37 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="pt-BR">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Site institucional da Lucre+" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/logos/lucre+ logo pequeno.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Site institucional da Lucre+" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/logos/lucre+ logo pequeno.svg"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	/* Estilos globais movidos para src/styles/global.css */
-	/* Manter apenas resets ou estilos muito específicos do layout aqui, se necessário */
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  /* Estilos globais movidos para src/styles/global.css */
+  /* Manter apenas resets ou estilos muito específicos do layout aqui, se necessário */
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
 </style>
