@@ -76,9 +76,14 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
     }
 
     function setActiveLink() {
-      const currentPath = window.location.pathname;
+      const currentPath = decodeURIComponent(window.location.pathname);
+      const normalizedCurrentPath = currentPath.endsWith('/') && currentPath.length > 1 ? currentPath.slice(0, -1) : currentPath;
+
       navLinks.forEach((link) => {
-        if (link.getAttribute("href") === currentPath) {
+        const linkHref = link.getAttribute("href");
+        const normalizedLinkHref = linkHref.endsWith('/') && linkHref.length > 1 ? linkHref.slice(0, -1) : linkHref;
+
+        if (normalizedLinkHref === normalizedCurrentPath) {
           link.classList.add("active-link");
         } else {
           link.classList.remove("active-link");

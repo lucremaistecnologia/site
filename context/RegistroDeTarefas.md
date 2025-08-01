@@ -10,7 +10,7 @@ Manter este arquivo atualizado é crucial para a colaboração da equipe e para 
 
 - Header.astro:
 
-  - [ ]
+  - [ ] 
 
 - index.astro:
 
@@ -22,8 +22,8 @@ Manter este arquivo atualizado é crucial para a colaboração da equipe e para 
 
 - Footer:
 
-  - [ ] no footer, temos os links de "Política de Privacidade" e "Termos de Uso". adicione também o link "Política de Cookies"
-  - [ ] Crie uma página para "Política de Privacidade", "Termos de Uso" e "Política de Cookies". O conteúdo está nos arquivos "Política de Cookies.md", "Política de Privacidade.md" e "Termos de Uso.md
+  - [x] no footer, temos os links de "Política de Privacidade" e "Termos de Uso". adicione também o link "Política de Cookies"
+  - [x] Crie uma página para "Política de Privacidade", "Termos de Uso" e "Política de Cookies". O conteúdo está nos arquivos "Política de Cookies.md", "Política de Privacidade.md" e "Termos de Uso.md
 
 - Landing Page:
 
@@ -37,7 +37,7 @@ Manter este arquivo atualizado é crucial para a colaboração da equipe e para 
 
 - SEO:
 
-  - [ ]
+  - [ ] Adicionei algumas páginas e modificações no site depois de já ter feito o SEO do site. Pode checar para mim se todo o SEO está correto, não se esqueça do   <script type="application/ld+json" slot="head"> nas páginas (incluindo a landing-page e as páginas de políticas e termo de uso), veja também se o robots e o sitemap estão corretos mostrando todas as páginas... enfim.. de uma passada completa e extremamente eficiente no SEO do projeto
 
 - Correção de erros:
 

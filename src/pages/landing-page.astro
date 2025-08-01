@@ -24,6 +24,15 @@ import ofertas from "../../public/ofertas.webp";
 ---
 
 <LandingPageLayout title="Lucre+ Landing Page">
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Lucre+ Landing Page",
+      "url": "https://lucre.com/landing-page",
+      "description": "Descubra como você pode reduzir as taxas sobre as vendas e aumentar seus lucros com a Lucre+."
+    }
+  </script>
   <Fragment slot="header"></Fragment>
   <Fragment slot="footer"></Fragment>
   <main>
@@ -39,12 +48,31 @@ import ofertas from "../../public/ofertas.webp";
     <section class="landing-hero-section">
       <h1>Descubra como você pode reduzir as taxas sobre as vendas</h1>
       <div class="video-placeholder">
-        <video autoplay muted playsinline src="/videos/This Christmas.mp4" id="vsl-video">
+        <video
+          autoplay
+          muted
+          playsinline
+          src="/videos/This Christmas.mp4"
+          id="vsl-video"
+        >
           Seu navegador não suporta a tag de vídeo.
         </video>
         <div id="unmute-overlay" class="unmute-overlay">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sound"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-          <span>Clique para ativar o som</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon-sound"
+            ><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path
+              d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg
+          >
+          <span>Seu vídeo começou!<br /><strong>Clique para ativar o som</strong></span>
         </div>
       </div>
     </section>
@@ -316,7 +344,7 @@ import ofertas from "../../public/ofertas.webp";
 
   if (vslVideo && vslContent) {
     vslVideo.addEventListener("timeupdate", () => {
-      if (vslVideo.currentTime >= 120 && !contentShown) {
+      if (vslVideo.currentTime >= 5 && !contentShown) {
         vslContent.style.display = "block";
         contentShown = true;
       }
