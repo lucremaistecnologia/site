@@ -117,7 +117,6 @@ import Swiper from "../components/SwiperComponent.astro";
       subtitle="Pare de deixar dinheiro na mesa!"
       title="Alavanque o seu negócio com as melhores taxas"
       buttonText="Lucre mais agora"
-      buttonHref="https://api.whatsapp.com/send?phone=5512983010571"
       contentAlignment="left"
       backgroundImage="/image 36.webp"
     />
@@ -139,7 +138,6 @@ import Swiper from "../components/SwiperComponent.astro";
       title="Pronto para maximizar seus lucros?"
       paragraph="Temos as melhores soluções para suas vendas via cartão de crédito."
       buttonText="quero Lucrar mais agora"
-      buttonLink="https://api.whatsapp.com/send?phone=5512983010571"
       showParagraph={true}
     />
     <img
@@ -231,3 +229,32 @@ import Swiper from "../components/SwiperComponent.astro";
     }
   }
 </style>
+<script is:inline>
+  function initializeModal() {
+    const formModal = document.getElementById("form-modal");
+    // Remova listeners anteriores para evitar duplicações se a função for chamada múltiplas vezes
+    document.querySelectorAll("button.primary").forEach((button) => {
+      // É uma boa prática remover o listener antes de adicionar para evitar múltiplos listeners
+      // se a função initializeModal for chamada mais de uma vez na mesma instância do botão.
+      // No entanto, para este caso específico com astro:page-load, ele lida com isso.
+      // Se houvessem múltiplas chamadas da função initializeModal sem uma navegação,
+      // essa parte seria mais crítica.
+      button.removeEventListener("click", handleButtonClick); // Certifique-se de que handleButtonClick esteja definido fora ou dentro
+      button.addEventListener("click", handleButtonClick);
+    });
+
+    function handleButtonClick(event) {
+      // Prevent opening the modal if the clicked button is inside the modal itself
+      if (formModal && !formModal.contains(event.target)) {
+        formModal.style.display = "flex";
+      }
+    }
+  }
+
+  // Adiciona o listener para o evento astro:page-load
+  document.addEventListener("astro:page-load", initializeModal);
+
+  // Opcional: Se você *não* estiver usando View Transitions, mantenha DOMContentLoaded
+  // Mas com View Transitions, astro:page-load é suficiente.
+  // document.addEventListener("DOMContentLoaded", initializeModal);
+</script>

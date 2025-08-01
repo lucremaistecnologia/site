@@ -3,7 +3,6 @@ interface Props {
   subtitle: string;
   title: string;
   buttonText: string;
-  buttonHref: string;
   contentAlignment?: "left" | "right"; // New prop for alignment
   backgroundImage: string; // New prop for background image
 }
@@ -12,7 +11,6 @@ const {
   subtitle,
   title,
   buttonText,
-  buttonHref,
   contentAlignment = "left",
   backgroundImage,
 } = Astro.props;
@@ -25,7 +23,7 @@ const {
   <div class="cta-content">
     <p class="cta-subtitle">{subtitle}</p>
     <h2 class="cta-title">{title}</h2>
-    <button class="primary" onclick={`window.location.href='${buttonHref}'`}>
+    <button class="primary"}>
       {buttonText}
     </button>
     <p class="small-text">

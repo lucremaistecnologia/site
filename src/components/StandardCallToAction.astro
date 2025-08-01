@@ -1,17 +1,19 @@
 ---
 interface Props {
   title: string;
+  paragraph?: string;
+  buttonText: string;
+  showParagraph?: boolean;
 }
 
-const {
-  title,
-} = Astro.props;
+const { title, paragraph, buttonText, showParagraph = false } = Astro.props;
 ---
 
 <section class="standard-call-to-action-section">
   <div class="content-container">
     <h2>{title}</h2>
-    <button class="primary">Quero lucrar mais agora!</button>
+    {showParagraph && paragraph && <p class="subtitle">{paragraph}</p>}
+    <button class="primary">{buttonText}</button>
     <p class="small-text">
       * Aprovação sujeita a análise do negócio e faturamento.
     </p>
@@ -20,9 +22,6 @@ const {
     <!-- Image will be added via CSS background or an img tag if dynamic -->
   </div>
 </section>
-
-
-
 <style>
   .standard-call-to-action-section {
     display: flex;
@@ -55,7 +54,7 @@ const {
     background-image: url("/standartcta.webp"); /* Placeholder image */
     background-size: cover;
     background-position: center;
-    border-radius: clamp(1rem,1.5cqw,8rem);
+    border-radius: clamp(1rem, 1.5cqw, 8rem);
     overflow: hidden;
   }
 

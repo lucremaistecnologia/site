@@ -1,6 +1,4 @@
 ---
-import ServiceBlock from "./ServiceBlock.astro";
-
 interface Props {
   mainTitle: string;
   mainParagraph: string;
@@ -56,11 +54,7 @@ const { mainTitle, mainParagraph } = Astro.props;
         class="vector vector-1"
       />
       <h2>Não perca tempo!</h2>
-      <button
-        class="primary"
-        onclick="window.location.href='https://api.whatsapp.com/send?phone=+5512991651883'"
-        >Lucre mais agora</button
-      >
+      <button class="primary">Lucre mais agora</button>
     </div>
   </div>
 </section>
@@ -246,7 +240,7 @@ const { mainTitle, mainParagraph } = Astro.props;
     }
     .block-1,
     .block-3 {
-      min-height: 60cqb ;
+      min-height: 60cqb;
     }
   }
 </style>

@@ -10,6 +10,12 @@ import ContaAzulLogo from "../../public/logos/contaazul.webp";
 import FacebookLogo from "../../public/logos/facebook.webp";
 import OutbrainLogo from "../../public/logos/outbrain.webp";
 import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
+
+export interface Props {
+  openInNewTab?: boolean;
+}
+
+const { openInNewTab = false } = Astro.props;
 ---
 
 <section class="integrations-section">
@@ -114,6 +120,7 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
       <a
         class="primary link-with-arrow"
         href="/comofunciona#integrations-section-complete"
+        target={openInNewTab ? "_blank" : "_self"}
         >Conheça mais integrações</a
       >
     </div>

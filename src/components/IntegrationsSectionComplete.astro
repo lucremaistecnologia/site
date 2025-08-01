@@ -120,8 +120,12 @@ const integrationCategories: IntegrationCategory[] = [
       { src: Kajabi, alt: "Kajabi Logo", name: "Kajabi" },
       { src: Hotscool, alt: "Hotscool Logo", name: "Hotscool" },
       { src: Herospark, alt: "Herospark Logo", name: "Herospark" },
-      // { src: Eduvem, alt: "Eduvem Logo", name: "eduvem" },
-      // { src: EadPlataforma, alt: "Ead plataforma Logo", name: "Ead plataforma"},
+      { src: Eduvem, alt: "Eduvem Logo", name: "eduvem" },
+      {
+        src: EadPlataforma,
+        alt: "Ead plataforma Logo",
+        name: "Ead plataforma",
+      },
       { src: AlpaClass, alt: "AlpaClass Logo", name: "AlpaClass" },
       { src: Themembers, alt: "The Members Logo", name: "The Members" },
       { src: Mentorfy, alt: "Mentorfy Logo", name: "Mentorfy" },
@@ -305,7 +309,7 @@ const initialCategory = jsIntegrationCategories[0];
   <!-- Mobile: Modal structure -->
   <div id="integrations-modal" class="integrations-modal mobile-only">
     <div class="integrations-modal-content">
-      <span class="integrations-modal-close">&times;</span>
+      <span class="integrations-modal-closes">&times;</span>
       <div class="integration-logos-grid" id="integration-logos-grid-mobile">
         <!-- Mobile logos will be injected here by the script -->
       </div>
@@ -337,7 +341,7 @@ const initialCategory = jsIntegrationCategories[0];
       "integration-logos-grid-mobile"
     );
     const modal = document.getElementById("integrations-modal");
-    const closeModal = document.querySelector(".integrations-modal-close");
+    const closeModal = document.querySelector(".integrations-modal-closes");
 
     if (
       !integrationLogosGrid ||
@@ -453,28 +457,31 @@ const initialCategory = jsIntegrationCategories[0];
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(2cqb);
   }
 
   .integrations-modal-content {
-    background-color: var(--color-background);
+    background-color: hsl(222deg 14% 14% / 80%);
     margin: 5% auto;
     padding: 20px;
     border: var(--border);
     border-radius: clamp(1rem, 1.5cqw, 8rem);
     width: 90%;
     max-width: 600px;
+    max-height: 70vh;
+    overflow: auto;
     position: relative;
   }
 
-  .integrations-modal-close {
-    color: #aaa;
+  .integrations-modal-closes {
+    color: var(--color-button-primary-end);
     float: right;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 48px;
+    font-weight: 200;
     line-height: 1;
-    position: absolute;
+    position: fixed;
     top: 2cqb;
-    right: 2.8cqb;
+    right: 3cqb;
   }
 
   .integrations-modal-close:hover,
@@ -609,9 +616,7 @@ const initialCategory = jsIntegrationCategories[0];
       display: none; /* Modal is hidden by default, shown via script */
     }
     #integration-logos-grid-mobile {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(9cqb, 1fr));
-      margin-top: 6cqb;
+      grid-template-columns: repeat(auto-fit, minmax(13cqb, 1fr));
     }
   }
 
