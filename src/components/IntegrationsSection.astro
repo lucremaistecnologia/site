@@ -111,7 +111,9 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
     </div>
     <div class="more-integrations">
       <p>E muitas outras integrações!</p>
-      <a class="primary link-with-arrow" href="/comofunciona#integrations-section-complete"
+      <a
+        class="primary link-with-arrow"
+        href="/comofunciona#integrations-section-complete"
         >Conheça mais integrações</a
       >
     </div>
@@ -160,7 +162,7 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2cqw;
+    gap: 2cqb;
   }
 
   .integrations-image {
@@ -177,6 +179,7 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
     justify-content: center;
     gap: var(--space-xs);
     box-shadow: 0px 2px 5px hsla(0, 0%, 0%, 0.1);
+    flex: 1 1 auto;
   }
 
   .logo-image {
@@ -240,6 +243,10 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
     }
     .logo-image {
       width: clamp(5em, 10cqw, 10em);
+      height: clamp(5em, 10cqb, 10em);
+    }
+    .logo-block {
+      flex: 1 1 auto;
     }
     .logo-block span {
       display: none;
@@ -248,9 +255,10 @@ import LucreLogoPequeno from "../../public/logos/lucre+ logo pequeno.svg";
       margin-top: 3rem;
     }
     .integrations-image {
-      max-width: 12rem ;
+      max-width: 12rem;
     }
     .lucre-logo-container {
       margin: 2cqb;
+    }
   }
 </style>
