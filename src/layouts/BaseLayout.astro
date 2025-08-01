@@ -4,6 +4,7 @@ import "../styles/global.css"; /* Importa o CSS global */
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro"; /* Importa o componente Footer */
 import WhatsAppIcon from "../components/WhatsAppIcon.astro"; // Importa o ícone do WhatsApp
+import Form from "../components/Form.astro";
 
 interface Props {
   title: string;
@@ -109,6 +110,7 @@ const { title } = Astro.props;
     <slot />
     <Footer />
     <WhatsAppIcon />
+    <Form />
   </body>
 </html>
 <style is:global>

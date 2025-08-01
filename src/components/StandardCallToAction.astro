@@ -1,26 +1,17 @@
 ---
 interface Props {
   title: string;
-  paragraph?: string;
-  buttonText: string;
-  buttonLink: string;
-  showParagraph?: boolean;
 }
 
 const {
   title,
-  paragraph,
-  buttonText,
-  buttonLink,
-  showParagraph = false,
 } = Astro.props;
 ---
 
 <section class="standard-call-to-action-section">
   <div class="content-container">
     <h2>{title}</h2>
-    {showParagraph && paragraph && <p class="subtitle">{paragraph}</p>}
-    <button class="primary" onclick={`window.location.href='${buttonLink}'`}>{buttonText}</button>
+    <button class="primary">Quero lucrar mais agora!</button>
     <p class="small-text">
       * Aprovação sujeita a análise do negócio e faturamento.
     </p>
