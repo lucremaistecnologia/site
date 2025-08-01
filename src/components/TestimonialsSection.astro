@@ -69,7 +69,18 @@ import TestimonialCard from "./TestimonialCard.astro";
     }
   }
 
-  document.addEventListener("astro:page-load", initializeSwiper);
+  function handleInitialization() {
+    // Ensure this runs only after the DOM is settled
+    requestAnimationFrame(() => {
+      initializeSwiper();
+    });
+  }
+
+  // Setup Swiper on new page load or when VSL content is visible
+  document.addEventListener("astro:page-load", handleInitialization);
+  document.addEventListener("vsl-content-visible", handleInitialization);
+
+  // Cleanup before swapping to a new page
   document.addEventListener("astro:before-swap", destroySwiper);
 </script>
 

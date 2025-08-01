@@ -352,6 +352,9 @@ import ofertas from "../../public/ofertas.webp";
       if (vslVideo.currentTime >= 1 && !contentShown) {
         vslContent.style.display = "block";
         contentShown = true;
+        // Dispara um evento personalizado para notificar que o conteúdo está visível
+        const event = new CustomEvent("vsl-content-visible");
+        document.dispatchEvent(event);
       }
     });
   }

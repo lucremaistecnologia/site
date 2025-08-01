@@ -151,8 +151,8 @@ import FeatureBlock from "../components/FeatureBlock.astro";
     });
   }
 
-  // Setup Swiper on new page load
-  document.addEventListener("astro:page-load", handleResize);
+  // Setup Swiper when the VSL content becomes visible
+  document.addEventListener("vsl-content-visible", handleResize);
 
   // Cleanup before swapping to a new page
   document.addEventListener("astro:before-swap", destroySwiper);
