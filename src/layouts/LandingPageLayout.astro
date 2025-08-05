@@ -26,6 +26,12 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <div id="rotate-device-overlay">
+      <div>
+        <img src="/icons/rotate.png" alt="Rotate device icon" />
+        <p>Por favor, gire seu dispositivo de volta para a posição vertical.</p>
+      </div>
+    </div>
     <slot />
   </body>
 </html>

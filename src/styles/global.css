@@ -90,7 +90,22 @@ main {
   padding: 2rem;
 }
 
-@media screen and (orientation: landscape) and (max-height: 700px) {
+#rotate-device-overlay div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#rotate-device-overlay img {
+  width: 64px; /* Adjust size as needed */
+  margin-bottom: 1rem;
+}
+
+#rotate-device-overlay p {
+  max-width: 290px;
+}
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
   #rotate-device-overlay {
     display: flex;
   }
