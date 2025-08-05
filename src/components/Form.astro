@@ -1,5 +1,5 @@
---- 
-import ConfirmationScreen from './Confirmation.astro';
+---
+import ConfirmationScreen from "./Confirmation.astro";
 ---
 
 <div id="form-modal" class="integrations-modal">
@@ -43,6 +43,7 @@ import ConfirmationScreen from './Confirmation.astro';
               class="form-field"
               placeholder="(XX) XXXXX-XXXX"
               required
+              title="Por favor, insira um número de WhatsApp válido no formato (XX) XXXXX-XXXX"
             />
           </div>
           <div class="form-group">
@@ -197,6 +198,7 @@ import ConfirmationScreen from './Confirmation.astro';
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(2cqb);
   }
 
   .integrations-modal-content {
@@ -328,10 +330,10 @@ import ConfirmationScreen from './Confirmation.astro';
   }
 
   #prevBtn.secondary .arrow-icon {
-    stroke: hsl(0, 0%, 55%);
+    stroke: white;
   }
   #prevBtn.secondary .arrow-icon:hover {
-    stroke: hsl(0, 0%, 100%);
+    stroke: white;
   }
 </style>
 
@@ -411,16 +413,36 @@ import ConfirmationScreen from './Confirmation.astro';
     nextBtn.addEventListener("click", () => {
       const currentSectionFields =
         sections[currentSection].querySelectorAll("[required]");
-      let allFieldsFilled = true;
+      let allFieldsValid = true;
+
+      // First, check all required fields in the current section
       for (const field of currentSectionFields) {
-        if (!field.value.trim()) {
-          allFieldsFilled = false;
+        if (!field.checkValidity()) {
+          allFieldsValid = false;
           field.reportValidity();
-          break;
         }
       }
 
-      if (allFieldsFilled && currentSection < sections.length - 1) {
+      // Then, perform custom WhatsApp validation if in the first section
+      if (whatsappInput && currentSection === 0) {
+        const formattedWhatsapp = whatsappInput.value;
+        console.log("WhatsApp value for validation:", formattedWhatsapp);
+        // Regex to match (XX) XXXXX-XXXX or (XX) XXXX-XXXX
+        const whatsappRegex = /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
+
+        if (!whatsappRegex.test(formattedWhatsapp)) {
+          whatsappInput.setCustomValidity(
+            "Por favor, insira um número de WhatsApp válido no formato (XX) XXXXX-XXXX."
+          );
+          whatsappInput.reportValidity();
+          allFieldsValid = false; // Set to false if WhatsApp is invalid
+        } else {
+          whatsappInput.setCustomValidity(""); // Clear custom validity if valid
+        }
+      }
+
+      // Only proceed if all validations passed
+      if (allFieldsValid && currentSection < sections.length - 1) {
         currentSection++;
         showSection(currentSection);
       }
@@ -433,7 +455,7 @@ import ConfirmationScreen from './Confirmation.astro';
       currentSection = 0;
       showSection(currentSection);
       formMessage.textContent = "";
-      confirmationScreen.style.display = 'none';
+      confirmationScreen.style.display = "none";
     });
 
     modal.addEventListener("click", (event) => {
@@ -443,7 +465,7 @@ import ConfirmationScreen from './Confirmation.astro';
         currentSection = 0;
         showSection(currentSection);
         formMessage.textContent = "";
-        confirmationScreen.style.display = 'none';
+        confirmationScreen.style.display = "none";
       }
     });
 
@@ -491,8 +513,32 @@ import ConfirmationScreen from './Confirmation.astro';
           form.reset();
           currentSection = 0;
           showSection(currentSection);
-          modal.style.display = 'none'; // Fechar o modal do formulário
-          confirmationScreen.style.display = 'flex'; // Exibir a tela de confirmação
+          modal.style.display = "none"; // Fechar o modal do formulário
+          confirmationScreen.style.display = "flex"; // Exibir a tela de confirmação
+          const closeButton = document.getElementById(
+            "closeConfirmationButton"
+          );
+          if (closeButton) {
+            // Função para fechar o modal de confirmação
+            const handleCloseConfirmation = () => {
+              // Reutiliza a mesma lógica do seu listener atual do CustomEvent
+              modal.style.display = "none";
+              form.reset();
+              currentSection = 0;
+              showSection(currentSection);
+              formMessage.textContent = "";
+              confirmationScreen.style.display = "none";
+            };
+
+            // Remove listener anterior para evitar duplicatas (boa prática)
+            closeButton.removeEventListener("click", handleCloseConfirmation);
+            // Adiciona o listener
+            closeButton.addEventListener("click", handleCloseConfirmation);
+          } else {
+            console.warn(
+              "Botão 'closeConfirmationButton' não encontrado após mostrar a tela de confirmação."
+            );
+          }
         }
       } catch (error) {
         console.error("Erro na requisição:", error);
@@ -502,14 +548,14 @@ import ConfirmationScreen from './Confirmation.astro';
       }
     });
 
-    // --- EVENT LISTENER PARA FECHAR O MODAL DE CONFIRMAÇÃO VIA BOTÃO --- 
-    document.addEventListener('close-form-modal', () => {
-      modal.style.display = 'none';
+    // --- EVENT LISTENER PARA FECHAR O MODAL DE CONFIRMAÇÃO VIA BOTÃO ---
+    document.addEventListener("close-form-modal", () => {
+      modal.style.display = "none";
       form.reset();
       currentSection = 0;
       showSection(currentSection);
-      formMessage.textContent = '';
-      confirmationScreen.style.display = 'none';
+      formMessage.textContent = "";
+      confirmationScreen.style.display = "none";
     });
   }
 
@@ -520,3 +566,4 @@ import ConfirmationScreen from './Confirmation.astro';
   // Opcional: Para ambientes onde 'astro:page-load' possa não cobrir 100% da primeira carga
   // (ex: se View Transitions não estiverem ativas por algum motivo em um cenário específico),
   // você pode manter o DOMContentLoaded, mas 'astro:page-load' geralmente é suficiente
+</script>

@@ -189,14 +189,3 @@
     }
   }
 </style>
-
-<script is:inline>
-  document.addEventListener("astro:page-load", () => {
-    const closeButton = document.getElementById("closeConfirmationButton");
-    if (closeButton) {
-      closeButton.addEventListener("click", () => {
-        document.dispatchEvent(new CustomEvent("close-form-modal"));
-      });
-    }
-  });
-</script>
