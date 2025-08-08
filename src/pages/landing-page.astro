@@ -44,7 +44,7 @@ import FormLanding from "../components/FormLanding.astro";
     </section>
     <section class="landing-hero-section">
       <h1>Descubra como você pode reduzir as taxas sobre as vendas</h1>
-      <div class="video-placeholder">
+      <div class="video-placeholder" id="video-container">
         <video
           autoplay
           muted
@@ -74,10 +74,47 @@ import FormLanding from "../components/FormLanding.astro";
             ></span
           >
         </div>
-        <div id="pause-play-overlay" class="pause-play-overlay">
-          <button id="pause-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-pause" style="display:block"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-play" style="display:none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        <div id="video-controls" class="video-controls">
+          <button id="play-pause-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-pause"
+              style="display:block"
+              ><rect x="6" y="4" width="4" height="16"></rect><rect
+                x="14"
+                y="4"
+                width="4"
+                height="16"></rect></svg
+            >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-play"
+              style="display:none"
+              ><polygon points="5 3 19 12 5 21 5 3"></polygon></svg
+            >
+          </button>
+          <div id="progress-bar" class="progress-bar">
+            <div id="progress" class="progress"></div>
+          </div>
+          <button id="mute-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-volume-x" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
           </button>
         </div>
       </div>
@@ -162,7 +199,7 @@ import FormLanding from "../components/FormLanding.astro";
       <FounderSection
         title="Nosso Fundador"
         description="Amós Silva é Engenheiro Aeronáutico formado pelo Instituto Tecnológico de Aeronáutica (ITA), mestre em Engenharia pelo mesmo instituto e também professor no ITA.<br/><br/>Após anos de experiência no mercado digital, na liderança de um curso online pré-vestibular que aprova alunos em vestibulares altamente concorridos como ITA, IME e USP, Amós identificou um grande desafio enfrentado por Mentores,Educadores e Empreendedores Digitais: <strong>as altas taxas cobradas pelas plataformas de pagamento tradicionais.</strong><br/><br/>Foi a partir dessa dor que surgiu a <strong>Lucre+</strong>, uma solução criada para ajudar esses profissionais a maximizarem seus lucros e terem mais autonomia sobre seus negócios no digital.<br/><br/><h4>“Solucionar problemas é melhorar vidas e transformar o nosso país”<br/><br/>Amós Silva</h4>"
-        imagePath="/amos.webp"
+        imagePath="/amos.png"
       />
 
       <FAQSection />
@@ -333,152 +370,209 @@ import FormLanding from "../components/FormLanding.astro";
       width: 100%;
     }
   }
-  .pause-play-overlay {
+  .video-placeholder.controls-active:hover .video-controls {
+    opacity: 1;
+  }
+
+  .video-controls {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    display: none; /* Hidden by default */
-    flex-direction: column;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    color: white;
+    padding: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     z-index: 2;
   }
 
-  .pause-play-overlay button {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
+  .video-controls button {
+    background: none;
     border: none;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
+    color: white;
     cursor: pointer;
-    border-radius: 5px;
-    width: auto;
+    padding: 0.5rem;
+  }
+
+  .progress-bar {
+    flex-grow: 1;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 1rem;
+    cursor: default;
+    border-radius: 4px;
+  }
+
+  .progress {
+    height: 100%;
+    background-color: burlywood; /* Use a brand color */
+    width: 0%;
+    border-radius: 4px;
   }
 </style>
 
 <script>
   console.log("LandingPageLayout.astro script is executing!");
 
-  // Verifica se o cookie 'videoAssistido' existe
-  if (document.cookie.indexOf('videoAssistido=true') === -1) {
-    // Cookie não existe, inicia o timer do vídeo
-    const vslVideo = document.getElementById("vsl-video") as HTMLVideoElement;
-    const vslContent = document.getElementById("vsl-content");
+  const vslVideo = document.getElementById("vsl-video") as HTMLVideoElement;
+  const vslContent = document.getElementById("vsl-content");
+  const unmuteOverlay = document.getElementById("unmute-overlay");
+  const videoContainer = document.getElementById("video-container");
+  let contentShown = false;
 
-    if (vslVideo && vslContent) {
-      vslVideo.addEventListener("timeupdate", () => {
-        if (vslVideo.currentTime >= 5) {
-          // Define o cookie 'videoAssistido' com valor 'true'
-          document.cookie = 'videoAssistido=true; max-age=31536000; path=/'; // Define o cookie para 1 ano
-          // Mostra o conteúdo da página
-          vslContent.style.display = "block";
-        }
-      });
+  // Restore video progress on page load
+  vslVideo.addEventListener("loadedmetadata", () => {
+    const savedTime = localStorage.getItem("videoTime");
+    if (savedTime) {
+      vslVideo.currentTime = parseFloat(savedTime);
     }
-  } else {
-    // Cookie existe, mostra o conteúdo da página imediatamente
-    const vslContent = document.getElementById("vsl-content");
+  });
+
+  // Save video progress and handle content visibility
+  vslVideo.addEventListener("timeupdate", () => {
+    // Save current time to localStorage
+    localStorage.setItem("videoTime", vslVideo.currentTime.toString());
+
+    // Update progress bar with custom easing
+    const progress = document.getElementById("progress");
+    if (progress) {
+      const duration = vslVideo.duration;
+      const currentTime = vslVideo.currentTime;
+      const firstTwoThirds = (2 / 3) * duration;
+      let percentage;
+
+      if (currentTime < firstTwoThirds) {
+        // First 2/3 of video map to first 80% of progress bar
+        percentage = (currentTime / firstTwoThirds) * 80;
+      } else {
+        // Last 1/3 of video maps to last 20% of progress bar
+        const remainingTime = currentTime - firstTwoThirds;
+        const remainingDuration = duration - firstTwoThirds;
+        percentage = 80 + (remainingTime / remainingDuration) * 20;
+      }
+
+      progress.style.width = `${percentage}%`;
+    }
+
+    // Show content after 5 seconds
+    if (vslVideo.currentTime >= 5 && !contentShown) {
+      vslContent.style.display = "block";
+      contentShown = true;
+      // Set cookie to remember that the video has been watched
+      document.cookie = "videoAssistido=true; max-age=31536000; path=/"; // Expires in 1 year
+      // Dispatch a custom event to notify that the content is visible
+      const event = new CustomEvent("vsl-content-visible");
+      document.dispatchEvent(event);
+    }
+  });
+
+  // If the video has been watched before (cookie exists), show content immediately
+  if (document.cookie.indexOf("videoAssistido=true") !== -1) {
     if (vslContent) {
       vslContent.style.display = "block";
+      contentShown = true;
     }
   }
 
-  // Define handleButtonClick outside to ensure a stable reference for removeEventListener
+  // --- Modal Logic ---
   function handleButtonClick(event: Event) {
     const formModal = document.getElementById("form-modal");
-    console.log("Button clicked! Event target:", event.target);
-    if (formModal) {
-      console.log("formModal found. Current display:", formModal.style.display);
-      // Prevent opening the modal if the clicked button is inside the modal itself
-      if (event.target instanceof Node && !formModal.contains(event.target)) {
-        formModal.style.display = "flex";
-        console.log("formModal display set to flex.");
-      } else {
-        console.log("Click originated inside formModal, not opening.");
-      }
-    } else {
-      console.error("formModal not found when button was clicked.");
+    if (
+      formModal &&
+      event.target instanceof Node &&
+      !formModal.contains(event.target)
+    ) {
+      formModal.style.display = "flex";
     }
   }
 
   function initializeModal() {
     const formModal = document.getElementById("form-modal");
-    console.log("initializeModal called.");
     if (!formModal) {
       console.error("formModal element not found during initialization.");
       return;
     }
-    console.log("formModal found during initialization.");
-
     document.querySelectorAll("button.primary").forEach((button) => {
-      console.log("Attaching listener to button:", button);
-      button.removeEventListener("click", handleButtonClick); // Remove existing to prevent duplicates
+      button.removeEventListener("click", handleButtonClick); // Prevent duplicates
       button.addEventListener("click", handleButtonClick);
     });
   }
 
-  // Add the listener for the DOMContentLoaded event
   document.addEventListener("DOMContentLoaded", initializeModal);
 
-  // Keep astro:page-load for View Transitions compatibility if needed, but prioritize DOMContentLoaded for initial load
-  // document.addEventListener("astro:page-load", initializeModal);
-
-  const vslVideo = document.getElementById("vsl-video") as HTMLVideoElement;
-  const vslContent = document.getElementById("vsl-content");
-  const unmuteOverlay = document.getElementById("unmute-overlay");
-  let contentShown = false;
-
-  if (vslVideo && vslContent) {
-    vslVideo.addEventListener("timeupdate", () => {
-      if (vslVideo.currentTime >= 5 && !contentShown) {
-        vslContent.style.display = "block";
-        contentShown = true;
-        // Dispara um evento personalizado para notificar que o conteúdo está visível
-        const event = new CustomEvent("vsl-content-visible");
-        document.dispatchEvent(event);
-      }
-    });
-  }
-
-  if (unmuteOverlay && vslVideo) {
-    const pausePlayOverlay = document.getElementById("pause-play-overlay");
-    const pauseButton = document.getElementById("pause-button");
+  // --- Video Controls Logic ---
+  if (unmuteOverlay && vslVideo && videoContainer) {
+    const playPauseButton = document.getElementById("play-pause-button");
+    const progressBar = document.getElementById("progress-bar");
     const iconPause = document.querySelector(".icon-pause") as HTMLElement;
     const iconPlay = document.querySelector(".icon-play") as HTMLElement;
+    const muteButton = document.getElementById("mute-button");
+    const iconVolume2 = document.querySelector(".icon-volume-2") as HTMLElement;
+    const iconVolumeX = document.querySelector(".icon-volume-x") as HTMLElement;
+    let isMutedByButton = false;
+
+    const togglePlayPause = () => {
+      if (vslVideo.paused) {
+        vslVideo.play();
+      } else {
+        vslVideo.pause();
+      }
+    };
+
+    const updatePlayPauseIcons = () => {
+      if (vslVideo.paused) {
+        iconPause.style.display = "none";
+        iconPlay.style.display = "block";
+      } else {
+        iconPause.style.display = "block";
+        iconPlay.style.display = "none";
+      }
+    };
+
+    const updateVolumeIcons = () => {
+      if (vslVideo.muted || vslVideo.volume === 0) {
+        iconVolume2.style.display = "none";
+        iconVolumeX.style.display = "block";
+      } else {
+        iconVolume2.style.display = "block";
+        iconVolumeX.style.display = "none";
+      }
+    };
 
     unmuteOverlay.addEventListener("click", () => {
       vslVideo.muted = false;
       unmuteOverlay.style.display = "none";
-      if (pausePlayOverlay) {
-        pausePlayOverlay.style.display = "flex"; // Show pause/play overlay
-      }
+      videoContainer.classList.add("controls-active"); // Add class to enable controls
+      vslVideo.play(); // Start playing when unmuted
+      updatePlayPauseIcons();
+      updateVolumeIcons();
     });
 
-    if (pauseButton && iconPause && iconPlay) {
-      
-      if (vslVideo.paused) {
-          iconPause.style.display = "none";
-          iconPlay.style.display = "block";
-        } else {
-          iconPause.style.display = "block";
-          iconPlay.style.display = "none";
-        }
+    vslVideo.addEventListener("click", () => {
+        togglePlayPause();
+    });
 
-      pauseButton.addEventListener("click", () => {
-        if (iconPause.style.display === "block") {
-          vslVideo.pause();
-          iconPause.style.display = "none";
-          iconPlay.style.display = "block";
-        } else {
-          vslVideo.play();
-          iconPause.style.display = "block";
-          iconPlay.style.display = "none";
-        }
+    if (playPauseButton) {
+      playPauseButton.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent video click event from firing
+        togglePlayPause();
       });
     }
+
+    if (muteButton) {
+      muteButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        vslVideo.muted = !vslVideo.muted;
+        updateVolumeIcons();
+      });
+    }
+
+    vslVideo.addEventListener("play", updatePlayPauseIcons);
+    vslVideo.addEventListener("pause", updatePlayPauseIcons);
+
+    updatePlayPauseIcons(); // Set initial state
+    updateVolumeIcons(); // Set initial state
   }
 </script>
