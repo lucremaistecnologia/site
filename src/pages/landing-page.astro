@@ -74,6 +74,12 @@ import FormLanding from "../components/FormLanding.astro";
             ></span
           >
         </div>
+        <div id="pause-play-overlay" class="pause-play-overlay">
+          <button id="pause-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-pause" style="display:block"><rect x="6" y="4" width="4" height="16"></rect></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-play" style="display:none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </button>
+        </div>
       </div>
     </section>
     <div id="vsl-content" style="display: none;">
@@ -327,19 +333,67 @@ import FormLanding from "../components/FormLanding.astro";
       width: 100%;
     }
   }
+  .pause-play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 2;
+  }
+
+  .pause-play-overlay button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
 </style>
 
 <script>
   console.log("LandingPageLayout.astro script is executing!");
 
+  // Verifica se o cookie 'videoAssistido' existe
+  if (document.cookie.indexOf('videoAssistido=true') === -1) {
+    // Cookie não existe, inicia o timer do vídeo
+    const vslVideo = document.getElementById("vsl-video") as HTMLVideoElement;
+    const vslContent = document.getElementById("vsl-content");
+
+    if (vslVideo && vslContent) {
+      vslVideo.addEventListener("timeupdate", () => {
+        if (vslVideo.currentTime >= 5) {
+          // Define o cookie 'videoAssistido' com valor 'true'
+          document.cookie = 'videoAssistido=true; max-age=31536000; path=/'; // Define o cookie para 1 ano
+          // Mostra o conteúdo da página
+          vslContent.style.display = "block";
+        }
+      });
+    }
+  } else {
+    // Cookie existe, mostra o conteúdo da página imediatamente
+    const vslContent = document.getElementById("vsl-content");
+    if (vslContent) {
+      vslContent.style.display = "block";
+    }
+  }
+
   // Define handleButtonClick outside to ensure a stable reference for removeEventListener
-  function handleButtonClick(event) {
+  function handleButtonClick(event: Event) {
     const formModal = document.getElementById("form-modal");
     console.log("Button clicked! Event target:", event.target);
     if (formModal) {
       console.log("formModal found. Current display:", formModal.style.display);
       // Prevent opening the modal if the clicked button is inside the modal itself
-      if (!formModal.contains(event.target)) {
+      if (event.target instanceof Node && !formModal.contains(event.target)) {
         formModal.style.display = "flex";
         console.log("formModal display set to flex.");
       } else {
@@ -379,7 +433,7 @@ import FormLanding from "../components/FormLanding.astro";
 
   if (vslVideo && vslContent) {
     vslVideo.addEventListener("timeupdate", () => {
-      if (vslVideo.currentTime >= 1 && !contentShown) {
+      if (vslVideo.currentTime >= 5 && !contentShown) {
         vslContent.style.display = "block";
         contentShown = true;
         // Dispara um evento personalizado para notificar que o conteúdo está visível
@@ -390,9 +444,40 @@ import FormLanding from "../components/FormLanding.astro";
   }
 
   if (unmuteOverlay && vslVideo) {
+    const pausePlayOverlay = document.getElementById("pause-play-overlay");
+    const pauseButton = document.getElementById("pause-button");
+    const iconPause = document.querySelector(".icon-pause") as HTMLElement;
+    const iconPlay = document.querySelector(".icon-play") as HTMLElement;
+
     unmuteOverlay.addEventListener("click", () => {
       vslVideo.muted = false;
       unmuteOverlay.style.display = "none";
+      if (pausePlayOverlay) {
+        pausePlayOverlay.style.display = "flex"; // Show pause/play overlay
+      }
     });
+
+    if (pauseButton && iconPause && iconPlay) {
+      
+      if (vslVideo.paused) {
+          iconPause.style.display = "none";
+          iconPlay.style.display = "block";
+        } else {
+          iconPause.style.display = "block";
+          iconPlay.style.display = "none";
+        }
+
+      pauseButton.addEventListener("click", () => {
+        if (iconPause.style.display === "block") {
+          vslVideo.pause();
+          iconPause.style.display = "none";
+          iconPlay.style.display = "block";
+        } else {
+          vslVideo.play();
+          iconPause.style.display = "block";
+          iconPlay.style.display = "none";
+        }
+      });
+    }
   }
 </script>
