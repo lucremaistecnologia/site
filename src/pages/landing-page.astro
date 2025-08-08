@@ -113,12 +113,73 @@ import FormLanding from "../components/FormLanding.astro";
             <div id="progress" class="progress"></div>
           </div>
           <button id="mute-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-volume-x" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-volume-2"
+              ><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"
+              ></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path
+                d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg
+            >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-volume-x"
+              style="display:none"
+              ><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"
+              ></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line
+                x1="17"
+                y1="9"
+                x2="23"
+                y2="15"></line></svg
+            >
           </button>
           <button id="fullscreen-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-minimize" style="display:none"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0-2-2h-3M3 16h3a2 2 0 0 0 2-2v-3"></path></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-maximize"
+              ><path
+                d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+              ></path></svg
+            >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-minimize"
+              style="display:none"
+              ><path
+                d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0-2-2h-3M3 16h3a2 2 0 0 0 2-2v-3"
+              ></path></svg
+            >
           </button>
         </div>
       </div>
@@ -302,7 +363,7 @@ import FormLanding from "../components/FormLanding.astro";
     color: var(--color-button-text);
     padding: var(--space-s) var(--space-m);
     font-size: var(--space-s);
-    border-radius: var(--border-radius);
+    border-radius: 1.4cqb;
     cursor: pointer;
   }
 
@@ -375,6 +436,14 @@ import FormLanding from "../components/FormLanding.astro";
     }
     .video-placeholder.controls-active .video-controls {
       opacity: 1;
+    }
+    .button button.primary {
+      font-size: clamp(
+        1rem,
+        3cqi,
+        1.2rem
+      ); /* Adjust button font size for smaller screens */
+      width: 80cqw;
     }
   }
   .video-placeholder.controls-active:hover .video-controls {
@@ -520,8 +589,12 @@ import FormLanding from "../components/FormLanding.astro";
     const iconVolume2 = document.querySelector(".icon-volume-2") as HTMLElement;
     const iconVolumeX = document.querySelector(".icon-volume-x") as HTMLElement;
     const fullscreenButton = document.getElementById("fullscreen-button");
-    const iconMaximize = document.querySelector(".icon-maximize") as HTMLElement;
-    const iconMinimize = document.querySelector(".icon-minimize") as HTMLElement;
+    const iconMaximize = document.querySelector(
+      ".icon-maximize"
+    ) as HTMLElement;
+    const iconMinimize = document.querySelector(
+      ".icon-minimize"
+    ) as HTMLElement;
     let isMutedByButton = false;
 
     const togglePlayPause = () => {

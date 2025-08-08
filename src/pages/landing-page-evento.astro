@@ -44,7 +44,6 @@ import FormLanding from "../components/FormLanding.astro";
     </section>
     <section class="landing-hero-section">
       <h1>Descubra como você pode reduzir as taxas sobre as vendas</h1>
-
     </section>
     <div id="vsl-content">
       <div class="button">
@@ -225,7 +224,7 @@ import FormLanding from "../components/FormLanding.astro";
     color: var(--color-button-text);
     padding: var(--space-s) var(--space-m);
     font-size: var(--space-s);
-    border-radius: var(--border-radius);
+    border-radius: 1.4cqb;
     cursor: pointer;
   }
 
@@ -298,6 +297,14 @@ import FormLanding from "../components/FormLanding.astro";
     }
     .video-placeholder.controls-active .video-controls {
       opacity: 1;
+    }
+    .button button.primary {
+      font-size: clamp(
+        1rem,
+        3cqi,
+        1.2rem
+      ); /* Adjust button font size for smaller screens */
+      width: 80cqw;
     }
   }
   .video-placeholder.controls-active:hover .video-controls {
