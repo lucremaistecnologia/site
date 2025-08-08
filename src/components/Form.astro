@@ -479,6 +479,7 @@ import ConfirmationScreen from "./Confirmation.astro";
       const formData = new FormData(form);
       const dataToSend = {};
 
+      dataToSend.whatsappLucreMais = "5512981010571";
       dataToSend.nome = formData.get("name");
       dataToSend.whatsapp = formData.get("whatsapp");
       dataToSend.email = formData.get("email");
