@@ -542,6 +542,9 @@ import FormLanding from "../components/FormLanding.astro";
       const buttonsRoot = vslContent || document; // prefer inside content
       const buttons = buttonsRoot.querySelectorAll("button.primary");
       buttons.forEach(function (btn) {
+        if (btn.closest("form")) {
+          return;
+        }
         // Avoid attaching duplicates by marking the element
         if (!btn.dataset.primaryInit) {
           btn.addEventListener("click", handleButtonClick);

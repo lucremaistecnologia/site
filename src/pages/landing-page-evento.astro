@@ -303,7 +303,11 @@ import FormLanding from "../components/FormLanding.astro";
       // Attach event listeners to primary buttons within the content
       const buttons = vslContent.querySelectorAll("button.primary");
       buttons.forEach(function (btn) {
-        if (!btn.dataset.primaryInit) { // Prevent duplicate listeners
+        if (btn.closest("form")) {
+          return;
+        }
+        if (!btn.dataset.primaryInit) {
+          // Prevent duplicate listeners
           btn.addEventListener("click", handleButtonClick);
           btn.dataset.primaryInit = "true";
         }
