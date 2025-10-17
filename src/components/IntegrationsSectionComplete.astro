@@ -546,6 +546,7 @@ const initialCategory = jsIntegrationCategories[0];
     filter: brightness(80%);
     transition: filter 0.2s ease-in-out;
   }
+
   .logo-block:hover {
     filter: brightness(100%);
   }
@@ -624,6 +625,10 @@ const initialCategory = jsIntegrationCategories[0];
     }
     .integration-logos-grid {
       grid-template-columns: repeat(auto-fit, minmax(16cqb, 1fr));
+    }
+    ..logo-block {
+      height: 120px;
+      width: clamp(80px, 8cqw, 240px);
     }
   }
 
