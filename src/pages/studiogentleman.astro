@@ -12,8 +12,10 @@ import "../styles/studiogentleman/galaxpayplanos.webflow.css";
 import "../styles/studiogentleman/payment-page-link.css";
 import "../styles/studiogentleman/fontawesome-subset.css";
 
-const checkoutBase =
-  "https://celcash.celcoin.com.br/landingpage7085398/studiogentlemanquinzenal/assinar-agora";
+// Checkout das assinaturas na Lucre+ (27/11/2026), pelo domínio genérico da
+// plataforma (clkdmg.site), para os links continuarem valendo se o cliente for
+// para uma subconta. Produto "Planos Quinzenais Studio Gentleman".
+const checkoutBase = "https://clkdmg.site/subscribe";
 
 const featureLabels = [
   "cabelo e barba Quinzenal",
@@ -28,21 +30,21 @@ const plans = [
   {
     name: "* Barba 15/15 dias",
     price: "R$ 119,90",
-    href: `${checkoutBase}/-barba-15-15-dias/61`,
+    href: `${checkoutBase}/studio-gentleman-barba-quinzenal`,
     featured: false,
     features: [false, true, false, true, false, true],
   },
   {
     name: "* Cabelo 15/15 dias",
     price: "R$ 137,90",
-    href: `${checkoutBase}/-cabelo-15-15-dias/60`,
+    href: `${checkoutBase}/studio-gentleman-cabelo-quinzenal`,
     featured: false,
     features: [false, false, true, true, true, true],
   },
   {
     name: "* Cabelo + Barba 15/15 dias",
     price: "R$ 189,90",
-    href: `${checkoutBase}/-cabelo-barba-15-15-dias/59`,
+    href: `${checkoutBase}/studio-gentleman-cabelo-barba-quinzenal`,
     featured: true,
     features: [true, false, false, true, true, true],
   },
