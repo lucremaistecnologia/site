@@ -1,0 +1,30 @@
+/* Font Awesome 4.7.0 — apenas o que a página usa (fa-check e fa-close). Licença SIL OFL 1.1 (fonte) / MIT (CSS). */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/studiogentleman/fonts/fontawesome-webfont.woff2') format('woff2'),
+       url('/studiogentleman/fonts/fontawesome-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fa-close:before,
+.fa-times:before {
+  content: "\f00d";
+}
+.fa-check:before {
+  content: "\f00c";
+}
+/* O Font Awesome 4.x também define estes utilitários; o rodapé depende deles. */
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
