@@ -1,0 +1,178 @@
+main{
+    min-height: 80vh;
+}
+.policy-url{
+    float: right;    
+}
+footer a{
+    text-decoration: none;
+    color: var(--main-color);
+}
+footer a:hover{
+    color: var(--main-color-hover);
+}
+header .logo img{
+    max-height: 90px;
+}
+.valor .init{
+    color: #333;
+    font-size: 15px;
+    display: block;
+    line-height: 15px;
+    font-weight: 100;
+}
+.each-plan-compare-1{
+    margin-bottom: 15px;
+    float: none;
+    display: inline-block;
+}
+.tx-sub-titulo {
+    margin-top: 15px;
+    font-size: 20px;
+}
+.tx-sub-titulo iframe{
+    max-width: 100% !important;
+}
+.box-all-plans{
+    text-align: center;
+}
+.plano-horizontal, .link-plano-2{
+    text-align: left;
+}
+.div-block{
+    position: absolute;
+    left: 0px;
+    top: -17px;
+    right: 0px;
+    display: block;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 5px 16px;
+    border-radius: 4px;
+    background-color: var(--main-color);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.div-block._02 {
+    border-radius: 0px;
+}
+.div-block._03 {
+    left: 8px;
+    top: -38px;
+    right: auto;
+    width: auto;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 0px;
+}
+.div-block._03._01 {
+    left: 39px;
+    top: -38px;
+    border-radius: 5px;
+}
+#info-plan-compare .each-plan-compare-1{
+    width: 100%;
+}
+#page-customer-paymentpage .last-button{
+    color: #fff;
+    background-color: var(--main-color);
+}
+#page-customer-paymentpage .panel-info .panel-heading{
+    background-color: var(--main-color);
+    color: #fff;
+    height: 40px;
+}
+#page-customer-paymentpage .panel-info  .panel-title{
+    line-height: 20px;
+}
+#page-customer-paymentpage .item-check-compare{
+    text-align: left;
+}
+#page-customer-paymentpage .div-itens p{
+    text-align: left;
+    padding: 0 20px;
+}
+footer #security{
+    background-image: url('/studiogentleman/security.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 98px;
+}
+footer{
+    height: 80px;
+}
+footer #copyright{
+    padding-left: 15px;
+}
+footer .pull-right, footer .pull-left{
+    height: 50px;
+    line-height: 50px;
+}
+@media (max-width: 1170px) {
+    footer .limite-site, header .limite-site{
+        padding: 0 10px;
+    } 
+}
+@media (max-width: 767px) {
+
+    .item-check-compare{
+        display: inline-block;
+        float: left;
+        width: auto;
+    }
+    footer .limite-site,header .limite-site{
+        padding: 0 30px;
+    } 
+}
+@media (max-width: 479px) {
+    .tx-copy,.policy-url{
+        width: 100%;
+        text-align: center;
+    }
+    .logo-galax-pay{
+        display: none;
+    }
+    .logo{
+        float: none;
+        display: block;
+        text-align: center;
+    }
+}
+.border-bottom-none{
+    border-bottom: 0;
+}
+.border-right-none{
+    border-right: 0 !important;
+}
+
+.bloco-link-plano-horizontal {
+    position: relative;
+}
+
+.link-overlay {
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+}
+
+.inner-bloco-link-plano-horizontal {
+    position:relative;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.inner-bloco-link-plano-horizontal a {
+    pointer-events: all;
+    position:relative;
+}
+
+.inner-bloco-link-plano-horizontal a.bt-padrao {
+    text-decoration: none;
+}
