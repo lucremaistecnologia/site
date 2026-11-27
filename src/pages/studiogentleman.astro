@@ -1,0 +1,209 @@
+---
+/*
+  Página de planos do Studio Gentleman.
+  Réplica da página de planos hospedada na Celcash
+  (https://celcash.celcoin.com.br/landingpage7085398/studiogentlemanquinzenal),
+  sem o logo da cel_cash e com o rodapé da Lucre+ Pagamentos.
+  Esta página é independente do restante do site: não usa BaseLayout nem global.css.
+*/
+import "../styles/studiogentleman/normalize.css";
+import "../styles/studiogentleman/webflow.css";
+import "../styles/studiogentleman/galaxpayplanos.webflow.css";
+import "../styles/studiogentleman/payment-page-link.css";
+import "../styles/studiogentleman/fontawesome-subset.css";
+
+const checkoutBase =
+  "https://celcash.celcoin.com.br/landingpage7085398/studiogentlemanquinzenal/assinar-agora";
+
+const featureLabels = [
+  "cabelo e barba Quinzenal",
+  "barba Quinzenal",
+  "cabelo Quinzenal",
+  "Previsibilidade de Agenda",
+  "10% de desconto em Produtos",
+  "Alerta as novidades e promoçoes",
+];
+
+const plans = [
+  {
+    name: "* Barba 15/15 dias",
+    price: "R$ 119,90",
+    href: `${checkoutBase}/-barba-15-15-dias/61`,
+    featured: false,
+    features: [false, true, false, true, false, true],
+  },
+  {
+    name: "* Cabelo 15/15 dias",
+    price: "R$ 137,90",
+    href: `${checkoutBase}/-cabelo-15-15-dias/60`,
+    featured: false,
+    features: [false, false, true, true, true, true],
+  },
+  {
+    name: "* Cabelo + Barba 15/15 dias",
+    price: "R$ 189,90",
+    href: `${checkoutBase}/-cabelo-barba-15-15-dias/59`,
+    featured: true,
+    features: [true, false, false, true, true, true],
+  },
+];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Assinatura Quinzenal Studio Gentleman: planos de cabelo e barba com agendamento personalizado."
+    />
+    <meta
+      property="og:image"
+      content="https://www.lucremais.digital/studiogentleman/logo.jpeg"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Planos Quinzenais - Studio Gentleman | Lucre+ Pagamentos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Muli:200,300,400,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <style is:inline>
+      :root {
+        --button-color: rgb(16, 5, 5);
+        --button-color-hover: #0c0303;
+        --top-color: rgb(6, 1, 1);
+        --main-color: rgb(24, 6, 6);
+        --main-color-hover: #120404;
+        --color-active-tab: rgb(16, 5, 5);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="limite-site w-clearfix">
+        <div class="logo w-inline-block">
+          <img src="/studiogentleman/logo.jpeg" alt="Studio Gentleman" />
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="limite-site">
+        <h2 class="titulo">Planos Quinzenais</h2>
+        <div class="tx-sub-titulo">
+          <p>Assinatura Quinzenal Studio Gentleman</p>
+          <p>Para homens que valorizam constância, imagem e praticidade.</p>
+          <p>
+            Com atendimentos quinzenais e agendamento personalizado com a sua
+            agenda, você mantém seu visual sempre alinhado, com prioridade e a
+            experiência exclusiva que define o Studio Gentleman.
+          </p>
+        </div>
+        <div class="row w-row">
+          <div class="box-all-plans">
+            {
+              plans.map((plan) => (
+                <div class="col-reset w-col w-col-3 each-plan-compare-1">
+                  <a
+                    href={plan.href}
+                    class:list={[
+                      "link-plano-2",
+                      "w-inline-block",
+                      { "ativo-02": plan.featured },
+                    ]}
+                  >
+                    {plan.featured && (
+                      <div class="div-block">
+                        <div>Mais vendido</div>
+                      </div>
+                    )}
+                    <div class="bloco-nome-plano-valor">
+                      <h2 class="h2">{plan.name}</h2>
+                      <div class="valor">
+                        <span>{plan.price}</span>
+                        <span class="tx-mes"> / Mês</span>
+                      </div>
+                      <div class="tx-important">Ta esperando o que?</div>
+                    </div>
+                    {featureLabels.map((label, i) => (
+                      <div class="div-itens _2">
+                        <div class="w-row">
+                          <div class="item-check-compare w-col w-col-1">
+                            <div>
+                              <span
+                                class:list={[
+                                  "icone-check",
+                                  "fa",
+                                  plan.features[i]
+                                    ? ["ativo", "fa-check"]
+                                    : ["nao-ativo", "fa-close"],
+                                ]}
+                              />
+                            </div>
+                          </div>
+                          <div class="item-check-compare w-col w-col-11">
+                            <div class="iten">{label}</div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div class="div-bt">
+                      <div class="bt-padrao _02">
+                        <div>Assinar Agora</div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="limite-site clearfix">
+        <div id="security" class="pull-left"></div>
+        <div id="copyright" class="pull-left">
+          <div class="tx-copy"> © Copyright 2026 - Lucre+ Pagamentos </div>
+        </div>
+        <a
+          href="https://www.lucremais.digital/politica-de-privacidade"
+          class="pull-right"
+          target="_blank"
+          rel="noopener">Política de Privacidade</a
+        >
+      </div>
+    </footer>
+    <script>
+      // Réplica do comportamento do script original da Celcash (runHeightNamePlan,
+      // runHeightValuePlan e runHeightAdditionalInfo): iguala a altura dos títulos,
+      // valores e textos de apoio entre os planos para que os cards fiquem alinhados.
+      function equalizeHeights(selector: string) {
+        const elements = Array.from(
+          document.querySelectorAll<HTMLElement>(selector)
+        );
+        elements.forEach((el) => (el.style.minHeight = "unset"));
+        const max = elements.reduce(
+          (acc, el) => Math.max(acc, el.getBoundingClientRect().height),
+          0
+        );
+        elements.forEach((el) => (el.style.minHeight = `${max}px`));
+      }
+
+      function runHeights() {
+        equalizeHeights(".bloco-nome-plano-valor h2");
+        equalizeHeights(".bloco-nome-plano-valor .valor");
+        equalizeHeights(".tx-important");
+      }
+
+      runHeights();
+      window.addEventListener("resize", runHeights);
+      document.fonts?.ready.then(runHeights);
+    </script>
+  </body>
+</html>
