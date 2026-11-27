@@ -80,6 +80,39 @@ const plans = [
         --main-color-hover: #120404;
         --color-active-tab: rgb(16, 5, 5);
       }
+
+      /* Ajustes de responsividade (27/11/2026).
+         1) Os títulos dos planos só quebram entre palavras: o CSS original
+            (word-break: break-all) partia "15/15" e "dias" no meio.
+         2) No celular, com os cartões empilhados, o selo "Mais vendido"
+            (top: -17px) invadia o cartão de cima, que ficava a só 15px.
+         3) No tablet e no notebook pequeno (768 a 1199px), os cartões
+            tinham 25% da largura e o preço se partia em três linhas. */
+      .bloco-nome-plano-valor .h2 {
+        word-break: normal;
+        overflow-wrap: break-word;
+      }
+      .valor > span:first-child {
+        white-space: nowrap;
+      }
+      @media (max-width: 767px) {
+        .box-all-plans .each-plan-compare-1 {
+          margin-bottom: 20px;
+        }
+        .box-all-plans .each-plan-compare-1.plano-destaque {
+          margin-top: 18px;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 1199px) {
+        .box-all-plans .each-plan-compare-1 {
+          width: 32%;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 991px) {
+        .bloco-nome-plano-valor .valor {
+          font-size: 26px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -107,7 +140,12 @@ const plans = [
           <div class="box-all-plans">
             {
               plans.map((plan) => (
-                <div class="col-reset w-col w-col-3 each-plan-compare-1">
+                <div
+                  class:list={[
+                    "col-reset w-col w-col-3 each-plan-compare-1",
+                    { "plano-destaque": plan.featured },
+                  ]}
+                >
                   <a
                     href={plan.href}
                     class:list={[
